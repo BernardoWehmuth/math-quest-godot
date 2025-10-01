@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="Jogo do Pac"
-run/main_scene="uid://dqmsbg4uy17r2"
+run/main_scene="uid://bs401qdojtwbd"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
 [display]
 
-window/stretch/scale=4.0
+window/stretch/mode="canvas_items"
 
 [input]
 
