@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://ct5t1ly53ourg"]
+
+[ext_resource type="Texture2D" uid="uid://clteqm8qhkhr2" path="res://Art/foto.png" id="1_2cjg5"]
+
+[sub_resource type="Curve2D" id="Curve2D_qi3pg"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 79, 314, 0, 0, 0, 0, 489, 320, 0, 0, 0, 0, 900, 324)
+}
+point_count = 3
+
+[node name="CutScene" type="Node2D"]
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(44, 31)
+curve = SubResource("Curve2D_qi3pg")
+
+[node name="Camera2D" type="Camera2D" parent="Path2D"]
+position = Vector2(500, 200)
+zoom = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(577, 321.25003)
+scale = Vector2(1.8370607, 1.4769055)
+texture = ExtResource("1_2cjg5")
