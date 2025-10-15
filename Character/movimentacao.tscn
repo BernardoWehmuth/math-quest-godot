@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://butb4p2o6cv4x"]
+
+[ext_resource type="Texture2D" uid="uid://b5kexe5mbvgkq" path="res://Art/seta.png" id="1_b21eg"]
+[ext_resource type="Texture2D" uid="uid://dj4nxodklom4b" path="res://Art/pulo.png" id="2_ga4sb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wfjpv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2pt1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s2mfb"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="botaoesquerda" type="TouchScreenButton" parent="."]
+position = Vector2(63, 529)
+scale = Vector2(3.33223, 3.11638)
+shape = SubResource("RectangleShape2D_wfjpv")
+action = "left"
+
+[node name="setaesquerda" type="Sprite2D" parent="botaoesquerda"]
+position = Vector2(0, 6.10352e-05)
+rotation = -1.5708
+scale = Vector2(0.0726025, 0.0651697)
+texture = ExtResource("1_b21eg")
+
+[node name="botaodireita" type="TouchScreenButton" parent="."]
+position = Vector2(185, 530)
+scale = Vector2(3.31849, 3.09297)
+shape = SubResource("RectangleShape2D_h2pt1")
+action = "right"
+
+[node name="setadireita" type="Sprite2D" parent="botaodireita"]
+rotation = 1.5708
+scale = Vector2(0.0728886, 0.0647828)
+texture = ExtResource("1_b21eg")
+
+[node name="botaopular" type="TouchScreenButton" parent="."]
+position = Vector2(1009, 542)
+scale = Vector2(3.92964, 3.804)
+shape = SubResource("CircleShape2D_s2mfb")
+action = "jump"
+
+[node name="pular" type="Sprite2D" parent="botaopular"]
+scale = Vector2(0.11313, 0.116867)
+texture = ExtResource("2_ga4sb")

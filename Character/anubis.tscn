@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://x82a7nnn0tmi"]
+
+[ext_resource type="Texture2D" uid="uid://bjp2qhmxraglv" path="res://Art/anubis.png" id="1_q4r4h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4r4h"]
+size = Vector2(92.375, 100.625)
+
+[node name="Anubis" type="CharacterBody2D"]
+position = Vector2(-96, -36)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1084.25, 498.25)
+scale = Vector2(0.00945, 0.00945)
+texture = ExtResource("1_q4r4h")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1074.19, 497)
+shape = SubResource("RectangleShape2D_q4r4h")

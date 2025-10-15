@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://cb8ea7qoutnes"]
+
+[ext_resource type="Script" uid="uid://dchogy5qh24vb" path="res://Scripts/quest_1.gd" id="1_o4osq"]
+
+[node name="Quest1" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(1.91486, 1.55358)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_o4osq")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = -39.1673
+offset_top = -65.0111
+offset_right = -31.1673
+offset_bottom = 32.9889
+scale = Vector2(0.423403, 0.498322)
+
+[node name="Panel" type="PanelContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="OpcoesContainer" type="VBoxContainer" parent="CenterContainer/Panel"]
+layout_mode = 2
+
+[node name="FeedbackLabel" type="Label" parent="CenterContainer/Panel/OpcoesContainer"]
+layout_mode = 2
+
+[node name="PerguntaLabel" type="Label" parent="CenterContainer/Panel/OpcoesContainer"]
+layout_mode = 2
+
+[node name="Botao1" type="TouchScreenButton" parent="CenterContainer/Panel/OpcoesContainer"]
+
+[node name="Botao2" type="TouchScreenButton" parent="CenterContainer/Panel/OpcoesContainer"]
+
+[node name="Botao3" type="TouchScreenButton" parent="CenterContainer/Panel/OpcoesContainer"]
+
+[node name="Botao4" type="TouchScreenButton" parent="CenterContainer/Panel/OpcoesContainer"]

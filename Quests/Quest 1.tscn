@@ -1,0 +1,118 @@
+[gd_scene load_steps=7 format=3 uid="uid://cb8ea7qoutnes"]
+
+[ext_resource type="Script" uid="uid://dchogy5qh24vb" path="res://Scripts/quest_1.gd" id="1_o4osq"]
+[ext_resource type="Texture2D" uid="uid://bmx5gf4ne17q5" path="res://Art/Interface egípcia no deserto ao entardecer.png" id="2_84cjb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1xqk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yt1oq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eiw5v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3ion"]
+
+[node name="Quest1" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(1.91486, 1.55358)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_o4osq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(596, 318)
+scale = Vector2(0.409751, 0.423315)
+texture = ExtResource("2_84cjb")
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = -1
+offset_left = 461.0
+offset_top = 149.0
+offset_right = 566.0
+offset_bottom = 318.0
+scale = Vector2(1.49508, 1.40829)
+
+[node name="Panel" type="PanelContainer" parent="CanvasLayer/CenterContainer"]
+layout_mode = 2
+
+[node name="OpcoesContainer" type="VBoxContainer" parent="CanvasLayer/CenterContainer/Panel"]
+layout_mode = 2
+
+[node name="FeedbackLabel" type="Label" parent="CanvasLayer/CenterContainer/Panel/OpcoesContainer"]
+layout_mode = 2
+
+[node name="PerguntaLabel" type="Label" parent="CanvasLayer/CenterContainer/Panel/OpcoesContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/CenterContainer/Panel/OpcoesContainer"]
+layout_mode = 2
+
+[node name="Botao1" type="TouchScreenButton" parent="CanvasLayer/CenterContainer/Panel/OpcoesContainer"]
+position = Vector2(23.5814, 121.81)
+scale = Vector2(-1.09905, -1.09905)
+shape = SubResource("RectangleShape2D_i1xqk")
+
+[node name="Label" type="Label" parent="CanvasLayer/CenterContainer/Panel/OpcoesContainer/Botao1"]
+z_index = 3
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 9.73726
+offset_top = 10.3374
+offset_right = 29.7372
+offset_bottom = 33.3373
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 3.14159
+scale = Vector2(1, 0.884728)
+metadata/_edit_use_anchors_ = true
+
+[node name="Botao2" type="TouchScreenButton" parent="CanvasLayer/CenterContainer/Panel/OpcoesContainer"]
+position = Vector2(152.672, 121.81)
+scale = Vector2(-1.09905, -1.09905)
+shape = SubResource("RectangleShape2D_yt1oq")
+
+[node name="Label" type="Label" parent="CanvasLayer/CenterContainer/Panel/OpcoesContainer/Botao2"]
+z_index = 3
+anchors_preset = -1
+anchor_bottom = 0.5
+offset_left = 10.3458
+offset_top = 10.3374
+offset_right = 31.3458
+offset_bottom = 33.3373
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 3.14159
+scale = Vector2(0.9867, 0.901678)
+metadata/_edit_use_anchors_ = true
+
+[node name="Botao3" type="TouchScreenButton" parent="CanvasLayer/CenterContainer/Panel/OpcoesContainer"]
+position = Vector2(23.5814, 158.025)
+scale = Vector2(-1.09905, -1.09905)
+shape = SubResource("RectangleShape2D_eiw5v")
+
+[node name="Label" type="Label" parent="CanvasLayer/CenterContainer/Panel/OpcoesContainer/Botao3"]
+offset_left = 10.3458
+offset_top = 10.3374
+offset_right = 30.3458
+offset_bottom = 33.3373
+rotation = 3.14159
+scale = Vector2(1.00929, 0.865547)
+metadata/_edit_use_anchors_ = true
+
+[node name="Botao4" type="TouchScreenButton" parent="CanvasLayer/CenterContainer/Panel/OpcoesContainer"]
+position = Vector2(154.009, 158.025)
+scale = Vector2(-1.09905, -1.09905)
+shape = SubResource("RectangleShape2D_i3ion")
+
+[node name="Label" type="Label" parent="CanvasLayer/CenterContainer/Panel/OpcoesContainer/Botao4"]
+z_index = 3
+offset_left = 10.3458
+offset_top = 10.3374
+offset_right = 29.3458
+offset_bottom = 33.3373
+rotation = 3.14159
+scale = Vector2(1.07063, 0.879948)
+metadata/_edit_use_anchors_ = true

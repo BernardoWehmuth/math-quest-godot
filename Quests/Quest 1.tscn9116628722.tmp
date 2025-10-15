@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3 uid="uid://cb8ea7qoutnes"]
+
+[ext_resource type="Script" uid="uid://dchogy5qh24vb" path="res://Scripts/quest_1.gd" id="1_o4osq"]
+
+[node name="Quest1" type="Control"]
+layout_mode = 3
+anchor_left = -0.068
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -153.664
+offset_top = -43.0
+offset_right = -1308.0
+offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.91486, 1.55358)
+script = ExtResource("1_o4osq")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -7.5
+offset_top = -49.0
+offset_right = 7.5
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.423403, 0.498322)
+
+[node name="Panel" type="PanelContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="OpcoesContainer" type="VBoxContainer" parent="CenterContainer/Panel"]
+layout_mode = 2
+
+[node name="FeedbackLabel" type="Label" parent="CenterContainer/Panel/OpcoesContainer"]
+layout_mode = 2
+
+[node name="PerguntaLabel" type="Label" parent="CenterContainer/Panel/OpcoesContainer"]
+layout_mode = 2
+
+[node name="Opcao1" type="Button" parent="CenterContainer/Panel/OpcoesContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+
+[node name="Opcao2" type="Button" parent="CenterContainer/Panel/OpcoesContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+
+[node name="Opcao3" type="Button" parent="CenterContainer/Panel/OpcoesContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+
+[node name="Opcao4" type="Button" parent="CenterContainer/Panel/OpcoesContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2

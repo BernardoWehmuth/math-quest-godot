@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://cngawq1xewy5l"]
+
+[ext_resource type="Script" uid="uid://fdognoxvtyoy" path="res://Scripts/title_screen.gd" id="1_pkhjh"]
+[ext_resource type="Texture2D" uid="uid://cxe2ecqf3v8l3" path="res://Art/TitleScreen.png" id="2_1xr1c"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jnwjh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vxw5j"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pkhjh")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -2.0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_1xr1c")
+expand_mode = 3
+stretch_mode = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="BotaoJogar" type="TouchScreenButton" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+position = Vector2(570, 336)
+rotation = 3.14159
+scale = Vector2(17.1786, -2.35275)
+shape = SubResource("CapsuleShape2D_jnwjh")
+
+[node name="BotaoSair" type="TouchScreenButton" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+position = Vector2(567, 434)
+rotation = 1.5708
+scale = Vector2(2.77031, 4.69767)
+shape = SubResource("CapsuleShape2D_vxw5j")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BotaoJogarPc" type="Button" parent="."]
+show_behind_parent = true
+layout_mode = 2
+offset_left = 394.0
+offset_top = 297.0
+offset_right = 745.0
+offset_bottom = 370.0
+mouse_default_cursor_shape = 2
+text = "Jogar Agora"
+
+[node name="BotaoSairPc" type="Button" parent="."]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 495.0
+offset_top = 403.0
+offset_right = 638.0
+offset_bottom = 464.0
+mouse_default_cursor_shape = 2
+
+[connection signal="pressed" from="BotaoJogarPc" to="." method="_on_botao_jogar_pressed"]
+[connection signal="pressed" from="BotaoSairPc" to="." method="_on_botao_sair_pressed"]

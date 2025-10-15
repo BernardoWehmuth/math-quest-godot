@@ -1,0 +1,187 @@
+[gd_scene load_steps=11 format=3 uid="uid://due6n7fkywf36"]
+
+[ext_resource type="Script" uid="uid://b5gsixugmbke8" path="res://Levels/cena_inicial.gd" id="1_fbekq"]
+[ext_resource type="Texture2D" uid="uid://mjqjse6hxno8" path="res://Art/pixil-frame-0 (22).png" id="1_gc6a3"]
+[ext_resource type="Texture2D" uid="uid://bk441buxc8hat" path="res://Art/preto.png" id="1_shrtd"]
+[ext_resource type="Texture2D" uid="uid://ddbmh5vkswpe0" path="res://Art/foto seca.png" id="2_shrtd"]
+[ext_resource type="Texture2D" uid="uid://d0oyv7g67b2ox" path="res://Art/skip.png" id="5_3ehwa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shrtd"]
+bg_color = Color(0.259294, 0.259294, 0.259294, 0.831373)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+
+[sub_resource type="Animation" id="Animation_nwy66"]
+resource_name = "CutsceneInicial"
+length = 36.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 13.8667, 13.9667, 36),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(321, 301), Vector2(382, 301), Vector2(321, 301), Vector2(382, 301)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CharacterBody2D/Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-0.166667, 0, 2.5, 7, 7.01, 12, 17, 24),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["ALGUNS ANOS ATRAS, O GRANDIOSO EGITO COSTUMAVA SER UMA TERRA DE 
+PROSPERIDADE E ESPERANÇA PARA TODOS...", "", "ALGUNS ANOS ATRAS, O GRANDIOSO EGITO COSTUMAVA
+SER UMA TERRA DE PROSPERIDADE E ESPERANCA PARA 
+TODOS...", "ALGUNS ANOS ATRAS, O GRANDIOSO EGITO COSTUMAVA
+SER UMA TERRA DE PROSPERIDADE E ESPERANCA PARA 
+TODOS...", "MUITOS POVOS VIZINHOS INVEJAVAM NOSSA FORCA E UNIAO,
+PORÉM, NADA QUE É BOM DURA MUITO...", "", "UMA ENORME SECA ATINGIU NOSSO POVO, NAO DEIXANDO
+QUASE NENHUMA TERRA BOA PARA PLANTIO E IMPEDINDO 
+QUE PROSPERASSEMOS...", "E ENTAO EM MEIO A TODA ESSA DIFICULDADE PRECISAVAMOS 
+DE ALGUEM EM QUEM NOS AMPARAR, ALGUEM QUE FIZESSE A
+DIFERENCA..."]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(12, 14),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("1_shrtd"), ExtResource("2_shrtd")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CharacterBody2D/Label:theme_override_styles/normal")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.46667, 12, 17),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [null, SubResource("StyleBoxFlat_shrtd"), null, SubResource("StyleBoxFlat_shrtd")]
+}
+
+[sub_resource type="Animation" id="Animation_gc6a3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(322, 308)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CharacterBody2D/Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["ALGUNS ANOS ATRAS, O GRANDIOSO EGITO COSTUMAVA SER UMA TERRA DE 
+PROSPERIDADE E ESPERANÇA PARA TODOS..."]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_gc6a3")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CharacterBody2D/Label:theme_override_styles/normal")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("StyleBoxFlat_shrtd")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_shrtd"]
+_data = {
+&"CutsceneInicial": SubResource("Animation_nwy66"),
+&"RESET": SubResource("Animation_gc6a3")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ehwa"]
+
+[node name="CenaInicial" type="Node2D"]
+script = ExtResource("1_fbekq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_shrtd")
+}
+autoplay = "CutsceneInicial"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(356.146, 279.449)
+scale = Vector2(0.0749964, 0.0749964)
+texture = ExtResource("1_gc6a3")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(322, 308)
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(4, -33)
+zoom = Vector2(1.8, 1.5)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterBody2D"]
+
+[node name="Label" type="Label" parent="CharacterBody2D"]
+offset_left = -314.0
+offset_top = 75.0
+offset_right = 291.0
+offset_bottom = 162.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_shrtd")
+text = "ALGUNS ANOS ATRAS, O GRANDIOSO EGITO COSTUMAVA SER UMA TERRA DE 
+PROSPERIDADE E ESPERANÇA PARA TODOS..."
+vertical_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2(1057, 608)
+scale = Vector2(-8.07285, -1.92386)
+shape = SubResource("RectangleShape2D_3ehwa")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.611765)
+position = Vector2(1057, 608)
+scale = Vector2(0.496387, 0.496387)
+texture = ExtResource("5_3ehwa")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="CanvasLayer/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
