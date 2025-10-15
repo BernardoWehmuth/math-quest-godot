@@ -27,7 +27,6 @@ scale = Vector2(0.409751, 0.423315)
 texture = ExtResource("2_84cjb")
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
-anchors_preset = -1
 offset_left = 461.0
 offset_top = 149.0
 offset_right = 566.0

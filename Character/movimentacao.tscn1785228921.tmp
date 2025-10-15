@@ -15,9 +15,9 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kki7f"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5iy80"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4jq13"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5iy80"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_wfjpv")
@@ -55,36 +55,34 @@ action = "jump"
 scale = Vector2(0.11313, 0.116867)
 texture = ExtResource("2_ga4sb")
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+[node name="Engrenagem" type="Sprite2D" parent="."]
 position = Vector2(1096, 44)
-scale = Vector2(3.26182, 3.26182)
+scale = Vector2(0.493056, 0.493056)
+texture = ExtResource("4_h2pt1")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Engrenagem"]
+scale = Vector2(6.61551, 6.61551)
 shape = SubResource("CircleShape2D_kki7f")
 script = ExtResource("5_s2mfb")
 
-[node name="Sprite2D" type="Sprite2D" parent="TouchScreenButton"]
-position = Vector2(-146.82, 75.1115)
+[node name="Sprite2D" type="Sprite2D" parent="Engrenagem"]
+position = Vector2(-973.521, 496.901)
 rotation = 3.14159
-scale = Vector2(0.116628, -0.118471)
+scale = Vector2(0.612807, -0.670453)
 texture = ExtResource("6_bnpv3")
 flip_h = true
 
-[node name="BotaoSair" type="TouchScreenButton" parent="TouchScreenButton/Sprite2D"]
-process_mode = 3
-position = Vector2(0.262817, 142.329)
-rotation = -3.14159
-scale = Vector2(33.7855, -6.98302)
-shape = SubResource("RectangleShape2D_5iy80")
-
-[node name="BotaoContinuar" type="TouchScreenButton" parent="TouchScreenButton/Sprite2D"]
-process_mode = 3
-position = Vector2(2.89148, -49.1678)
-scale = Vector2(33.202, 8.264)
+[node name="BotaoContinuar" type="TouchScreenButton" parent="Engrenagem/Sprite2D"]
+position = Vector2(0.000244141, -48.4012)
+scale = Vector2(33.3849, 8.18454)
 shape = SubResource("RectangleShape2D_4jq13")
 
-[node name="Engrenagem" type="Sprite2D" parent="TouchScreenButton"]
-scale = Vector2(0.15116, 0.15116)
-texture = ExtResource("4_h2pt1")
+[node name="BotaoSair" type="TouchScreenButton" parent="Engrenagem/Sprite2D"]
+position = Vector2(-3.30945, 145.204)
+rotation = 3.14159
+scale = Vector2(33.6852, -7.59468)
+shape = SubResource("RectangleShape2D_5iy80")
 
-[connection signal="pressed" from="TouchScreenButton" to="TouchScreenButton" method="toggle_pause"]
-[connection signal="pressed" from="TouchScreenButton/Sprite2D/BotaoSair" to="TouchScreenButton" method="sair_para_menu"]
-[connection signal="pressed" from="TouchScreenButton/Sprite2D/BotaoContinuar" to="TouchScreenButton" method="toggle_pause"]
+[connection signal="pressed" from="Engrenagem/TouchScreenButton" to="Engrenagem/TouchScreenButton" method="toggle_pause"]
+[connection signal="pressed" from="Engrenagem/Sprite2D/BotaoContinuar" to="Engrenagem/TouchScreenButton" method="toggle_pause"]
+[connection signal="pressed" from="Engrenagem/Sprite2D/BotaoSair" to="Engrenagem/TouchScreenButton" method="sair_para_menu"]

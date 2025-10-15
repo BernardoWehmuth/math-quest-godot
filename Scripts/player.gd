@@ -25,7 +25,8 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	
+	if get_tree().paused:
+		return
 	# BLOQUEIO DE INPUT
 	if input_bloqueado:
 		velocity = Vector2.ZERO
