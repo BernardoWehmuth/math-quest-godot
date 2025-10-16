@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clteqm8qhkhr2"
-path="res://.godot/imported/foto.png-dbe273aed123f1434a2b29b0e67e90ac.ctex"
+uid="uid://dohggylgv374d"
+path="res://.godot/imported/icone engrenagem.png-4a99fc25dc5f75f0fe42e0e9dea115ea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/foto.png"
-dest_files=["res://.godot/imported/foto.png-dbe273aed123f1434a2b29b0e67e90ac.ctex"]
+source_file="res://Art/icone engrenagem.png"
+dest_files=["res://.godot/imported/icone engrenagem.png-4a99fc25dc5f75f0fe42e0e9dea115ea.ctex"]
 
 [params]
 

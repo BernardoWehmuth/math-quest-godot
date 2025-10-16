@@ -3,9 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://b5kexe5mbvgkq" path="res://Art/seta.png" id="1_b21eg"]
 [ext_resource type="Script" uid="uid://4ysagpgf3n1" path="res://Character/movimentacao.gd" id="1_wfjpv"]
 [ext_resource type="Texture2D" uid="uid://dj4nxodklom4b" path="res://Art/pulo.png" id="2_ga4sb"]
-[ext_resource type="Texture2D" uid="uid://bbxxlyn3aehkk" path="res://Art/icone-removebg-preview.png" id="4_h2pt1"]
 [ext_resource type="Script" uid="uid://cngf3xjt28o4q" path="res://Character/touch_screen_button.gd" id="5_s2mfb"]
 [ext_resource type="Texture2D" uid="uid://ccpd73mhyj5xq" path="res://Art/Continuar.png" id="6_bnpv3"]
+[ext_resource type="Texture2D" uid="uid://dohggylgv374d" path="res://Art/icone engrenagem.png" id="6_s2mfb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wfjpv"]
 
@@ -56,13 +56,15 @@ scale = Vector2(0.11313, 0.116867)
 texture = ExtResource("2_ga4sb")
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
-position = Vector2(1096, 44)
+position = Vector2(1058, 63)
 scale = Vector2(3.26182, 3.26182)
 shape = SubResource("CircleShape2D_kki7f")
 script = ExtResource("5_s2mfb")
 
 [node name="Sprite2D" type="Sprite2D" parent="TouchScreenButton"]
-position = Vector2(-146.82, 75.1115)
+modulate = Color(1, 1, 1, 0.933333)
+texture_filter = 1
+position = Vector2(-135.201, 69.2865)
 rotation = 3.14159
 scale = Vector2(0.116628, -0.118471)
 texture = ExtResource("6_bnpv3")
@@ -82,8 +84,9 @@ scale = Vector2(33.202, 8.264)
 shape = SubResource("RectangleShape2D_4jq13")
 
 [node name="Engrenagem" type="Sprite2D" parent="TouchScreenButton"]
-scale = Vector2(0.15116, 0.15116)
-texture = ExtResource("4_h2pt1")
+position = Vector2(-1.14441e-05, 9.53674e-07)
+scale = Vector2(0.0535356, 0.0535356)
+texture = ExtResource("6_s2mfb")
 
 [connection signal="pressed" from="TouchScreenButton" to="TouchScreenButton" method="toggle_pause"]
 [connection signal="pressed" from="TouchScreenButton/Sprite2D/BotaoSair" to="TouchScreenButton" method="sair_para_menu"]

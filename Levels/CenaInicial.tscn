@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://due6n7fkywf36"]
 
 [ext_resource type="Script" uid="uid://b5gsixugmbke8" path="res://Levels/cena_inicial.gd" id="1_fbekq"]
-[ext_resource type="Texture2D" uid="uid://mjqjse6hxno8" path="res://Art/pixil-frame-0 (22).png" id="1_gc6a3"]
+[ext_resource type="Texture2D" uid="uid://mjqjse6hxno8" path="res://Art/foto ambiente.png" id="1_gc6a3"]
 [ext_resource type="Texture2D" uid="uid://bk441buxc8hat" path="res://Art/preto.png" id="1_shrtd"]
 [ext_resource type="Texture2D" uid="uid://ddbmh5vkswpe0" path="res://Art/foto seca.png" id="2_shrtd"]
 [ext_resource type="Texture2D" uid="uid://d0oyv7g67b2ox" path="res://Art/skip.png" id="5_3ehwa"]
