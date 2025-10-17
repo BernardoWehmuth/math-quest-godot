@@ -7,9 +7,10 @@
 script = ExtResource("1_gaggb")
 
 [node name="UI_Fundo" type="Panel" parent="."]
-offset_left = 1.0
-offset_right = 41.0
-offset_bottom = 40.0
+offset_left = -22.0
+offset_top = -293.0
+offset_right = 18.0
+offset_bottom = -253.0
 
 [node name="PerguntaLabel" type="Label" parent="UI_Fundo"]
 layout_mode = 0
@@ -24,13 +25,13 @@ offset_bottom = 17.0
 [node name="Portas" type="Node2D" parent="."]
 
 [node name="Door1" parent="Portas" instance=ExtResource("2_sih0h")]
-position = Vector2(455, 163)
+position = Vector2(250, -85)
 
 [node name="Door2" parent="Portas" instance=ExtResource("2_sih0h")]
-position = Vector2(535, 163)
+position = Vector2(-537, 123)
 
 [node name="Door3" parent="Portas" instance=ExtResource("2_sih0h")]
-position = Vector2(631, 163)
+position = Vector2(1319, -101)
 
 [node name="Door4" parent="Portas" instance=ExtResource("2_sih0h")]
-position = Vector2(711, 163)
+position = Vector2(-273, -85)

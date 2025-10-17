@@ -23,8 +23,8 @@
 script = ExtResource("1_wfjpv")
 
 [node name="botaoesquerda" type="TouchScreenButton" parent="."]
-position = Vector2(121, 527)
-scale = Vector2(3.33223, 3.11638)
+position = Vector2(105, 525)
+scale = Vector2(5.13856, 4.8057)
 shape = SubResource("RectangleShape2D_wfjpv")
 action = "left"
 
@@ -35,8 +35,8 @@ scale = Vector2(0.0726025, 0.0651697)
 texture = ExtResource("1_b21eg")
 
 [node name="botaodireita" type="TouchScreenButton" parent="."]
-position = Vector2(243, 528)
-scale = Vector2(3.31849, 3.09297)
+position = Vector2(248, 525)
+scale = Vector2(5.04461, 4.70179)
 shape = SubResource("RectangleShape2D_h2pt1")
 action = "right"
 
@@ -47,7 +47,7 @@ texture = ExtResource("1_b21eg")
 
 [node name="botaopular" type="TouchScreenButton" parent="."]
 position = Vector2(1009, 542)
-scale = Vector2(3.92964, 3.804)
+scale = Vector2(5.20257, 5.01911)
 shape = SubResource("CircleShape2D_s2mfb")
 action = "jump"
 

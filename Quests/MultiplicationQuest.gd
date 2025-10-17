@@ -13,7 +13,7 @@ var pergunta_label: Label
 @onready var doors: Array[Area2D] = []
 
 # ATENÇÃO: Defina os caminhos para as transições de cena
-const NEXT_LEVEL_PATH = "res://Levels/TitleScreen.tscn"
+const NEXT_LEVEL_PATH = "res://Levels/test_level.tscn"
 const QUEST_SCENE_PATH = "res://Levels/test_level2.tscn"
 
 
