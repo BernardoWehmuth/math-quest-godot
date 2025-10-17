@@ -57,7 +57,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vsmxg")
 }],
-"loop": true,
+"loop": false,
 "name": &"closing",
 "speed": 2.0
 }, {
@@ -77,21 +77,20 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_16k3d")
 }],
-"loop": true,
+"loop": false,
 "name": &"opening",
-"speed": 5.0
+"speed": 4.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hih3s"]
 size = Vector2(44, 52)
 
 [node name="Porta" type="Node2D"]
-position = Vector2(401, 207)
 script = ExtResource("1_31cbt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_t6vj2")
-animation = &"closed"
+animation = &"opening"
 
 [node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
 

@@ -6,6 +6,7 @@ var quest_ativa = false
 const QUEST_CENA = preload("res://Quests/Quest 1.tscn")
 var jogador: CharacterBody2D = null # Tipagem opcional para segurança
 var camera: Camera2D = null
+@onready var label_contador = $Player/Camera2D/CanvasLayer/CanvasLayer/Label
 
 func _ready():
 	jogador = get_tree().get_first_node_in_group("player")
@@ -35,8 +36,6 @@ func iniciar_quest():
 	# *Note: O CenterContainer deve fazer a centralização visual.
 
 	# >>> 1. BLOQUEIA O MOVIMENTO DO JOGADOR <<<
-	jogador.bloquear_input()
-
 	quest_ativa = true
 	
 	
@@ -44,12 +43,5 @@ func iniciar_quest():
 
 func _ao_concluir_quest(sucesso: bool):
 	quest_ativa = false
-
-	# >>> 2. LIBERA O MOVIMENTO DO JOGADOR <<<
-	if jogador != null:
-		jogador.liberar_input() 
-		
-	if sucesso:
-		quest_count += 1
-	else:
-		print("Anubis: Ah, que pena. Tente novamente!")
+	jogador.position = Vector2(LastPosition.player_position)
+	label_contador.atualizar_contador()

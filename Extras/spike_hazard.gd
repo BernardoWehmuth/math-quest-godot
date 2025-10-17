@@ -5,7 +5,4 @@ func _on_body_entered(body: Node2D) -> void:
 	print("SINAL body_entered DISPARADO! Corpo que entrou: ", body.name, " Tipo: ", body.get_class())
 	
 	if body.is_in_group("player"):
-		print("SUCESSO: MORTE DETECTADA!")
 		get_tree().change_scene_to_file("res://Levels/test_level2.tscn")
-	else:
-		print("AVISO: O corpo que entrou NÃO ERA O PLAYER.")

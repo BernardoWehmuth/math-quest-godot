@@ -12,6 +12,8 @@ var botoes: Array[TouchScreenButton] = [] # Array para segurar todos os botões
 @onready var feedback_label = ui_canvas.get_node("CenterContainer/Panel/OpcoesContainer/FeedbackLabel")
 @onready var opcoes_container = ui_canvas.get_node("CenterContainer/Panel/OpcoesContainer") 
 @onready var FEEDBACK_POPUP_CENA = preload("res://Quests/FeedbackPopUp.tscn")
+@onready var quest_scene = preload("res://Levels/test_level2.tscn")
+var quest_type = Difficulty.dificuldade
 
 signal quest_concluida(sucesso: bool)
 
@@ -48,11 +50,34 @@ func gerar_pergunta():
 		# Reseta a cor para o estado normal (se mudou de cor antes)
 		botao.modulate = Color.WHITE
 		
-	# 1. Gera a Pergunta
-	num1 = randi_range(1, 15)
-	num2 = randi_range(1, 15)
-	resposta_correta = num1 + num2
-	pergunta_label.text = "Quanto é " + str(num1) + " + " + str(num2) + "?"
+	var operator_symbol: String = ""
+		
+	match quest_type: 
+		0: # Adição
+			num1 = randi_range(5, 20)
+			num2 = randi_range(2, 10)
+			operator_symbol = "+"
+			resposta_correta = num1 + num2
+		1: # Subtração
+			var a = randi_range(10, 30)
+			var b = randi_range(5, 15)
+			num1 = max(a, b)
+			num2 = min(a, b)
+			operator_symbol = "-"
+			resposta_correta = num1 - num2
+		2: # Multiplicação
+			num1 = randi_range(2, 8)
+			num2 = randi_range(2, 8)
+			operator_symbol = "x"
+			resposta_correta = num1 * num2
+		3: # Divisão (Garante divisão exata)
+			var quotient: int = randi_range(2, 5)
+			num2 = randi_range(2, 5)
+			num1 = quotient * num2
+			operator_symbol = "/"
+			resposta_correta = quotient
+	
+	pergunta_label.text = "Quanto é %d %s %d?" % [num1, operator_symbol, num2]
 	
 	# 2. Gera Distratores (Respostas Incorretas)
 	var opcoes_de_resposta = [resposta_correta]
@@ -90,13 +115,12 @@ func verificar_resposta(botao_pressionado: TouchScreenButton):
 	var resposta_jogador = int(botao_label.text)
 
 	if resposta_jogador == resposta_correta:
-		
+		Difficulty.dificuldade += 1
 		_mostrar_feedback_flutuante("CORRETO!", Color.GREEN)
 		botao_pressionado.modulate = Color.GREEN 
 		await get_tree().create_timer(2.0).timeout 
 		quest_concluida.emit(true)
 		queue_free()
-		
 	else:
 		# Lógica de ERRO
 		_mostrar_feedback_flutuante("ERRADO!", Color.RED)

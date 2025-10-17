@@ -1,36 +1,36 @@
-# StartQuestTouchButton.gd
 extends TouchScreenButton
 
-# Pré-carrega a cena da missão
-const MULTIPLICATION_QUEST_CENA = preload("res://Quests/Quest 2.tscn")
+const QUEST_CENA: PackedScene = preload("res://Quests/Quest 1.tscn") 
+
+var game_manager: Node
 
 func _ready():
-	# Certifique-se de que o sinal 'pressed' está conectado no editor, ou faça a conexão aqui:
-	pressed.connect(_on_start_quest_touch_button_pressed)
-
-# StartQuestTouchButton.gd
-
-func _on_start_quest_touch_button_pressed():
-	# 1. Desativa a escuta de input e esconde o botão que foi clicado
-	set_process_input(false)
-	hide() # Esconde o TouchScreenButton
-
-	var level_root = get_parent() 
+	# Encontra o GameManager pelo grupo
+	game_manager = get_tree().get_first_node_in_group("game_manager")
+	if game_manager == null:
+		push_error("ERRO: GameManager não encontrado.")
 	
-	# Encontra o Label que será a Pergunta (Label/Label2)
-	var label_da_pergunta: Label = level_root.get_node("Label/Label2")
-	
-	# 2. Instancia a Quest
-	var quest_instance = MULTIPLICATION_QUEST_CENA.instantiate()
+	pressed.connect(_on_start_quest_pressed)
 
-	if label_da_pergunta != null:
-		# Passa a referência para a Quest, que irá preencher e chamar o .show()
-		quest_instance.setup_quest_ui(label_da_pergunta)
-		
-		# [NOVO AQUI]: Esconde o Label principal que contém o texto de 'iniciar quest'
-		var label_pai: Control = level_root.get_node("Label") 
-		
-			 # Esconde o nó pai "Label" (se ele tem o texto de 'iniciar')
+func _on_start_quest_pressed():
+	if game_manager == null or game_manager.quest_ativa:
+		return
+	hide()
 
-	# ... (adiciona a quest)
+	# 2️⃣ Instancia a quest
+	var quest_instance = QUEST_CENA.instantiate()
 	get_tree().current_scene.add_child(quest_instance)
+	
+	# 3️⃣ Conecta ao signal de conclusão
+	quest_instance.quest_concluida.connect(_on_quest_concluida)
+	
+	# 4️⃣ Sinaliza que a quest está ativa
+	game_manager.quest_ativa = true
+
+
+func _on_quest_concluida(sucesso: bool):
+	# Mostra o botão de volta
+	get_parent().get_parent().get_parent()._ao_concluir_quest(true)
+	show()
+	# Quest terminou, libera a flag
+	game_manager.quest_ativa = false

@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cb8ea7qoutnes"]
+[gd_scene load_steps=6 format=3 uid="uid://cb8ea7qoutnes"]
 
 [ext_resource type="Script" uid="uid://dchogy5qh24vb" path="res://Scripts/quest_1.gd" id="1_o4osq"]
-[ext_resource type="Texture2D" uid="uid://bmx5gf4ne17q5" path="res://Art/Interface egípcia no deserto ao entardecer.png" id="2_84cjb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1xqk"]
 
@@ -21,16 +20,11 @@ script = ExtResource("1_o4osq")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(596, 318)
-scale = Vector2(0.409751, 0.423315)
-texture = ExtResource("2_84cjb")
-
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
-offset_left = 461.0
-offset_top = 149.0
-offset_right = 566.0
-offset_bottom = 318.0
+offset_left = 473.0
+offset_top = 23.0
+offset_right = 578.0
+offset_bottom = 192.0
 scale = Vector2(1.49508, 1.40829)
 
 [node name="Panel" type="PanelContainer" parent="CanvasLayer/CenterContainer"]

@@ -1,7 +1,7 @@
 extends Node2D
 
-@onready var area: Area2D = $Area2D
-@onready var anim: AnimationPlayer = $AnimationPlayer
+@onready var area: Area2D = $AnimatedSprite2D/Area2D
+@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var sfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var col: CollisionShape2D = $CollisionShape2D
 
@@ -12,15 +12,22 @@ var locked: bool = false      # coloque true se quiser travada até pegar chave
 func _ready() -> void:
 	area.body_entered.connect(_on_area_entered)
 	area.body_exited.connect(_on_area_exited)
+	anim.play("closed")
 
 func _on_area_entered(body: Node) -> void:
 	# Dica: coloque seu Player no grupo "player" (Node > Groups)
 	if body.is_in_group("player"):
+		anim.play("opening")
+		await get_tree().create_timer(3.0).timeout
 		player_in_range = true
+		LastPosition.player_position = global_position
+		body.position = Vector2(1980, 169)
+		queue_free()
 		# aqui você pode exibir um "Pressione E"
 
 func _on_area_exited(body: Node) -> void:
 	if body.is_in_group("player"):
+		anim.play("closing")
 		player_in_range = false
 		# esconda a dica
 

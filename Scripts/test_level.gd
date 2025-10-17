@@ -52,6 +52,6 @@ func _ao_concluir_quest(sucesso: bool):
 		
 	if sucesso:
 		print("Anubis: Parabéns! Você resolveu o enigma!")
-		get_tree().change_scene_to_file("res://Levels/TitleScreen.tscn")
+		QUEST_CENA.instantiate()
 	else:
 		print("Anubis: Ah, que pena. Tente novamente!")
