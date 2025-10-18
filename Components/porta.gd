@@ -3,7 +3,7 @@ extends Node2D
 @onready var area: Area2D = $AnimatedSprite2D/Area2D
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var sfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
-@onready var col: CollisionShape2D = $CollisionShape2D
+@onready var col: CollisionShape2D = $AnimatedSprite2D/Area2D/CollisionShape2D
 
 var is_open: bool = false
 var player_in_range: bool = false
@@ -13,15 +13,17 @@ func _ready() -> void:
 	area.body_entered.connect(_on_area_entered)
 	area.body_exited.connect(_on_area_exited)
 	anim.play("closed")
+	
 
 func _on_area_entered(body: Node) -> void:
 	# Dica: coloque seu Player no grupo "player" (Node > Groups)
 	if body.is_in_group("player"):
 		anim.play("opening")
-		await get_tree().create_timer(3.0).timeout
+		await get_tree().create_timer(1.0).timeout
 		player_in_range = true
 		LastPosition.player_position = global_position
-		body.position = Vector2(1980, 169)
+		body.position = Vector2(1849, 171)
+		anim.play("closed")
 		queue_free()
 		# aqui você pode exibir um "Pressione E"
 

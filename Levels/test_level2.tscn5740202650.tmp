@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://3yguqxhxrf2o"]
+[gd_scene load_steps=39 format=3 uid="uid://3yguqxhxrf2o"]
 
 [ext_resource type="Texture2D" uid="uid://dxtontjqdyxah" path="res://Art/PR_BackGround 16x16.png" id="1_dd3ly"]
 [ext_resource type="Script" uid="uid://dcrvbjq1wbrsq" path="res://Scripts/test_level_2.gd" id="1_fe2hn"]
@@ -17,7 +17,6 @@
 [ext_resource type="Texture2D" uid="uid://c8jl0p545x2m5" path="res://Art/11-Door/Idle.png" id="13_bvap2"]
 [ext_resource type="Texture2D" uid="uid://c7553d6fxhjjq" path="res://Art/11-Door/Opening (46x56).png" id="16_kjsgi"]
 [ext_resource type="Texture2D" uid="uid://5ssrirktnppp" path="res://Art/11-Door/Closiong (46x56).png" id="16_n1ob0"]
-[ext_resource type="Texture2D" uid="uid://tbq5f444sdua" path="res://Art/11-Door/Opened.png" id="17_01jpy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1lxn2"]
 texture = ExtResource("1_dd3ly")
@@ -771,14 +770,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("17_01jpy")
-}],
-"loop": true,
-"name": &"opened",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_kjsgi")
 }, {
 "duration": 1.0,
@@ -885,7 +876,7 @@ position = Vector2(1321, -116)
 [node name="SpritePorta" type="AnimatedSprite2D" parent="."]
 position = Vector2(1848, 156)
 sprite_frames = SubResource("SpriteFrames_hhvsl")
-animation = &"opened"
+animation = &"closed"
 
 [node name="Area2D" type="Area2D" parent="SpritePorta"]
 position = Vector2(11, 9)
@@ -896,6 +887,17 @@ collision_mask = 7
 position = Vector2(-11, -9)
 shape = SubResource("RectangleShape2D_kjsgi")
 
+[connection signal="body_entered" from="TileMap/Area2D" to="TileMap/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@64585" to="TileMap/@Area2D@64585" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@64586" to="TileMap/@Area2D@64586" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@64587" to="TileMap/@Area2D@64587" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@64588" to="TileMap/@Area2D@64588" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@64589" to="TileMap/@Area2D@64589" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@64590" to="TileMap/@Area2D@64590" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@64591" to="TileMap/@Area2D@64591" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@64592" to="TileMap/@Area2D@64592" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@64593" to="TileMap/@Area2D@64593" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@64594" to="TileMap/@Area2D@64594" method="_on_body_entered"]
 [connection signal="pressed" from="Label/Label2/StartQuestButton" to="Label/Label2/StartQuestButton" method="_on_start_quest_pressed"]
 [connection signal="body_entered" from="SpritePorta/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="SpritePorta/Area2D" to="." method="_on_area_2d_body_exited"]

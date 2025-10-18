@@ -9,13 +9,13 @@ func _ready():
 	game_manager = get_tree().get_first_node_in_group("game_manager")
 	if game_manager == null:
 		push_error("ERRO: GameManager não encontrado.")
-	
-	pressed.connect(_on_start_quest_pressed)
 
 func _on_start_quest_pressed():
+	hide()
+	get_parent().hide()
 	if game_manager == null or game_manager.quest_ativa:
 		return
-	hide()
+	
 
 	# 2️⃣ Instancia a quest
 	var quest_instance = QUEST_CENA.instantiate()
@@ -31,6 +31,12 @@ func _on_start_quest_pressed():
 func _on_quest_concluida(sucesso: bool):
 	# Mostra o botão de volta
 	get_parent().get_parent().get_parent()._ao_concluir_quest(true)
-	show()
+	while true:
+		await get_tree().create_timer(1.0).timeout
+		if GettingBack.gettingBack == true:
+			await get_tree().create_timer(3.0).timeout
+			get_parent().show()
+			show()
+			break
 	# Quest terminou, libera a flag
 	game_manager.quest_ativa = false

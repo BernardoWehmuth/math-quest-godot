@@ -61,7 +61,7 @@ autoplay = "Abertura"
 [node name="TileMap" parent="." instance=ExtResource("2_7afar")]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(394, 85)
+position = Vector2(154, 85)
 
 [node name="Botoes" type="Sprite2D" parent="CharacterBody2D"]
 

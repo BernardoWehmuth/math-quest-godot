@@ -7,8 +7,12 @@ const QUEST_CENA = preload("res://Quests/Quest 1.tscn")
 var jogador: CharacterBody2D = null # Tipagem opcional para segurança
 var camera: Camera2D = null
 @onready var label_contador = $Player/Camera2D/CanvasLayer/CanvasLayer/Label
+@onready var sprite_porta = $SpritePorta
+var voltando: bool = false
+var entrou = true
 
 func _ready():
+	sprite_porta.play("opened")
 	jogador = get_tree().get_first_node_in_group("player")
 	camera = jogador.find_child("Camera2D") # Ajuste o nome "Camera2D" se for diferente
 	if camera == null:
@@ -20,6 +24,7 @@ func _ready():
 # ... (Sua função _on_click_area_input_event que chama iniciar_quest) ...
 
 func iniciar_quest():
+	entrou = false
 	if quest_ativa or jogador == null or camera == null:
 		return
 
@@ -42,6 +47,26 @@ func iniciar_quest():
 	get_tree().root.add_child(quest_instance)
 
 func _ao_concluir_quest(sucesso: bool):
-	quest_ativa = false
-	jogador.position = Vector2(LastPosition.player_position)
-	label_contador.atualizar_contador()
+	
+	sprite_porta.play("opening")
+	while true:
+		await get_tree().create_timer(1.0).timeout
+		if GettingBack.gettingBack == true:
+			await get_tree().create_timer(1.0).timeout
+			quest_ativa = false
+			jogador.position = Vector2(LastPosition.player_position)
+			label_contador.atualizar_contador()
+			sprite_porta.play("opened")
+			GettingBack.gettingBack = false
+			break
+			entrou = true
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		GettingBack.gettingBack = true
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if entrou == true:
+		sprite_porta.play("closing")

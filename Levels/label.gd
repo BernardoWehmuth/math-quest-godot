@@ -10,7 +10,4 @@ func _ready():
 func atualizar_contador():
 	# Pega o valor atual do Difficulty.dificuldade (ou outro contador global)
 	var portas_concluidas = Difficulty.dificuldade
-	if Difficulty.dificuldade == 0:
-		text = " %d  / %d" % [portas_concluidas, TOTAL_PORTAS]
-	else:
-		text = "%d / %d" % [portas_concluidas, TOTAL_PORTAS]
+	text = "%d / %d" % [portas_concluidas, TOTAL_PORTAS]
