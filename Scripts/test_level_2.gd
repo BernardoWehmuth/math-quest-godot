@@ -10,6 +10,7 @@ var camera: Camera2D = null
 @onready var sprite_porta = $SpritePorta
 var voltando: bool = false
 var entrou = true
+var variavel_local_entrou = 0
 
 func _ready():
 	sprite_porta.play("opened")
@@ -68,5 +69,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
+	GettingBack.gettingBack = false
 	if entrou == true:
-		sprite_porta.play("closing")
+		if ContadorEntrada.entrada == variavel_local_entrou + 1:
+			variavel_local_entrou += 1
+			sprite_porta.play("closing")
+				
+			
