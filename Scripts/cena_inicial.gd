@@ -12,8 +12,8 @@ func _process(delta: float) -> void:
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	get_tree().change_scene_to_file("res://Levels/test_level2.tscn")
+	get_tree().change_scene_to_file("res://Levels/fase1.tscn")
 
 
 func _on_touch_screen_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Levels/test_level2.tscn")
+	get_tree().change_scene_to_file("res://Levels/fase1.tscn")

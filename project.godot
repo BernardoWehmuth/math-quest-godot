@@ -17,10 +17,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Difficulty="*res://Scripts/difficulty.gd"
-LastPosition="*res://Scripts/last_position.gd"
-GettingBack="*res://Scripts/getting_back.gd"
-ContadorEntrada="*res://Scripts/contador_entrada.gd"
+Difficulty="*res://variaveis_globais/difficulty.gd"
+LastPosition="*res://variaveis_globais/last_position.gd"
+GettingBack="*res://variaveis_globais/getting_back.gd"
+ContadorEntrada="*res://variaveis_globais/contador_entrada.gd"
 
 [display]
 
