@@ -11,8 +11,11 @@ var camera: Camera2D = null
 var voltando: bool = false
 var entrou = true
 var variavel_local_entrou = 0
+@onready var porta_prox_fase = $PortaProxFase
+@onready var area_porta_prox_fase = $PortaProxFase/AreaPortaProxFase
 
 func _ready():
+	porta_prox_fase.play("fechada")
 	sprite_porta.play("opened")
 	jogador = get_tree().get_first_node_in_group("player")
 	camera = jogador.find_child("Camera2D") # Ajuste o nome "Camera2D" se for diferente
@@ -48,7 +51,6 @@ func iniciar_quest():
 	get_tree().root.add_child(quest_instance)
 
 func _ao_concluir_quest(sucesso: bool):
-	
 	sprite_porta.play("opening")
 	while true:
 		await get_tree().create_timer(1.0).timeout
@@ -61,11 +63,14 @@ func _ao_concluir_quest(sucesso: bool):
 			GettingBack.gettingBack = false
 			break
 			entrou = true
+			
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		GettingBack.gettingBack = true
+	if Difficulty.dificuldade == 4:
+		label_contador.modulate = Color.GREEN
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
@@ -75,4 +80,9 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 			variavel_local_entrou += 1
 			sprite_porta.play("closing")
 				
-			
+
+func porta_saida(body: Node2D) -> void:
+	if Difficulty.dificuldade == 4:
+		porta_prox_fase.play("aberta")
+		await get_tree().create_timer(1.5).timeout
+		get_tree().change_scene_to_file("res://Levels/fase2.tscn")

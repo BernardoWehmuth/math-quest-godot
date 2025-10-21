@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://db6u5qrqhai6u"
-path="res://.godot/imported/porta.png-39ac31eb471499013dbfb7e07e4ae772.ctex"
+uid="uid://c1ldecinokab6"
+path="res://.godot/imported/caixas valores.png-01f5a27c444d9e5017fd1137e98fa5c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/porta.png"
-dest_files=["res://.godot/imported/porta.png-39ac31eb471499013dbfb7e07e4ae772.ctex"]
+source_file="res://Art/caixas valores.png"
+dest_files=["res://.godot/imported/caixas valores.png-01f5a27c444d9e5017fd1137e98fa5c0.ctex"]
 
 [params]
 
