@@ -13,8 +13,10 @@ var entrou = true
 var variavel_local_entrou = 0
 @onready var porta_prox_fase = $PortaProxFase
 @onready var area_porta_prox_fase = $PortaProxFase/AreaPortaProxFase
+@onready var label_prox_fase = $Player/Camera2D/CanvasLayer/LabelPortaProx
 
 func _ready():
+	label_prox_fase.hide()
 	porta_prox_fase.play("fechada")
 	sprite_porta.play("opened")
 	jogador = get_tree().get_first_node_in_group("player")
@@ -86,3 +88,7 @@ func porta_saida(body: Node2D) -> void:
 		porta_prox_fase.play("aberta")
 		await get_tree().create_timer(1.5).timeout
 		get_tree().change_scene_to_file("res://Levels/fase2.tscn")
+	else:
+		label_prox_fase.show()
+		await get_tree().create_timer(3.5).timeout
+		label_prox_fase.hide()

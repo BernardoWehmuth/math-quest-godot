@@ -7,6 +7,9 @@ signal equilibrada
 @export var peso_alvo_pena: float = 1.0
 const MAX_CAIXAS_NA_BALANCA = 6
 
+@onready var sprite_verde = $Sprite_verde
+@onready var label_conlcuido = $LabelConcluido
+
 # --- Pesos Constantes ---
 const PESO_CAIXA_LEVE = 1.0 / 6.0
 const PESO_CAIXA_MEIO = 1.0 / 3.0
@@ -40,25 +43,31 @@ var sprite_caixa: Sprite2D
 # --- MUDANÇA AQUI ---
 # Removemos a 'area_remover' e adicionamos o 'botao_remover'
 # Certifique-se que o nó "BotaoRemover" existe na sua cena!
-@onready var botao_remover = $BotaoRemover 
+@onready var botao_remover = $BotaoRemover
+
+@onready var sprite_porta = $Porta/AnimatedSprite2D
 
 var posicao_antiga_ultima_caixa: Vector2
-@onready var caixas_leves = [$no_caixa_leve1, $no_caixa_leve2, $no_caixa_leve3]
+@onready var caixas_leves = [$no_caixa_leve1, $no_caixa_leve2, $no_caixa_leve3, $no_caixa_leve4, $no_caixa_leve5, $no_caixa_leve6]
 @onready var caixas_medias = [$no_caixa_meio1, $no_caixa_meio2, $no_caixa_meio3]
-@onready var caixas_pesadas = [$no_caixa_pesada1, $no_caixa_pesada2, $no_caixa_pesada3]
+@onready var caixas_pesadas = [$no_caixa_pesada1, $no_caixa_pesada2]
+
 
 # --- Estado do Puzzle ---
 var peso_atual: float = 0.0
 var esta_equilibrada: bool = false
 var pilha_de_caixas: Array[Node2D] = [] # Armazena os NÓS BASE (ex: $no_caixa_leve1)
 var posicoes_antigas_caixas_adicionadas: Array[Vector2] = []
+var ultima_caixa: Area2D
 # ------------------------------------------------
 # --- INICIALIZAÇÃO (MODIFICADO) ---
 # ------------------------------------------------
 
 func _ready():
 	_conectar_caixas()
-	
+	sprite_porta.play("fechada")
+	label_conlcuido.hide()
+	sprite_verde.hide()
 	# --- MUDANÇA AQUI ---
 	# Conecta o sinal 'pressed' do novo botão diretamente
 	# à função de remover a última caixa.
@@ -106,11 +115,11 @@ func _on_caixa_botao_pressed(caixa: Node2D):
 	_adicionar_caixa(caixa)
 
 # --- MUDANÇA AQUI ---
-# A função _on_area_remover_clicada foi REMOVIDA
-# pois o 'botao_remover.pressed' agora chama '_remover_ultima_caixa' diretamente.
 
 # ------------------------------------------------
+
 # --- ADICIONAR E REMOVER CAIXAS ---
+
 # ------------------------------------------------
 
 func _adicionar_caixa(caixa: Node2D):
@@ -156,7 +165,6 @@ func _remover_ultima_caixa():
 	print("Caixa removida | Peso atual:", peso_atual)
 	_verificar_equilibrio()
 
-
 # ------------------------------------------------
 # --- VERIFICAR EQUILÍBRIO E ATUALIZAR VISUAL ---
 # ------------------------------------------------
@@ -180,6 +188,18 @@ func _verificar_equilibrio():
 				esta_equilibrada = true
 				print("Balança Equilibrada!")
 				emit_signal("equilibrada")
+			label_conlcuido.show()
+			sprite_verde.show()
+			for caixa in caixas_leves:
+				if caixa not in pilha_de_caixas:
+					caixa.queue_free()
+			for caixa in caixas_medias:
+				if caixa not in pilha_de_caixas:
+					caixa.queue_free()
+			for caixa in caixas_pesadas:
+				if caixa not in pilha_de_caixas:
+					caixa.queue_free()
+			botao_remover.queue_free()
 		
 		&"direita_pesado":
 			pena_pos.position = Vector2(246, 45)
@@ -216,3 +236,10 @@ func _atualizar_posicoes_visuais_das_caixas(estado: StringName):
 		var tween = create_tween().set_parallel(true)
 		tween.tween_property(sprite_da_caixa, "global_position", pos_alvo, 0.3).set_trans(Tween.TRANS_SINE)
 		tween.tween_property(sprite_da_caixa, "scale", ESCALA_CAIXA, 0.3)
+
+
+func _on_porta_body_entered(body: Node2D) -> void:
+	if esta_equilibrada && body.is_in_group("player"):
+		sprite_porta.play("abrindo")
+		await get_tree().create_timer(1.5).timeout 
+		get_tree().change_scene_to_file("res://Levels/TitleScreen.tscn")

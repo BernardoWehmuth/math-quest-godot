@@ -22,11 +22,6 @@ func _ready():
 	sair_button.hide()
 	
 	
-	# --- 2. CONEXÕES DE SINAL (O que faltava) ---
-	
-	# Conecta o clique no botão Engrenagem (este próprio nó) à função de alternar pausa.
-	# 'pressed' é o sinal emitido pelo TouchScreenButton.
-	pressed.connect(toggle_pause) 
 	
 	# Conecta o clique no botão 'Continuar' à função de despausar.
 	# Usamos uma função anônima 'func():' para passar 'false' como argumento.

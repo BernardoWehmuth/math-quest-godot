@@ -869,11 +869,11 @@ scale = Vector2(0.775783, 0.775783)
 texture = ExtResource("13_bvap2")
 
 [node name="LabelPortaProx" type="Label" parent="Player/Camera2D/CanvasLayer"]
-offset_left = 396.0
-offset_top = 48.0
-offset_right = 715.0
-offset_bottom = 105.0
-scale = Vector2(1.26881, 1.26881)
+offset_left = 152.0
+offset_top = -10.0
+offset_right = 471.0
+offset_bottom = 47.0
+scale = Vector2(0.317454, 0.317454)
 text = "    Voce só deve vir aqui
    quando concluir todas 
 as quatro portas de desafio"
@@ -939,6 +939,17 @@ animation = &"fechada"
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_lgkhq")
 
+[connection signal="body_entered" from="TileMap/Area2D" to="TileMap/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@25314" to="TileMap/@Area2D@25314" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@25315" to="TileMap/@Area2D@25315" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@25316" to="TileMap/@Area2D@25316" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@25317" to="TileMap/@Area2D@25317" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@25318" to="TileMap/@Area2D@25318" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@25319" to="TileMap/@Area2D@25319" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@25320" to="TileMap/@Area2D@25320" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@25321" to="TileMap/@Area2D@25321" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@25322" to="TileMap/@Area2D@25322" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@25323" to="TileMap/@Area2D@25323" method="_on_body_entered"]
 [connection signal="pressed" from="Label/Label2/StartQuestButton" to="Label/Label2/StartQuestButton" method="_on_start_quest_pressed"]
 [connection signal="body_entered" from="SpritePorta/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="SpritePorta/Area2D" to="." method="_on_area_2d_body_exited"]

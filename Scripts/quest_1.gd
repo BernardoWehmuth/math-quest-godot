@@ -74,10 +74,15 @@ func gerar_pergunta():
 			num1 = quotient * num2
 			operator_symbol = "/"
 			resposta_correta = quotient
-	
-	pergunta_label.text = "Quanto é %d %s %d?" % [num1, operator_symbol, num2]
-
+	if num1 == 10 && num2 != 10 || num1 == 20 && num2 != 10 || num1 == 30 && num2 != 10:
+		pergunta_label.text = "Quanto é %d  %s %d?" % [num1, operator_symbol, num2]
+	elif num1 == 10 || num1 == 20 || num1 == 30 && num2 == 10:
+		pergunta_label.text = "Quanto é %d  %s %d ?" % [num1, operator_symbol, num2]
+	elif num2 == 10:
+		pergunta_label.text = "Quanto é %d %s %d  ?" % [num1, operator_symbol, num2]
 	# 2. Gera Distratores (Respostas Incorretas)
+	else:
+		pergunta_label.text = "Quanto é %d %s %d?" % [num1, operator_symbol, num2]
 	var opcoes_de_resposta = [resposta_correta]
 
 	# Gera 3 respostas incorretas que não sejam a correta
