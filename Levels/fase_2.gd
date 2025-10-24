@@ -9,6 +9,7 @@ const MAX_CAIXAS_NA_BALANCA = 6
 
 @onready var sprite_verde = $Sprite_verde
 @onready var label_conlcuido = $LabelConcluido
+@onready var porta_entrada = $PortaEntrada
 
 # --- Pesos Constantes ---
 const PESO_CAIXA_LEVE = 1.0 / 6.0
@@ -52,6 +53,7 @@ var posicao_antiga_ultima_caixa: Vector2
 @onready var caixas_medias = [$no_caixa_meio1, $no_caixa_meio2, $no_caixa_meio3]
 @onready var caixas_pesadas = [$no_caixa_pesada1, $no_caixa_pesada2]
 
+@onready var label_not_concluido = $Player/Camera2D/CanvasLayer/LabelNotConcluido
 
 # --- Estado do Puzzle ---
 var peso_atual: float = 0.0
@@ -64,6 +66,7 @@ var ultima_caixa: Area2D
 # ------------------------------------------------
 
 func _ready():
+	porta_entrada.play("fechando")
 	_conectar_caixas()
 	sprite_porta.play("fechada")
 	label_conlcuido.hide()
@@ -72,7 +75,8 @@ func _ready():
 	# Conecta o sinal 'pressed' do novo botão diretamente
 	# à função de remover a última caixa.
 	botao_remover.pressed.connect(_remover_ultima_caixa)
-	
+	await get_tree().create_timer(1.5).timeout
+	porta_entrada.hide()
 	# Define o estado inicial da balança
 	_verificar_equilibrio()
 
@@ -243,3 +247,7 @@ func _on_porta_body_entered(body: Node2D) -> void:
 		sprite_porta.play("abrindo")
 		await get_tree().create_timer(1.5).timeout 
 		get_tree().change_scene_to_file("res://Levels/TitleScreen.tscn")
+	elif !esta_equilibrada && body.is_in_group("player"):
+		label_not_concluido.show()
+		await get_tree().create_timer(3.5).timeout 
+		label_not_concluido.hide()
