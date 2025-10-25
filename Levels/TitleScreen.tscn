@@ -1,0 +1,99 @@
+[gd_scene load_steps=10 format=3 uid="uid://c246n5qobi33j"]
+
+[ext_resource type="Script" uid="uid://18qmhvgn45nk" path="res://Scripts/cut_scene.gd" id="1_e4ts1"]
+[ext_resource type="PackedScene" uid="uid://h00rq5t0i7yi" path="res://Tiles/tile_map.tscn" id="2_7afar"]
+[ext_resource type="Texture2D" uid="uid://bnp5q58hesld" path="res://Art/Texto_Tela_Inicial-removebg-preview.png" id="3_48thb"]
+[ext_resource type="Texture2D" uid="uid://b2ed2wdrogdb1" path="res://Art/botoes.png" id="4_rmt8x"]
+
+[sub_resource type="Animation" id="Animation_qr2ep"]
+resource_name = "Abertura"
+length = 3.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.5, 3.50605),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(154, 85), Vector2(394, 85), Vector2(305.569, 85)]
+}
+
+[sub_resource type="Animation" id="Animation_4ym6u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(99, 79)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_op7sd"]
+_data = {
+&"Abertura": SubResource("Animation_qr2ep"),
+&"RESET": SubResource("Animation_4ym6u")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yo808"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eixxh"]
+size = Vector2(10, 20)
+
+[node name="CutScene" type="Node2D"]
+script = ExtResource("1_e4ts1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+libraries = {
+&"": SubResource("AnimationLibrary_op7sd")
+}
+autoplay = "Abertura"
+
+[node name="TileMap" parent="." instance=ExtResource("2_7afar")]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(154, 85)
+
+[node name="Botoes" type="Sprite2D" parent="CharacterBody2D"]
+
+[node name="Letras" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(4, -55)
+scale = Vector2(0.119048, 0.119048)
+texture = ExtResource("3_48thb")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(2, 1)
+zoom = Vector2(4, 4)
+
+[node name="Sprite2D2" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(2, 52)
+scale = Vector2(0.138158, 0.138158)
+texture = ExtResource("4_rmt8x")
+
+[node name="BotaoSair" type="TouchScreenButton" parent="CharacterBody2D"]
+position = Vector2(2, 61)
+rotation = 1.5708
+scale = Vector2(0.652893, 4.22237)
+shape = SubResource("RectangleShape2D_yo808")
+
+[node name="BotaoJogar" type="TouchScreenButton" parent="CharacterBody2D"]
+position = Vector2(2, 43)
+rotation = 3.14159
+scale = Vector2(8.4978, 0.702322)
+shape = SubResource("RectangleShape2D_eixxh")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterBody2D"]
+position = Vector2(2, 1)
+remote_path = NodePath("../Camera2D")
+
+[connection signal="pressed" from="CharacterBody2D/BotaoSair" to="." method="_on_botao_sair_pressed"]
+[connection signal="pressed" from="CharacterBody2D/BotaoJogar" to="." method="_on_botao_jogar_pressed"]

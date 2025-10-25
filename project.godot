@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Jogo do Pac"
-run/main_scene="uid://ct5t1ly53ourg"
+run/main_scene="res://Levels/TitleScreen.tscn"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
