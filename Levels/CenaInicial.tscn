@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://due6n7fkywf36"]
 
-[ext_resource type="Script" uid="uid://b5gsixugmbke8" path="res://Scripts/cena_inicial.gd" id="1_fbekq"]
-[ext_resource type="Texture2D" uid="uid://mjqjse6hxno8" path="res://Art/foto ambiente.png" id="1_gc6a3"]
-[ext_resource type="Texture2D" uid="uid://bk441buxc8hat" path="res://Art/preto.png" id="1_shrtd"]
-[ext_resource type="Texture2D" uid="uid://ddbmh5vkswpe0" path="res://Art/foto seca.png" id="2_shrtd"]
-[ext_resource type="Texture2D" uid="uid://d0oyv7g67b2ox" path="res://Art/skip.png" id="5_3ehwa"]
+[ext_resource type="Script" uid="uid://b5gsixugmbke8" path="res://Scripts/cena_inicial.gd" id="1_g2l8y"]
+[ext_resource type="Texture2D" uid="uid://bk441buxc8hat" path="res://Art/preto transicao.png" id="2_7t5gh"]
+[ext_resource type="Texture2D" uid="uid://ddbmh5vkswpe0" path="res://Art/foto seca egito.png" id="3_8uneo"]
+[ext_resource type="Texture2D" uid="uid://mjqjse6hxno8" path="res://Art/foto ambiente bonito.png" id="4_rvrji"]
+[ext_resource type="Texture2D" uid="uid://d0oyv7g67b2ox" path="res://Art/skip.png" id="5_r4prh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shrtd"]
 bg_color = Color(0.259294, 0.259294, 0.259294, 0.831373)
@@ -57,10 +57,10 @@ tracks/2/path = NodePath("Sprite2D:texture")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(12, 14),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 12, 14),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ExtResource("1_shrtd"), ExtResource("2_shrtd")]
+"values": [ExtResource("4_rvrji"), ExtResource("2_7t5gh"), ExtResource("3_8uneo")]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -112,7 +112,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_gc6a3")]
+"values": [ExtResource("4_rvrji")]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -135,8 +135,8 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ehwa"]
 
-[node name="CenaInicial" type="Node2D"]
-script = ExtResource("1_fbekq")
+[node name="cenainicial" type="Node2D"]
+script = ExtResource("1_g2l8y")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -145,9 +145,9 @@ libraries = {
 autoplay = "CutsceneInicial"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(356.146, 279.449)
-scale = Vector2(0.0749964, 0.0749964)
-texture = ExtResource("1_gc6a3")
+position = Vector2(357, 279)
+scale = Vector2(1.13474, 1.13474)
+texture = ExtResource("4_rvrji")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(322, 308)
@@ -155,10 +155,10 @@ position = Vector2(322, 308)
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-position = Vector2(4, -33)
 zoom = Vector2(1.8, 1.5)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterBody2D"]
+remote_path = NodePath("../Camera2D")
 
 [node name="Label" type="Label" parent="CharacterBody2D"]
 offset_left = -314.0
@@ -177,11 +177,11 @@ position = Vector2(1057, 608)
 scale = Vector2(-8.07285, -1.92386)
 shape = SubResource("RectangleShape2D_3ehwa")
 
-[node name="Sprite2D2" type="Sprite2D" parent="CanvasLayer"]
+[node name="pular" type="Sprite2D" parent="CanvasLayer"]
 modulate = Color(1, 1, 1, 0.611765)
 position = Vector2(1057, 608)
 scale = Vector2(0.496387, 0.496387)
-texture = ExtResource("5_3ehwa")
+texture = ExtResource("5_r4prh")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="pressed" from="CanvasLayer/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]

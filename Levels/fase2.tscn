@@ -1,6 +1,6 @@
 [gd_scene load_steps=48 format=3 uid="uid://7uxmd5uyngtl"]
 
-[ext_resource type="Script" uid="uid://badicnam32kyt" path="res://Levels/fase_2.gd" id="1_b7h51"]
+[ext_resource type="Script" uid="uid://badicnam32kyt" path="res://Scripts/fase_2.gd" id="1_b7h51"]
 [ext_resource type="Texture2D" uid="uid://dxtontjqdyxah" path="res://Art/PR_BackGround 16x16.png" id="2_hmxsj"]
 [ext_resource type="Texture2D" uid="uid://vuj5jx7ncmu3" path="res://Art/PR_Objects 16x16.png" id="3_hshfi"]
 [ext_resource type="Texture2D" uid="uid://d054r0qnad7rt" path="res://Art/PR_TileGround 16x16.png" id="4_eqsnm"]
@@ -1117,14 +1117,4 @@ animation = &"fechando"
 frame = 2
 frame_progress = 1.0
 
-[connection signal="pressed" from="no_caixa_leve1/Botao" to="." method="_on_botao_no_caixa_leve_1_pressed"]
-[connection signal="pressed" from="no_caixa_leve2/Botao" to="." method="_on_botao_no_caixa_leve_2_pressed"]
-[connection signal="pressed" from="no_caixa_leve3/Botao" to="." method="_on_botao_no_caixa_leve_3_pressed"]
-[connection signal="pressed" from="no_caixa_leve4/Botao" to="." method="_on_botao_no_caixa_leve_3_pressed"]
-[connection signal="pressed" from="no_caixa_leve5/Botao" to="." method="_on_botao_no_caixa_leve_3_pressed"]
-[connection signal="pressed" from="no_caixa_leve6/Botao" to="." method="_on_botao_no_caixa_leve_3_pressed"]
-[connection signal="pressed" from="no_caixa_pesada1/Botao" to="." method="_on_botao_no_caixa_pesada_3_pressed"]
-[connection signal="pressed" from="no_caixa_pesada2/Botao" to="." method="_on_botao_no_caixa_pesada_3_pressed"]
-[connection signal="pressed" from="no_caixa_meio2/Botao" to="." method="_on_botao_no_caixa_meio_2_pressed"]
-[connection signal="pressed" from="no_caixa_meio3/Botao" to="." method="_on_botao_no_caixa_meio_3_pressed"]
 [connection signal="body_entered" from="Porta/Area2D" to="." method="_on_porta_body_entered"]

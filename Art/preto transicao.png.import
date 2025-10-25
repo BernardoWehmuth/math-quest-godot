@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8kvvpjrv3udd"
-path="res://.godot/imported/piramides.png-a38844a8ad0ffdaabbd2fb47aa673473.ctex"
+uid="uid://bk441buxc8hat"
+path="res://.godot/imported/preto transicao.png-79d31dcdd09167b1454744e20bc4eba0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/piramides.png"
-dest_files=["res://.godot/imported/piramides.png-a38844a8ad0ffdaabbd2fb47aa673473.ctex"]
+source_file="res://Art/preto transicao.png"
+dest_files=["res://.godot/imported/preto transicao.png-79d31dcdd09167b1454744e20bc4eba0.ctex"]
 
 [params]
 

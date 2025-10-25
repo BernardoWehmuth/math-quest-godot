@@ -2,7 +2,6 @@ extends Node2D
 
 @onready var area: Area2D = $AnimatedSprite2D/Area2D
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
-@onready var sfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var col: CollisionShape2D = $AnimatedSprite2D/Area2D/CollisionShape2D
 
 var is_open: bool = false
@@ -64,8 +63,6 @@ func toggle() -> void:
 		anim.play("open")
 		is_open = true
 		col.disabled = true
-	if sfx:
-		sfx.play()
 
 # (Opcional) Para usar chave:
 func unlock_with(key_id: String) -> void:

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://beady8q63f0tm"
-path="res://.godot/imported/fundo_vila.png-e8d2c676d9148b69e936c5c629a36c96.ctex"
+uid="uid://ddbmh5vkswpe0"
+path="res://.godot/imported/foto seca egito.png-e081a6ebcc68b0dc4edff4957614d13e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/fundo_vila.png"
-dest_files=["res://.godot/imported/fundo_vila.png-e8d2c676d9148b69e936c5c629a36c96.ctex"]
+source_file="res://Art/foto seca egito.png"
+dest_files=["res://.godot/imported/foto seca egito.png-e081a6ebcc68b0dc4edff4957614d13e.ctex"]
 
 [params]
 

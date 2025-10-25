@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://c246n5qobi33j"]
 
-[ext_resource type="Script" uid="uid://18qmhvgn45nk" path="res://Scripts/cut_scene.gd" id="1_e4ts1"]
-[ext_resource type="PackedScene" uid="uid://h00rq5t0i7yi" path="res://Tiles/tile_map.tscn" id="2_7afar"]
-[ext_resource type="Texture2D" uid="uid://bnp5q58hesld" path="res://Art/Texto_Tela_Inicial-removebg-preview.png" id="3_48thb"]
-[ext_resource type="Texture2D" uid="uid://b2ed2wdrogdb1" path="res://Art/botoes.png" id="4_rmt8x"]
+[ext_resource type="Script" uid="uid://bmulmgsqcl5qh" path="res://Scripts/titlescreen.gd" id="1_j0ety"]
+[ext_resource type="PackedScene" uid="uid://h00rq5t0i7yi" path="res://Tiles/tile_map.tscn" id="2_mircd"]
+[ext_resource type="Texture2D" uid="uid://bnp5q58hesld" path="res://Art/Texto_Tela_Inicial-removebg-preview.png" id="3_wywxw"]
+[ext_resource type="Texture2D" uid="uid://b2ed2wdrogdb1" path="res://Art/botoes.png" id="4_4106e"]
 
 [sub_resource type="Animation" id="Animation_qr2ep"]
 resource_name = "Abertura"
@@ -48,8 +48,8 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eixxh"]
 size = Vector2(10, 20)
 
-[node name="CutScene" type="Node2D"]
-script = ExtResource("1_e4ts1")
+[node name="titlescreen" type="Node2D"]
+script = ExtResource("1_j0ety")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
@@ -58,7 +58,7 @@ libraries = {
 }
 autoplay = "Abertura"
 
-[node name="TileMap" parent="." instance=ExtResource("2_7afar")]
+[node name="TileMap" parent="." instance=ExtResource("2_mircd")]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(154, 85)
@@ -68,7 +68,7 @@ position = Vector2(154, 85)
 [node name="Letras" type="Sprite2D" parent="CharacterBody2D"]
 position = Vector2(4, -55)
 scale = Vector2(0.119048, 0.119048)
-texture = ExtResource("3_48thb")
+texture = ExtResource("3_wywxw")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(2, 1)
@@ -77,7 +77,7 @@ zoom = Vector2(4, 4)
 [node name="Sprite2D2" type="Sprite2D" parent="CharacterBody2D"]
 position = Vector2(2, 52)
 scale = Vector2(0.138158, 0.138158)
-texture = ExtResource("4_rmt8x")
+texture = ExtResource("4_4106e")
 
 [node name="BotaoSair" type="TouchScreenButton" parent="CharacterBody2D"]
 position = Vector2(2, 61)

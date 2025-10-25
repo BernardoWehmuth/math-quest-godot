@@ -52,6 +52,7 @@ func iniciar_quest():
 	
 	get_tree().root.add_child(quest_instance)
 
+@warning_ignore("unused_parameter")
 func _ao_concluir_quest(sucesso: bool):
 	sprite_porta.play("opening")
 	while true:
@@ -75,6 +76,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		label_contador.modulate = Color.GREEN
 
 
+@warning_ignore("unused_parameter")
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	GettingBack.gettingBack = false
 	if entrou == true:
@@ -83,6 +85,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 			sprite_porta.play("closing")
 				
 
+@warning_ignore("unused_parameter")
 func porta_saida(body: Node2D) -> void:
 	if Difficulty.dificuldade == 4:
 		porta_prox_fase.play("aberta")

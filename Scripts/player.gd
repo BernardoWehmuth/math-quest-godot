@@ -72,8 +72,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
 			jump()
-			if get_tree().current_scene.scene_file_path == "res://Levels/test_level.tscn":
-				has_double_jumped = true
 		elif not has_double_jumped:
 			velocity.y = double_jump_velocity
 			has_double_jumped = true

@@ -9,7 +9,7 @@ extends TouchScreenButton
 @onready var engrenagem = $Engrenagem
 
 # Caminho para o menu principal
-const TITLE_SCREEN_PATH = "res://Levels/TitleScreen.tscn"
+const TITLE_SCREEN_PATH = "res://Levels/titlescreen.tscn"
 
 
 func _ready():
@@ -26,9 +26,6 @@ func _ready():
 	# Conecta o clique no botão 'Continuar' à função de despausar.
 	# Usamos uma função anônima 'func():' para passar 'false' como argumento.
 	continuar_button.pressed.connect(func(): set_pause_state(false))
-	
-	# Conecta o clique no botão 'Sair' à função de sair para o menu principal.
-	sair_button.pressed.connect(sair_para_menu)
 	
 	
 # Função principal chamada ao clicar na Engrenagem

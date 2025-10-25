@@ -133,6 +133,7 @@ func _adicionar_caixa(caixa: Node2D):
 		print("Limite máximo de caixas atingido.")
 		return
 
+	@warning_ignore("shadowed_variable")
 	var sprite_caixa = caixa.get_node("Sprite2D")
 	posicoes_antigas_caixas_adicionadas.append(sprite_caixa.global_position)
 
@@ -153,6 +154,7 @@ func _remover_ultima_caixa():
 
 	# Remove a última caixa e sua posição correspondente
 	var caixa: Node2D = pilha_de_caixas.pop_back()
+	@warning_ignore("shadowed_variable")
 	var posicao_antiga_ultima_caixa: Vector2 = posicoes_antigas_caixas_adicionadas.pop_back()
 
 	var peso = caixa.get_meta("peso")
@@ -246,7 +248,7 @@ func _on_porta_body_entered(body: Node2D) -> void:
 	if esta_equilibrada && body.is_in_group("player"):
 		sprite_porta.play("abrindo")
 		await get_tree().create_timer(1.5).timeout 
-		get_tree().change_scene_to_file("res://Levels/TitleScreen.tscn")
+		get_tree().change_scene_to_file("res://Levels/titlescreen.tscn")
 	elif !esta_equilibrada && body.is_in_group("player"):
 		label_not_concluido.show()
 		await get_tree().create_timer(3.5).timeout 

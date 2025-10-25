@@ -1,7 +1,7 @@
 [gd_scene load_steps=42 format=3 uid="uid://3yguqxhxrf2o"]
 
 [ext_resource type="Texture2D" uid="uid://dxtontjqdyxah" path="res://Art/PR_BackGround 16x16.png" id="1_dd3ly"]
-[ext_resource type="Script" uid="uid://dcrvbjq1wbrsq" path="res://Scripts/fase1.gd" id="1_fe2hn"]
+[ext_resource type="Script" uid="uid://b3nc6suuwwamq" path="res://Scripts/fase_1.gd" id="1_lgkhq"]
 [ext_resource type="Texture2D" uid="uid://vuj5jx7ncmu3" path="res://Art/PR_Objects 16x16.png" id="2_n1ad0"]
 [ext_resource type="Texture2D" uid="uid://d054r0qnad7rt" path="res://Art/PR_TileGround 16x16.png" id="3_fe2hn"]
 [ext_resource type="Texture2D" uid="uid://cdrodjtk2e10b" path="res://Art/PR_TileSet 16x16.png" id="4_ixwdb"]
@@ -823,8 +823,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lgkhq"]
 size = Vector2(46, 55)
 
-[node name="TestLevel2" type="Node2D" groups=["game_manager"]]
-script = ExtResource("1_fe2hn")
+[node name="fase1" type="Node2D" groups=["game_manager"]]
+script = ExtResource("1_lgkhq")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(215, -56)
