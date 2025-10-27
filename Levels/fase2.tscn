@@ -1118,3 +1118,4 @@ frame = 2
 frame_progress = 1.0
 
 [connection signal="body_entered" from="Porta/Area2D" to="." method="_on_porta_body_entered"]
+[connection signal="body_exited" from="Porta/Area2D" to="." method="_on_area_2d_body_exited"]

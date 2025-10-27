@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://boyloxbbh7x7m"]
+[gd_scene load_steps=17 format=3 uid="uid://boyloxbbh7x7m"]
 
 [ext_resource type="Script" uid="uid://tj8trms8ifno" path="res://Scripts/player.gd" id="1_3c51y"]
 [ext_resource type="Texture2D" uid="uid://dtwpmxmtx5xy1" path="res://Art/player_sprites.png" id="2_3c51y"]
@@ -15,21 +15,17 @@ region = Rect2(835, 0, 835, 1462)
 atlas = ExtResource("2_3c51y")
 region = Rect2(1670, 0, 835, 1462)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_76vsb"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyipv"]
 atlas = ExtResource("2_3c51y")
-region = Rect2(5010, 0, 835, 1462)
+region = Rect2(4175, 0, 835, 1462)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_raa3c"]
 atlas = ExtResource("2_3c51y")
 region = Rect2(2505, 0, 835, 1462)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tp31j"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_76vsb"]
 atlas = ExtResource("2_3c51y")
-region = Rect2(3340, 0, 835, 1462)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cyipv"]
-atlas = ExtResource("2_3c51y")
-region = Rect2(4175, 0, 835, 1462)
+region = Rect2(5010, 0, 835, 1462)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_crn8y"]
 atlas = ExtResource("2_3c51y")
@@ -68,13 +64,10 @@ animations = [{
 "texture": SubResource("AtlasTexture_fn4pq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_76vsb")
+"texture": SubResource("AtlasTexture_cyipv")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_raa3c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tp31j")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cyipv")
@@ -127,6 +120,7 @@ script = ExtResource("1_3c51y")
 scale = Vector2(0.025, 0.025)
 sprite_frames = SubResource("SpriteFrames_13163")
 animation = &"idle"
+frame_progress = 0.496111
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.9)

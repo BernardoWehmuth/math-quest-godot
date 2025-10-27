@@ -66,6 +66,7 @@ var ultima_caixa: Area2D
 # ------------------------------------------------
 
 func _ready():
+	_verificar_equilibrio()
 	porta_entrada.play("fechando")
 	_conectar_caixas()
 	sprite_porta.play("fechada")
@@ -78,7 +79,6 @@ func _ready():
 	await get_tree().create_timer(1.5).timeout
 	porta_entrada.hide()
 	# Define o estado inicial da balança
-	_verificar_equilibrio()
 
 # ------------------------------------------------
 # --- CONEXÕES E INTERAÇÃO ---
@@ -248,7 +248,7 @@ func _on_porta_body_entered(body: Node2D) -> void:
 	if esta_equilibrada && body.is_in_group("player"):
 		sprite_porta.play("abrindo")
 		await get_tree().create_timer(1.5).timeout 
-		get_tree().change_scene_to_file("res://Levels/titlescreen.tscn")
+		get_tree().change_scene_to_file("res://Levels/fase3.tscn")
 	elif !esta_equilibrada && body.is_in_group("player"):
 		label_not_concluido.show()
 		await get_tree().create_timer(3.5).timeout 
