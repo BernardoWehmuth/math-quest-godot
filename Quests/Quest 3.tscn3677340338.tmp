@@ -13,10 +13,6 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 12.0
-offset_right = 10.0
-offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -24,11 +20,11 @@ script = ExtResource("1_s5tg1")
 
 [node name="ContainerEquacoes" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 521.0
-offset_top = 63.0
-offset_right = 645.0
-offset_bottom = 163.0
-scale = Vector2(1.69844, 1.69844)
+offset_left = 241.0
+offset_top = 56.0
+offset_right = 365.0
+offset_bottom = 156.0
+scale = Vector2(1.57134, 1.57134)
 
 [node name="Equacao1" type="HBoxContainer" parent="ContainerEquacoes"]
 layout_mode = 2
@@ -210,25 +206,22 @@ layout_mode = 2
 
 [node name="FeedbackLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 482.0
-offset_top = 17.0
-offset_right = 522.0
-offset_bottom = 39.0
-scale = Vector2(1.08089, 1.08089)
+offset_left = 202.0
+offset_top = 10.0
+offset_right = 242.0
+offset_bottom = 32.0
 
 [node name="BotaoVerificar" type="TouchScreenButton" parent="."]
-visible = false
-position = Vector2(609, 334)
-scale = Vector2(6.41504, 1.3146)
+position = Vector2(329, 327)
+scale = Vector2(5.93498, 1.21622)
 shape = SubResource("RectangleShape2D_nx3ka")
 
 [node name="ContainerOpcoes" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 366.0
-offset_top = 248.0
-offset_right = 854.0
-offset_bottom = 288.0
-scale = Vector2(1.08089, 1.08089)
+offset_left = 86.0
+offset_top = 241.0
+offset_right = 240.0
+offset_bottom = 281.0
 mouse_filter = 2
 theme_override_constants/separation = 24
 alignment = 1
@@ -338,8 +331,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="BotaoProximoNivel" type="TouchScreenButton" parent="."]
-position = Vector2(599, 36)
-scale = Vector2(4.30681, 1.25021)
+position = Vector2(319, 29)
+scale = Vector2(3.98452, 1.15665)
 shape = SubResource("RectangleShape2D_l0pfe")
 
 [connection signal="pressed" from="BotaoVerificar" to="." method="_on_botao_verificar_pressed"]

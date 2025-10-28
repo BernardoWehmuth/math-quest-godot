@@ -1,0 +1,67 @@
+[gd_scene load_steps=3 format=3 uid="uid://pjx3ekn51sqm"]
+
+[ext_resource type="Script" uid="uid://ihlajrqwonrc" path="res://Quests/quest_3.gd" id="1_s5tg1"]
+[ext_resource type="Script" uid="uid://c6knbcak61wg7" path="res://Scripts/DropArea.gd" id="2_87q6f"]
+
+[node name="Quest3" type="Node2D"]
+script = ExtResource("1_s5tg1")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="EquationContainer1" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/EquationContainer1"]
+layout_mode = 2
+
+[node name="DropArea1" type="Panel" parent="Control/VBoxContainer/EquationContainer1"]
+layout_mode = 2
+script = ExtResource("2_87q6f")
+
+[node name="EquationContainer2" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/EquationContainer2"]
+layout_mode = 2
+
+[node name="DropArea2" type="Panel" parent="Control/VBoxContainer/EquationContainer2"]
+layout_mode = 2
+script = ExtResource("2_87q6f")
+
+[node name="EquationContainer3" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/EquationContainer3"]
+layout_mode = 2
+
+[node name="DropArea3" type="Panel" parent="Control/VBoxContainer/EquationContainer3"]
+layout_mode = 2
+script = ExtResource("2_87q6f")
+
+[node name="EquationContainer4" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/EquationContainer4"]
+layout_mode = 2
+
+[node name="DropArea4" type="Panel" parent="Control/VBoxContainer/EquationContainer4"]
+layout_mode = 2
+script = ExtResource("2_87q6f")
+
+[node name="AnswersContainer" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="dropped" from="Control/VBoxContainer/EquationContainer1/DropArea1" to="." method="_on_DropArea_drop_data"]
+[connection signal="dropped" from="Control/VBoxContainer/EquationContainer2/DropArea2" to="." method="_on_DropArea_drop_data"]
+[connection signal="dropped" from="Control/VBoxContainer/EquationContainer3/DropArea3" to="." method="_on_DropArea_drop_data"]
+[connection signal="dropped" from="Control/VBoxContainer/EquationContainer4/DropArea4" to="." method="_on_DropArea_drop_data"]

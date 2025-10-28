@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bwpjdrhwxeeju"]
+[gd_scene load_steps=12 format=3 uid="uid://bwpjdrhwxeeju"]
 
 [ext_resource type="PackedScene" uid="uid://h00rq5t0i7yi" path="res://Tiles/tile_map.tscn" id="1_q3yhk"]
 [ext_resource type="Script" uid="uid://vpn3h82tb25l" path="res://Scripts/fase_3.gd" id="1_swcro"]
 [ext_resource type="PackedScene" uid="uid://boyloxbbh7x7m" path="res://Character/player.tscn" id="2_8r12f"]
 [ext_resource type="PackedScene" uid="uid://butb4p2o6cv4x" path="res://Character/movimentacao.tscn" id="3_swcro"]
 [ext_resource type="Texture2D" uid="uid://5ssrirktnppp" path="res://Art/11-Door/Closiong (46x56).png" id="5_yalws"]
+[ext_resource type="Texture2D" uid="uid://dcdqukkhpj1u3" path="res://Art/pena.png" id="6_yalws"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yc36f"]
 atlas = ExtResource("5_yalws")
@@ -69,13 +70,10 @@ position = Vector2(213, 253)
 scale = Vector2(2.91448, 0.916664)
 shape = SubResource("RectangleShape2D_h68uw")
 
-[node name="Label" type="Label" parent="TouchScreenButton"]
-offset_left = -9.95033
-offset_top = -12.0
-offset_right = 109.05
-offset_bottom = 35.0
-scale = Vector2(0.173091, 0.50471)
-text = "Aperte aqui para
-  iniciar a Quest"
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(214, 256)
+rotation = 1.13795
+scale = Vector2(0.116, 0.116)
+texture = ExtResource("6_yalws")
 
 [connection signal="pressed" from="TouchScreenButton" to="." method="_on_botao_iniciar_button_pressed"]
