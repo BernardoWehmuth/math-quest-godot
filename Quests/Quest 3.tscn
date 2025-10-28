@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://pjx3ekn51sqm"]
 
-[ext_resource type="Script" uid="uid://bb2aq3y0eam1y" path="res://Quests/quest_3.gd" id="1_s5tg1"]
-[ext_resource type="Script" uid="uid://1rmpu2kh1hh5" path="res://Quests/SlotResposta.gd" id="2_nx3ka"]
-[ext_resource type="Script" uid="uid://cxl8ex7vnlo2t" path="res://Quests/OpcaoResposta.gd" id="3_l0pfe"]
+[ext_resource type="Script" uid="uid://bb2aq3y0eam1y" path="res://Scripts/quest_3.gd" id="1_s5tg1"]
+[ext_resource type="Script" uid="uid://1rmpu2kh1hh5" path="res://Scripts/SlotResposta.gd" id="2_nx3ka"]
+[ext_resource type="Script" uid="uid://cxl8ex7vnlo2t" path="res://Scripts/OpcaoResposta.gd" id="3_l0pfe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nx3ka"]
 
@@ -210,16 +210,15 @@ layout_mode = 2
 
 [node name="FeedbackLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 482.0
-offset_top = 17.0
-offset_right = 522.0
-offset_bottom = 39.0
+offset_left = 474.0
+offset_top = 25.0
+offset_right = 514.0
+offset_bottom = 48.0
 scale = Vector2(1.08089, 1.08089)
 
 [node name="BotaoVerificar" type="TouchScreenButton" parent="."]
-visible = false
 position = Vector2(609, 334)
-scale = Vector2(6.41504, 1.3146)
+scale = Vector2(7.47206, 2.33103)
 shape = SubResource("RectangleShape2D_nx3ka")
 
 [node name="ContainerOpcoes" type="HBoxContainer" parent="."]
@@ -341,5 +340,14 @@ vertical_alignment = 1
 position = Vector2(599, 36)
 scale = Vector2(4.30681, 1.25021)
 shape = SubResource("RectangleShape2D_l0pfe")
+
+[node name="LabelVerificar" type="Label" parent="."]
+layout_mode = 0
+offset_left = 530.0
+offset_top = 307.0
+offset_right = 684.0
+offset_bottom = 356.0
+text = "  Aperte aqui para
+ verificar a resposta"
 
 [connection signal="pressed" from="BotaoVerificar" to="." method="_on_botao_verificar_pressed"]

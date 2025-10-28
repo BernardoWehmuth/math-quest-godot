@@ -9,7 +9,7 @@ var is_empty = false
 # --- 1. Lógica de ser um Alvo (Receber um Drop) ---
 
 func _can_drop_data(at_position, data):
-	var esta_vazio = ($LabelResposta.text == "?")
+	var esta_vazio = ($LabelResposta.text == "x")
 	return data.has("tipo") and data["tipo"] == "resposta" and esta_vazio
 
 func _drop_data(at_position, data):
@@ -38,7 +38,7 @@ func _drop_data(at_position, data):
 # --- 2. Lógica de ser Arrastado (Quando está "Cheio") ---
 
 func _get_drag_data(at_position):
-	if $LabelResposta.text == "?":
+	if $LabelResposta.text == "x":
 		return null
 	
 	var valor_texto = $LabelResposta.text
@@ -62,7 +62,7 @@ func _get_drag_data(at_position):
 
 # Chamado por um OpcaoResposta ou outro SlotResposta quando pegam este número
 func set_empty():
-	$LabelResposta.text = "?"
+	$LabelResposta.text = "x"
 	modulate = Color.WHITE
 	source_option_panel = null # Esquece o berço
 	

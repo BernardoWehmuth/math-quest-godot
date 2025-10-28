@@ -7,9 +7,11 @@ extends Control
 @onready var feedback_label = $FeedbackLabel
 @onready var proximo_nivel_btn = $BotaoProximoNivel
 @onready var botao_verificar = $BotaoVerificar
+@onready var label_verificar = $LabelVerificar
 
 func _ready():
 	botao_verificar.hide() # <-- MODIFICADO
+	label_verificar.hide()
 	# Conecta os botões às suas funções
 	proximo_nivel_btn.pressed.connect(gerar_equacoes)
 	botao_verificar.pressed.connect(_on_verificar_pressed)
@@ -30,7 +32,7 @@ func _ready():
 
 # Função principal para criar as equações e respostas
 func gerar_equacoes():
-	feedback_label.text = "Arraste o valor de X para a equação..."
+	feedback_label.text = "Arraste o valor de x para a equação..."
 	
 	# Mostra o botão de verificar, esconde o de próximo nível
 	proximo_nivel_btn.hide()
@@ -83,7 +85,7 @@ func gerar_equacoes():
 		var slot_ativo = null
 
 		for slot in [slot_a, slot_b]:
-			slot.get_node("LabelResposta").text = "?"
+			slot.get_node("LabelResposta").text = "x"
 			slot.modulate = Color.WHITE 
 			slot.set_meta("resposta_correta", null)
 			if slot.has_method("set_empty"): # Limpa a referência
@@ -137,9 +139,10 @@ func _on_answer_dropped(slot_que_recebeu):
 	# Habilita o botão APENAS se all_filled for true
 	if not all_filled:
 		botao_verificar.hide()
+		label_verificar.hide()
 	else:
 		botao_verificar.show()
-
+		label_verificar.show()
 
 # --- NOVA FUNÇÃO ---
 # Função para checar se todos os slots estão preenchidos
@@ -155,7 +158,7 @@ func check_all_slots_filled() -> bool:
 		var label_resposta = slot_ativo.get_node("LabelResposta")
 		
 		# Se UMA ÚNICA estiver vazia ("?"), retorna falso
-		if label_resposta.text == "?":
+		if label_resposta.text == "x":
 			return false
 	
 	# Se o loop terminou e não achou nenhum "?", retorna verdadeiro
@@ -175,7 +178,7 @@ func _on_verificar_pressed():
 		var correta = slot_ativo.get_meta("resposta_correta")
 		var label_resposta = slot_ativo.get_node("LabelResposta")
 		
-		if label_resposta.text == "?":
+		if label_resposta.text == "x":
 			todas_estao_corretas = false
 			slot_ativo.modulate = Color.WHITE 
 			continue 
@@ -189,8 +192,9 @@ func _on_verificar_pressed():
 			todas_estao_corretas = false 
 	
 	if todas_estao_corretas:
-		feedback_label.text = "Parabéns! Todas corretas!"
+		feedback_label.text = "         Parabéns! Todas corretas!"
 		proximo_nivel_btn.show() 
 		botao_verificar.hide() 
+		label_verificar.hide()
 	else:
 		feedback_label.text = "Ops! Alguma resposta está errada. Tente de novo."

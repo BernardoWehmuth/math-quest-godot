@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://7uxmd5uyngtl"]
+[gd_scene load_steps=49 format=3 uid="uid://7uxmd5uyngtl"]
 
 [ext_resource type="Script" uid="uid://badicnam32kyt" path="res://Scripts/fase_2.gd" id="1_b7h51"]
 [ext_resource type="Texture2D" uid="uid://dxtontjqdyxah" path="res://Art/PR_BackGround 16x16.png" id="2_hmxsj"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://c7553d6fxhjjq" path="res://Art/11-Door/Opening (46x56).png" id="19_hshfi"]
 [ext_resource type="Texture2D" uid="uid://7we08machbgt" path="res://Art/verd.png" id="21_eqsnm"]
 [ext_resource type="Texture2D" uid="uid://5ssrirktnppp" path="res://Art/11-Door/Closiong (46x56).png" id="22_7wit6"]
+[ext_resource type="Texture2D" uid="uid://dc43t3bkdrol0" path="res://Art/Equilibre_a_Balança.png" id="23_qyy8a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1lxn2"]
 texture = ExtResource("2_hmxsj")
@@ -863,32 +864,35 @@ drag_vertical_enabled = true
 [node name="CanvasLayer" parent="Player/Camera2D/CanvasLayer" instance=ExtResource("11_j3i0l")]
 
 [node name="Sprite2D" type="Sprite2D" parent="Player/Camera2D/CanvasLayer"]
-position = Vector2(154.75, 144.75)
-scale = Vector2(0.541, 0.533)
+position = Vector2(106.38, 107.75)
+scale = Vector2(0.329522, 0.324649)
 texture = ExtResource("12_uqu6f")
 
 [node name="Label" type="Label" parent="Player/Camera2D/CanvasLayer"]
-offset_left = 152.0
-offset_top = 56.0
-offset_right = 192.0
-offset_bottom = 73.0
-theme_override_font_sizes/font_size = 12
+offset_left = 103.0
+offset_top = 50.0
+offset_right = 143.0
+offset_bottom = 72.0
+scale = Vector2(0.609098, 0.609098)
+theme_override_font_sizes/font_size = 18
 text = "KG"
 
 [node name="Label2" type="Label" parent="Player/Camera2D/CanvasLayer"]
-offset_left = 152.0
-offset_top = 144.0
-offset_right = 192.0
-offset_bottom = 161.0
-theme_override_font_sizes/font_size = 12
+offset_left = 103.0
+offset_top = 104.0
+offset_right = 143.0
+offset_bottom = 126.0
+scale = Vector2(0.609098, 0.609098)
+theme_override_font_sizes/font_size = 18
 text = "KG"
 
 [node name="Label3" type="Label" parent="Player/Camera2D/CanvasLayer"]
-offset_left = 152.0
-offset_top = 232.0
-offset_right = 192.0
-offset_bottom = 249.0
-theme_override_font_sizes/font_size = 12
+offset_left = 104.0
+offset_top = 157.0
+offset_right = 159.0
+offset_bottom = 181.0
+scale = Vector2(0.609098, 0.609098)
+theme_override_font_sizes/font_size = 18
 text = "KG"
 
 [node name="LabelNotConcluido" type="Label" parent="Player/Camera2D/CanvasLayer"]
@@ -1116,6 +1120,11 @@ sprite_frames = SubResource("SpriteFrames_yix6e")
 animation = &"fechando"
 frame = 2
 frame_progress = 1.0
+
+[node name="EquilibreABalança" type="Sprite2D" parent="."]
+position = Vector2(49.6875, -2.6875)
+scale = Vector2(0.286875, 0.286875)
+texture = ExtResource("23_qyy8a")
 
 [connection signal="body_entered" from="Porta/Area2D" to="." method="_on_porta_body_entered"]
 [connection signal="body_exited" from="Porta/Area2D" to="." method="_on_area_2d_body_exited"]
