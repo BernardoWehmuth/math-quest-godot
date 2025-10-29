@@ -32,7 +32,7 @@ func _ready():
 
 # Função principal para criar as equações e respostas
 func gerar_equacoes():
-	feedback_label.text = "Arraste o valor de x para a equação..."
+	feedback_label.text = "           Arraste o valor de x para a equação..."
 	
 	# Mostra o botão de verificar, esconde o de próximo nível
 	proximo_nivel_btn.hide()
@@ -192,7 +192,7 @@ func _on_verificar_pressed():
 			todas_estao_corretas = false 
 	
 	if todas_estao_corretas:
-		feedback_label.text = "         Parabéns! Todas corretas!"
+		feedback_label.text = "                     Parabéns! Todas corretas!"
 		proximo_nivel_btn.show() 
 		botao_verificar.hide() 
 		label_verificar.hide()

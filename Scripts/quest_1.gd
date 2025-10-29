@@ -9,7 +9,6 @@ var botoes: Array[TouchScreenButton] = [] # Array para segurar todos os botões
 @onready var ui_canvas: CanvasLayer = $CanvasLayer
 # Referências dos nós (Ajuste os caminhos!)
 @onready var pergunta_label = ui_canvas.get_node("CenterContainer/Panel/OpcoesContainer/PerguntaLabel")
-@onready var feedback_label = ui_canvas.get_node("CenterContainer/Panel/OpcoesContainer/FeedbackLabel")
 @onready var opcoes_container = ui_canvas.get_node("CenterContainer/Panel/OpcoesContainer") 
 @onready var quest_scene = preload("res://Levels/fase1.tscn")
 var quest_type = Difficulty.dificuldade
@@ -41,7 +40,6 @@ func _ready():
 
 func gerar_pergunta():
 	# Define a visibilidade inicial
-	feedback_label.text = ""
 
 	# [CORREÇÃO AQUI]: Simula 'disabled = false' reativando o processamento de input
 	for botao in botoes:

@@ -74,7 +74,7 @@ offset_top = -12.0
 offset_right = 119.02
 offset_bottom = 37.0
 scale = Vector2(0.173091, 0.50471)
-text = "Aperte aqui para
+text = "  Aperte aqui para
   iniciar a Quest"
 
 [connection signal="pressed" from="TouchScreenButton" to="." method="_on_botao_iniciar_button_pressed"]

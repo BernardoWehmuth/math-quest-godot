@@ -28,7 +28,7 @@ func _on_start_quest_pressed():
 	game_manager.quest_ativa = true
 
 
-func _on_quest_concluida(sucesso: bool):
+func _on_quest_concluida(_Asucesso: bool):
 	# Mostra o botão de volta
 	get_parent().get_parent().get_parent()._ao_concluir_quest(true)
 	while true:

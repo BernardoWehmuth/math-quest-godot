@@ -869,13 +869,14 @@ scale = Vector2(0.775783, 0.775783)
 texture = ExtResource("13_bvap2")
 
 [node name="LabelPortaProx" type="Label" parent="Player/Camera2D/CanvasLayer"]
-offset_left = 396.0
-offset_top = 48.0
-offset_right = 715.0
-offset_bottom = 105.0
+offset_left = 450.0
+offset_top = 60.0
+offset_right = 812.0
+offset_bottom = 156.0
 scale = Vector2(1.26881, 1.26881)
-text = "    Voce só deve vir aqui
-   quando concluir todas 
+theme_override_font_sizes/font_size = 21
+text = "       Voce só deve vir aqui
+     quando concluir todas 
 as quatro portas de desafio"
 
 [node name="Label" type="Label" parent="."]
