@@ -90,10 +90,10 @@ script = ExtResource("2_nx3ka")
 
 [node name="LabelResposta" type="Label" parent="ContainerEquacoes/Equacao2/Termo1_Slot"]
 layout_mode = 0
-offset_left = 6.4296
-offset_top = 0.0836774
-offset_right = 46.4296
-offset_bottom = 23.0837
+offset_left = 3.54638
+offset_top = -1.18043
+offset_right = 43.5464
+offset_bottom = 20.8196
 
 [node name="Op" type="Label" parent="ContainerEquacoes/Equacao2"]
 layout_mode = 2
@@ -134,10 +134,10 @@ script = ExtResource("2_nx3ka")
 
 [node name="LabelResposta" type="Label" parent="ContainerEquacoes/Equacao3/Termo1_Slot"]
 layout_mode = 0
-offset_left = 2.89695
-offset_top = -1.0102
-offset_right = 42.897
-offset_bottom = 21.9898
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 41.0
+offset_bottom = 21.0
 
 [node name="Op" type="Label" parent="ContainerEquacoes/Equacao3"]
 layout_mode = 2
@@ -217,7 +217,7 @@ offset_bottom = 37.0
 scale = Vector2(1.08089, 1.08089)
 
 [node name="BotaoVerificar" type="TouchScreenButton" parent="."]
-position = Vector2(596, 325)
+position = Vector2(577, 326)
 scale = Vector2(7.47206, 2.33103)
 shape = SubResource("RectangleShape2D_nx3ka")
 
@@ -343,11 +343,11 @@ shape = SubResource("RectangleShape2D_l0pfe")
 
 [node name="LabelVerificar" type="Label" parent="."]
 layout_mode = 0
-offset_left = 518.0
-offset_top = 298.0
-offset_right = 672.0
-offset_bottom = 347.0
+offset_left = 498.0
+offset_top = 299.0
+offset_right = 652.0
+offset_bottom = 348.0
 text = "   Aperte aqui para
  verificar a resposta"
 
-[connection signal="pressed" from="BotaoVerificar" to="." method="_on_verificar_pressed"]
+[connection signal="pressed" from="BotaoVerificar" to="." method="_on_botao_verificar_pressed"]

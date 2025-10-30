@@ -48,6 +48,7 @@ func _physics_process(delta: float) -> void:
 	
 	# BLOQUEIO DE INPUT
 	if input_bloqueado:
+		animated_sprite.play("idle")
 		velocity = Vector2.ZERO
 		move_and_slide()
 		update_animation()
@@ -124,6 +125,7 @@ func land():
 
 func bloquear_input():
 	input_bloqueado = true
+	
 
 func liberar_input():
 	input_bloqueado = false

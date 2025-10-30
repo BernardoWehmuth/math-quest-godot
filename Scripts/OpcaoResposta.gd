@@ -1,11 +1,14 @@
 # OpcaoResposta.gd
+class_name OpcaoResposta
 extends Panel
 
 var is_empty = false
 
-# --- 1. Lógica de ser Arrastado (Quando está "Cheio") ---
+# NOVO: Conecta o sinal de mouse_exited no _ready
+func _ready():
+	self.mouse_exited.connect(_on_mouse_exited)
 
-func _get_drag_data(at_position):
+func _get_drag_data(_at_position):
 	if is_empty:
 		return null
 
@@ -13,7 +16,7 @@ func _get_drag_data(at_position):
 	var data = {
 		"tipo": "resposta",
 		"valor": int(valor_texto),
-		"source_node": self  # Envia a si mesmo como origem
+		"source_node": self
 	}
 
 	var preview = Label.new()
@@ -21,36 +24,45 @@ func _get_drag_data(at_position):
 	preview.modulate = Color(1, 1, 1, 0.7)
 	set_drag_preview(preview)
 	
-	# NÃO CHAMA set_empty() AQUI!
 	return data
 
-# --- 2. Lógica de ser um Alvo (Quando está "Vazio") ---
+# --- LÓGICA DO BRILHO (INÍCIO) ---
+func _can_drop_data(_at_position, data):
+	var is_valid = is_empty and data.has("tipo") and data["tipo"] == "resposta"
+	
+	if is_valid:
+		# Brilha (Glow ON)
+		self.modulate = Color.YELLOW
+	
+	return is_valid
 
-func _can_drop_data(at_position, data):
-	return is_empty and data.has("tipo") and data["tipo"] == "resposta"
+# NOVO: Função para parar o brilho quando o mouse sai
+func _on_mouse_exited():
+	# Só reseta a cor se estiver brilhando (amarelo)
+	if self.modulate == Color.YELLOW:
+		# Volta para a cor de "vazio"
+		self.modulate = Color(0.5, 0.5, 0.5, 0.7)
 
-func _drop_data(at_position, data):
-	# Pega o nó de origem (que é um SlotResposta)
+# --- LÓGICA DO BRILHO (FIM) ---
+	
+func _drop_data(_at_position, data):
 	var source_slot = data["source_node"]
 	
-	# MANDA O SLOT DE ORIGEM SE ESVAZIAR
 	if source_slot:
-		source_slot.set_empty() # <-- Esta é a nova função que vamos criar no SlotResposta
+		source_slot.set_empty()
 	
-	# Agora, preenche a si mesmo
+	# Chama reset_option, que já define a cor para Color.WHITE
 	self.reset_option(data["valor"])
 
 
-# --- 3. Funções de Controle ---
-
-# Chamado por um SlotResposta quando ele pega este número
 func set_empty():
 	is_empty = true
 	$LabelValor.text = ""
+	# Define a cor de "vazio"
 	modulate = Color(0.5, 0.5, 0.5, 0.7)
 
-# Chamado pelo LevelEquacoes ou por ele mesmo no _drop_data
 func reset_option(novo_valor):
 	is_empty = false
 	$LabelValor.text = str(novo_valor)
+	# Define a cor de "cheio" (Glow OFF)
 	modulate = Color.WHITE

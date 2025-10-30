@@ -1,43 +1,53 @@
 # SlotResposta.gd
-class_name OpcaoResposta
 extends Panel
 
 signal answer_dropped(slot_node)
 var source_option_panel = null
-var is_empty = false
 
-# --- 1. Lógica de ser um Alvo (Receber um Drop) ---
+# NOVO: Conecta o sinal de mouse_exited no _ready
+func _ready():
+	self.mouse_exited.connect(_on_mouse_exited)
 
-func _can_drop_data(at_position, data):
+# --- LÓGICA DO BRILHO (INÍCIO) ---
+func _can_drop_data(_at_position, data):
 	var esta_vazio = ($LabelResposta.text == "x")
-	return data.has("tipo") and data["tipo"] == "resposta" and esta_vazio
+	var is_valid = data.has("tipo") and data["tipo"] == "resposta" and esta_vazio
+	
+	if is_valid:
+		# Brilha (Glow ON)
+		self.modulate = Color.YELLOW
+		
+	return is_valid
 
-func _drop_data(at_position, data):
-	# Pega o nó de origem (pode ser um OpcaoResposta ou outro SlotResposta)
+# NOVO: Função para parar o brilho quando o mouse sai
+func _on_mouse_exited():
+	# Só reseta a cor se estiver brilhando (amarelo)
+	# (Não mexe se estiver VERDE ou VERMELHO)
+	if self.modulate == Color.YELLOW:
+		self.modulate = Color.WHITE
+
+# --- LÓGICA DO BRILHO (FIM) ---
+
+func _drop_data(_at_position, data):
+	# Para o brilho (Glow OFF)
+	self.modulate = Color.WHITE
+
+	# --- O resto da função é igual ---
 	var source_node = data["source_node"]
 
-	# MANDA A ORIGEM SE ESVAZIAR
 	if source_node:
 		source_node.set_empty()
 	
-	# Armazena de onde este número veio (o "berço")
-	# Se a origem for um OpcaoResposta, ele é o berço.
 	if source_node is OpcaoResposta:
 		source_option_panel = source_node
-	# Se a origem for outro SlotResposta, pegamos o berço *dele*
 	elif data.has("original_source"):
 		source_option_panel = data["original_source"]
 
-	# Coloca o valor aqui
 	$LabelResposta.text = str(data["valor"])
 	
-	# Emite o sinal para o LevelEquacoes (para limpar a cor vermelha/verde)
 	answer_dropped.emit(self)
 
-
-# --- 2. Lógica de ser Arrastado (Quando está "Cheio") ---
-
-func _get_drag_data(at_position):
+func _get_drag_data(_at_position):
 	if $LabelResposta.text == "x":
 		return null
 	
@@ -45,8 +55,8 @@ func _get_drag_data(at_position):
 	var data = {
 		"tipo": "resposta",
 		"valor": int(valor_texto),
-		"source_node": self, # Envia a si mesmo como origem
-		"original_source": source_option_panel # Envia o "berço"
+		"source_node": self,
+		"original_source": source_option_panel
 	}
 
 	var preview = Label.new()
@@ -54,17 +64,12 @@ func _get_drag_data(at_position):
 	preview.modulate = Color(1, 1, 1, 0.7)
 	set_drag_preview(preview)
 	
-	# --- NÃO ESVAZIA MAIS O SLOT AQUI! ---
-	
 	return data
 
-# --- 3. Função de Controle (NOVA) ---
-
-# Chamado por um OpcaoResposta ou outro SlotResposta quando pegam este número
 func set_empty():
 	$LabelResposta.text = "x"
+	# Garante que a cor seja resetada para branca (Glow OFF)
 	modulate = Color.WHITE
-	source_option_panel = null # Esquece o berço
+	source_option_panel = null
 	
-	# Emite o sinal para o LevelEquacoes saber que este slot foi limpo
 	answer_dropped.emit(self)
