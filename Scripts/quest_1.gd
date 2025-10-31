@@ -70,7 +70,7 @@ func gerar_pergunta():
 			operator_symbol = "-"
 			resposta_correta = num1 - num2 - num3 - num4
 		2: # Multiplicação
-			num1 = randi_range(1, 4)
+			num1 = randi_range(2, 4)
 			num2 = randi_range(2, 4)
 			num3 = randi_range(3, 5)
 			num4 = randi_range(2, 5)
@@ -82,7 +82,7 @@ func gerar_pergunta():
 			num1 = quotient * num2
 			print(quotient)
 			num3 = randi_range(5, 9)
-			num4 = randi_range(5,9)
+			num4 = randi_range(2,5)
 			quotient += num3
 			quotient -= num4
 			operator_symbol = "/"

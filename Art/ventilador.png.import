@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmx5gf4ne17q5"
-path="res://.godot/imported/Interface egípcia no deserto ao entardecer.png-e598f42891dd753bad8bb79af011c1bc.ctex"
+uid="uid://cd3apguip7sq5"
+path="res://.godot/imported/ventilador.png-b7e8fe96b5c8894443d825053ff63fd4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Interface egípcia no deserto ao entardecer.png"
-dest_files=["res://.godot/imported/Interface egípcia no deserto ao entardecer.png-e598f42891dd753bad8bb79af011c1bc.ctex"]
+source_file="res://Art/ventilador.png"
+dest_files=["res://.godot/imported/ventilador.png-b7e8fe96b5c8894443d825053ff63fd4.ctex"]
 
 [params]
 

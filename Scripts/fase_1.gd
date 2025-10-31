@@ -94,6 +94,7 @@ func porta_saida(body: Node2D) -> void:
 		porta_prox_fase.play("aberta")
 		await get_tree().create_timer(1.5).timeout
 		get_tree().change_scene_to_file("res://Levels/fase2.tscn")
+		Difficulty.dificuldade = 0
 	else:
 		label_prox_fase.show()
 		await get_tree().create_timer(3.5).timeout

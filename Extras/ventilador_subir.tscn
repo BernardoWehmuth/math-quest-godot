@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://coo2sooqj7hyu"]
+
+[ext_resource type="Texture2D" uid="uid://cd3apguip7sq5" path="res://Art/ventilador.png" id="1_6uf0g"]
+
+[node name="VentiladorSubir" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6uf0g")
+region_enabled = true
+region_rect = Rect2(496, 560, 16, 16)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]

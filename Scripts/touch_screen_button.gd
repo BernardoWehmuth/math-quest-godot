@@ -13,6 +13,7 @@ const TITLE_SCREEN_PATH = "res://Levels/titlescreen.tscn"
 
 
 func _ready():
+
 	# --- 1. CONFIGURAÇÃO INICIAL ---
 	
 	# Esconde todos os elementos do menu de pausa no início do jogo.
@@ -46,6 +47,7 @@ func set_pause_state(should_pause: bool):
 		sprite_sair_continuar.show()
 		continuar_button.show()
 		sair_button.show()
+		
 		
 		# Desativa o clique no próprio botão Engrenagem, 
 		# para que o menu não feche se for clicado acidentalmente novamente.

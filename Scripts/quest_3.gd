@@ -8,8 +8,6 @@ extends Control
 @onready var botao_verificar = $BotaoVerificar
 @onready var label_verificar = $LabelVerificar
 
-signal concluido
-
 func _ready():
 	proximo_nivel_btn.pressed.connect(gerar_equacoes)
 	botao_verificar.hide()
@@ -151,7 +149,7 @@ func _on_verificar_pressed():
 		proximo_nivel_btn.show()
 		botao_verificar.hide()
 		label_verificar.hide()
-		emit_signal("concluido")
+		SignalConcluido.emit_signal("concluido")
 	else:
 		feedback_label.text = "Ops! Alguma resposta está errada. Tente de novo."
 		await get_tree().create_timer(1.5).timeout
