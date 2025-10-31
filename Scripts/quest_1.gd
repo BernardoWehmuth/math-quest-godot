@@ -4,6 +4,8 @@ extends Control
 # Variáveis para a pergunta
 var num1: int
 var num2: int
+var num3: int
+var num4: int
 var resposta_correta: int
 var botoes: Array[TouchScreenButton] = [] # Array para segurar todos os botões
 @onready var ui_canvas: CanvasLayer = $CanvasLayer
@@ -50,37 +52,46 @@ func gerar_pergunta():
 		
 	match quest_type: 
 		0: # Adição
-			num1 = randi_range(5, 20)
-			num2 = randi_range(2, 10)
+			num1 = randi_range(11, 19)
+			num2 = randi_range(2, 9)
+			num3 = randi_range(2, 9)
+			num4 = randi_range(5, 19)
 			operator_symbol = "+"
-			resposta_correta = num1 + num2
+			resposta_correta = num1 + num2 + num3 + num4
 		1: # Subtração
-			var a = randi_range(10, 30)
-			var b = randi_range(5, 15)
-			num1 = max(a, b)
-			num2 = min(a, b)
+			var a = randi_range(41, 49)
+			var b = randi_range(15, 19)
+			var c = randi_range(3, 9)
+			var d = randi_range(3, 9)
+			num1 = a
+			num2 = b
+			num3 = c
+			num4 = d
 			operator_symbol = "-"
-			resposta_correta = num1 - num2
+			resposta_correta = num1 - num2 - num3 - num4
 		2: # Multiplicação
-			num1 = randi_range(2, 8)
-			num2 = randi_range(2, 8)
+			num1 = randi_range(1, 4)
+			num2 = randi_range(2, 4)
+			num3 = randi_range(3, 5)
+			num4 = randi_range(2, 5)
 			operator_symbol = "x"
-			resposta_correta = num1 * num2
+			resposta_correta = num1 * num2 * num3 * num4
 		3: # Divisão (Garante divisão exata)
-			var quotient: int = randi_range(2, 5)
-			num2 = randi_range(2, 5)
+			var quotient: int = randi_range(5, 9)
+			num2 = randi_range(5, 9)
 			num1 = quotient * num2
+			print(quotient)
+			num3 = randi_range(5, 9)
+			num4 = randi_range(5,9)
+			quotient += num3
+			quotient -= num4
 			operator_symbol = "/"
 			resposta_correta = quotient
-	if num1 == 10 && num2 != 10 || num1 == 20 && num2 != 10 || num1 == 30 && num2 != 10:
-		pergunta_label.text = "Quanto é %d  %s %d?" % [num1, operator_symbol, num2]
-	elif num1 == 10 || num1 == 20 || num1 == 30 && num2 == 10:
-		pergunta_label.text = "Quanto é %d  %s %d ?" % [num1, operator_symbol, num2]
-	elif num2 == 10:
-		pergunta_label.text = "Quanto é %d %s %d  ?" % [num1, operator_symbol, num2]
-	# 2. Gera Distratores (Respostas Incorretas)
+	
+	if operator_symbol == "/":
+		pergunta_label.text = "Quanto é %d %s %d + %d - %d?" % [num1, operator_symbol, num2, num3, num4]	
 	else:
-		pergunta_label.text = "Quanto é %d %s %d?" % [num1, operator_symbol, num2]
+		pergunta_label.text = "Quanto é %d %s %d %s %d %s %d?" % [num1, operator_symbol, num2, operator_symbol, num3, operator_symbol, num4]
 	var opcoes_de_resposta = [resposta_correta]
 
 	# Gera 3 respostas incorretas que não sejam a correta

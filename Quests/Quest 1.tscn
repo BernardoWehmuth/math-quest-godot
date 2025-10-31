@@ -38,7 +38,7 @@ layout_mode = 2
 text_direction = 1
 
 [node name="Botao1" type="TouchScreenButton" parent="CanvasLayer/CenterContainer/Panel/OpcoesContainer"]
-position = Vector2(24.919, 66.886)
+position = Vector2(41.6405, 70.4364)
 scale = Vector2(-1.09905, -1.09905)
 shape = SubResource("RectangleShape2D_i1xqk")
 
@@ -58,7 +58,7 @@ scale = Vector2(1, 0.884728)
 metadata/_edit_use_anchors_ = true
 
 [node name="Botao2" type="TouchScreenButton" parent="CanvasLayer/CenterContainer/Panel/OpcoesContainer"]
-position = Vector2(97.8248, 66.886)
+position = Vector2(114.546, 70.4364)
 scale = Vector2(-1.09905, -1.09905)
 shape = SubResource("RectangleShape2D_yt1oq")
 
@@ -77,7 +77,7 @@ scale = Vector2(0.9867, 0.901678)
 metadata/_edit_use_anchors_ = true
 
 [node name="Botao3" type="TouchScreenButton" parent="CanvasLayer/CenterContainer/Panel/OpcoesContainer"]
-position = Vector2(25.5878, 107.361)
+position = Vector2(42.3093, 110.911)
 scale = Vector2(-1.09905, -1.09905)
 shape = SubResource("RectangleShape2D_eiw5v")
 
@@ -91,7 +91,7 @@ scale = Vector2(1.00929, 0.865547)
 metadata/_edit_use_anchors_ = true
 
 [node name="Botao4" type="TouchScreenButton" parent="CanvasLayer/CenterContainer/Panel/OpcoesContainer"]
-position = Vector2(97.8248, 105.941)
+position = Vector2(114.546, 109.491)
 scale = Vector2(-1.09905, -1.09905)
 shape = SubResource("RectangleShape2D_i3ion")
 
