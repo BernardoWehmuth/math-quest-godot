@@ -1,22 +1,12 @@
 extends CharacterBody2D
 
-# ==============================================================================
+# ======================================================================
 # PROPRIEDADES EXPORTADAS E VARIÁVEIS GERAIS
-# ==============================================================================
+# ======================================================================
 
 @export var speed : float = 100.0
 @export var jump_velocity : float = -150.0
-@export var double_jump_velocity : float = -170
-
-# Removido: deadly_tile_offset_y (Não é mais necessário)
-
-# ==============================================================================
-# VARIÁVEIS DE REFERÊNCIA E CONSTANTES
-# ==============================================================================
-
-@onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
-# Removido: @onready var tilemap (Não é mais necessário)
-# Removido: const DEADLY_PROPERTY_NAME, const TILEMAP_LAYER (Não são mais necessários)
+@export var double_jump_velocity : float = -170.0
 
 var has_double_jumped : bool = false
 var animation_locked : bool = false
@@ -29,24 +19,25 @@ var idle_scale: Vector2 = Vector2(0.025, 0.025)
 var run_scale: Vector2 = Vector2(0.035, 0.035)
 var jump_scale: Vector2 = Vector2(0.045, 0.045)
 
+# ======================================================================
+# REFERÊNCIAS
+# ======================================================================
+@onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 
-# ==============================================================================
-# FUNÇÕES DO GODOT
-# ==============================================================================
+# ======================================================================
+# FUNÇÕES PRINCIPAIS
+# ======================================================================
 
 func _ready() -> void:
 	animated_sprite.scale = idle_scale
-	
-	# É CRÍTICO: SEU NÓ PLAYER DEVE ESTAR NO GRUPO "player"!
-	# Selecione o nó Player, vá em 'Nó' -> 'Grupos' e adicione "player".
-	
+	# Garante que este nó está no grupo correto
+	if not is_in_group("player"):
+		add_to_group("player")
+
 func _physics_process(delta: float) -> void:
-	# Removido: Toda a lógica de is_standing_on_deadly_tile()
-	
 	if get_tree().paused:
 		return
-	
-	# BLOQUEIO DE INPUT
+
 	if input_bloqueado:
 		animated_sprite.play("idle")
 		velocity = Vector2.ZERO
@@ -54,19 +45,15 @@ func _physics_process(delta: float) -> void:
 		update_animation()
 		return
 
-	# >>> CORREÇÃO DA GRAVIDADE <<<
-	var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") 
-	
 	# Gravidade
+	var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 	if not is_on_floor():
 		velocity.y += gravity * delta
 		was_in_air = true
 	else:
 		has_double_jumped = false
-		
-		if was_in_air == true:
+		if was_in_air:
 			land()
-			
 		was_in_air = false
 
 	# Pulo
@@ -83,17 +70,25 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction.x * speed
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
-		
+
+	# ==================================================================
+	# FORÇA DO VENTO (ventiladores)
+	# ==================================================================
+	if is_in_group("sendo_empurrado_por_vento"):
+		var forca_vento = get_meta("forca_vento")
+		var direcao_vento = get_meta("direcao_vento")
+		if forca_vento != null and direcao_vento != null:
+			velocity += direcao_vento * (forca_vento * delta)
+			animated_sprite.play("jump")
+
+	# ==================================================================
 	move_and_slide()
-	
 	update_animation()
 	update_facing_direction()
 
-# Removido: is_standing_on_deadly_tile() e handle_death()
-
-# ==============================================================================
-# OUTRAS FUNÇÕES (Mantidas do seu original)
-# ==============================================================================
+# ======================================================================
+# ANIMAÇÕES E DIREÇÃO
+# ======================================================================
 
 func update_animation():
 	if not animation_locked:
@@ -104,13 +99,15 @@ func update_animation():
 			animated_sprite.play("idle")
 			animated_sprite.scale = idle_scale
 
-
 func update_facing_direction():
 	if direction.x > 0:
 		animated_sprite.flip_h = false
 	elif direction.x < 0:
 		animated_sprite.flip_h = true
 
+# ======================================================================
+# AÇÕES DE PULO E QUEDA
+# ======================================================================
 
 func jump():
 	velocity.y = jump_velocity
@@ -118,14 +115,16 @@ func jump():
 	animated_sprite.scale = jump_scale
 	animation_locked = true
 
-
 func land():
 	animation_locked = false
 	animated_sprite.scale = idle_scale
 
+# ======================================================================
+# BLOQUEIO DE INPUT
+# ======================================================================
+
 func bloquear_input():
 	input_bloqueado = true
-	
 
 func liberar_input():
 	input_bloqueado = false

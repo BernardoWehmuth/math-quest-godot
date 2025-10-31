@@ -1,16 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://coo2sooqj7hyu"]
+[gd_scene load_steps=4 format=3 uid="uid://coo2sooqj7hyu"]
 
 [ext_resource type="Texture2D" uid="uid://cd3apguip7sq5" path="res://Art/ventilador.png" id="1_6uf0g"]
+[ext_resource type="Script" uid="uid://bp7ccwp5k2etx" path="res://Extras/ventilador_subir.gd" id="1_kwnnw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mih7"]
+size = Vector2(643, 4092)
 
 [node name="VentiladorSubir" type="Node2D"]
+script = ExtResource("1_kwnnw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-126, -10)
+rotation = -1.57612
 texture = ExtResource("1_6uf0g")
 region_enabled = true
-region_rect = Rect2(496, 560, 16, 16)
+region_rect = Rect2(447, 178, 440, 671)
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-109.5, -2036)
+shape = SubResource("RectangleShape2D_5mih7")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
