@@ -8,7 +8,7 @@ signal equilibrada
 const MAX_CAIXAS_NA_BALANCA = 6
 
 @onready var sprite_verde = $Sprite_verde
-@onready var label_conlcuido = $LabelConcluido
+@onready var label_concluido = $Player/Camera2D/CanvasLayer/LabelConcluido
 @onready var porta_entrada = $PortaEntrada
 
 # --- Pesos Constantes ---
@@ -19,22 +19,23 @@ const PESO_CAIXA_PESADA = 1.0 / 2.0
 var x_antigo: float
 var y_antigo: float
 # --- Escala Constante ---
-const ESCALA_CAIXA = Vector2(0.156, 0.156)
+const ESCALA_CAIXA = Vector2(0.096, 0.105)
+const ESCALA_NORMAL = Vector2(0.165, 0.165)
 
 # -----------------------------------------------------------------
 # --- Posições Visuais das Caixas na Balança (Suas Posições) ---
 # -----------------------------------------------------------------
 var posicoes_esquerda_pesado = [
-	Vector2(130, 42), Vector2(156, 42), Vector2(130, 14),
-	Vector2(156, 14), Vector2(130, -14), Vector2(156, -14)
+	Vector2(121.259, 66.59), Vector2(107.26, 65.59), Vector2(135.259, 66.589),
+	Vector2(114.259, 52.59), Vector2(128.258, 52.59), Vector2(121.0, 39.0)
 ]
 var posicoes_equilibrado = [
-	Vector2(130, 30), Vector2(156, 30), Vector2(130, 2),
-	Vector2(156, 2), Vector2(130, -26), Vector2(156, -26)
+	Vector2(108.259, 47.179), Vector2(94.26, 46.18), Vector2(122.259, 47.179),
+ 	Vector2(101.259, 33.179), Vector2(115.258, 33.179), Vector2(108.0, 19.59)
 ]
 var posicoes_direita_pesado = [
-	Vector2(130, 9), Vector2(156,9), Vector2(130, -18),
-	Vector2(156,-18), Vector2(130, -45), Vector2(156,-45)
+	Vector2(111.259, 25.179), Vector2(97.26, 24.18), Vector2(125.259, 25.179),
+	Vector2(104.259, 11.179), Vector2(118.258, 11.179), Vector2(111.0, -2.41)
 ]
 
 # --- Referências de Nós ---
@@ -66,11 +67,13 @@ var ultima_caixa: Area2D
 # ------------------------------------------------
 
 func _ready():
+	print("Position:", $no_caixa_leve1.position)
+	print("Global position:", $no_caixa_leve1.global_position)
 	_verificar_equilibrio()
 	porta_entrada.play("fechando")
 	_conectar_caixas()
 	sprite_porta.play("fechada")
-	label_conlcuido.hide()
+	label_concluido.hide()
 	sprite_verde.hide()
 	# --- MUDANÇA AQUI ---
 	# Conecta o sinal 'pressed' do novo botão diretamente
@@ -106,7 +109,7 @@ func _conectar_caixas():
 			continue
 			
 		# Garante que a escala inicial esteja correta
-		sprite.scale = ESCALA_CAIXA
+		sprite.scale = ESCALA_NORMAL
 			
 		botao.pressed.connect(_on_caixa_botao_pressed.bind(caixa))
 
@@ -166,7 +169,7 @@ func _remover_ultima_caixa():
 	var tween = create_tween().set_parallel(true)
 	tween.tween_property(sprite, "position", posicao_antiga_ultima_caixa, 0.4)\
 		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
-	tween.tween_property(sprite, "scale", ESCALA_CAIXA, 0.4)
+	tween.tween_property(sprite, "scale", ESCALA_NORMAL, 0.4)
 
 	print("Caixa removida | Peso atual:", peso_atual)
 	_verificar_equilibrio()
@@ -188,13 +191,13 @@ func _verificar_equilibrio():
 		
 	match novo_estado:
 		&"equilibrado":
-			pena_pos.position = Vector2(246, 30)
+			pena_pos.position = Vector2(197, 46)
 			balanca_sprite.play("equilibrado")
 			if not esta_equilibrada:
 				esta_equilibrada = true
 				print("Balança Equilibrada!")
 				emit_signal("equilibrada")
-			label_conlcuido.show()
+			label_concluido.show()
 			sprite_verde.show()
 			for caixa in caixas_leves:
 				if caixa not in pilha_de_caixas:
@@ -208,12 +211,12 @@ func _verificar_equilibrio():
 			botao_remover.queue_free()
 		
 		&"direita_pesado":
-			pena_pos.position = Vector2(246, 45)
+			pena_pos.position = Vector2(188, 67)
 			esta_equilibrada = false
 			balanca_sprite.play("direita_pesado")
 			
 		&"esquerda_pesado":
-			pena_pos.position = Vector2(246, 5)
+			pena_pos.position = Vector2(194, 25)
 			esta_equilibrada = false
 			balanca_sprite.play("esquerda_pesado")
 			

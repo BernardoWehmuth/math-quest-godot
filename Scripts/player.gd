@@ -8,6 +8,7 @@ extends CharacterBody2D
 @export var jump_velocity : float = -150.0
 @export var double_jump_velocity : float = -170.0
 
+var has_jumped = true
 var has_double_jumped : bool = false
 var animation_locked : bool = false
 var direction : Vector2 = Vector2.ZERO
@@ -51,18 +52,33 @@ func _physics_process(delta: float) -> void:
 		velocity.y += gravity * delta
 		was_in_air = true
 	else:
+		has_jumped = false
 		has_double_jumped = false
 		if was_in_air:
 			land()
 		was_in_air = false
 
 	# Pulo
+	# ==================================================================
+# PULO E DUPLO PULO (mesmo se cair sem pular)
+# ==================================================================
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
 			jump()
-		elif not has_double_jumped:
-			velocity.y = double_jump_velocity
-			has_double_jumped = true
+			has_jumped = true
+			has_double_jumped = false
+		else:
+			# Se ainda não pulou, permite o pulo "normal" mesmo caindo
+			if not has_jumped:
+				jump()
+				has_jumped = true
+			# Se já pulou, permite o duplo pulo
+			elif not has_double_jumped:
+				velocity.y = double_jump_velocity
+				has_double_jumped = true
+				animated_sprite.play("jump")
+				animated_sprite.scale = jump_scale
+
 
 	# Movimento horizontal
 	direction = Input.get_vector("left", "right", "up", "down")
@@ -113,6 +129,14 @@ func jump():
 	velocity.y = jump_velocity
 	animated_sprite.play("jump")
 	animated_sprite.scale = jump_scale
+	animation_locked = true
+	has_double_jumped = false
+	
+func double_jump():
+	velocity.y = double_jump_velocity
+	animated_sprite.scale = jump_scale
+	has_double_jumped = true
+	animated_sprite.play("jump")
 	animation_locked = true
 
 func land():

@@ -975,6 +975,17 @@ position = Vector2(193, 44)
 sprite_frames = SubResource("SpriteFrames_lltg1")
 animation = &"fechando"
 
+[connection signal="body_entered" from="TileMap/Area2D" to="TileMap/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@21967" to="TileMap/@Area2D@21967" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@21968" to="TileMap/@Area2D@21968" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@21969" to="TileMap/@Area2D@21969" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@21970" to="TileMap/@Area2D@21970" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@21971" to="TileMap/@Area2D@21971" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@21972" to="TileMap/@Area2D@21972" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@21973" to="TileMap/@Area2D@21973" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@21974" to="TileMap/@Area2D@21974" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@21975" to="TileMap/@Area2D@21975" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@21976" to="TileMap/@Area2D@21976" method="_on_body_entered"]
 [connection signal="pressed" from="Label/Label2/StartQuestButton" to="Label/Label2/StartQuestButton" method="_on_start_quest_pressed"]
 [connection signal="body_entered" from="SpritePorta/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="SpritePorta/Area2D" to="." method="_on_area_2d_body_exited"]
