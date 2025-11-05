@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bouy4j8la8fvd"]
+[gd_scene load_steps=22 format=3 uid="uid://bouy4j8la8fvd"]
 
 [ext_resource type="Script" uid="uid://cs143wc4cnduf" path="res://Levels/vila_scripts/vila.gd" id="1_buxm5"]
 [ext_resource type="Texture2D" uid="uid://bdq3p0lk83dx4" path="res://Art/externo.png" id="1_hafyx"]
@@ -8,8 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://butb4p2o6cv4x" path="res://Character/movimentacao.tscn" id="9_dg1rr"]
 [ext_resource type="Texture2D" uid="uid://c47ki016gpe13" path="res://Art/personagens.png" id="9_dmg1i"]
 [ext_resource type="Texture2D" uid="uid://dbepi2r440s1n" path="res://Art/label conversa.png" id="11_6aqfn"]
+[ext_resource type="Texture2D" uid="uid://dkcwkj1ogx5ex" path="res://Art/seta 1.png" id="11_54lrd"]
 [ext_resource type="Texture2D" uid="uid://ytw4kpdav0ma" path="res://Art/TextoInicio.png" id="12_54lrd"]
+[ext_resource type="Texture2D" uid="uid://d1tq126bnnxtr" path="res://Art/seta 2.png" id="12_edffo"]
 [ext_resource type="Texture2D" uid="uid://cwn2rep4grk0x" path="res://Art/seta_preta.png" id="13_edffo"]
+[ext_resource type="Texture2D" uid="uid://darnab1muq5pj" path="res://Art/seta 3.png" id="13_nqg8a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iaytf"]
 texture = ExtResource("1_hafyx")
@@ -266,6 +269,26 @@ height = 105.651
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nqg8a"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_4tyb6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_54lrd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_edffo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_nqg8a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_edffo")
+}],
+"loop": true,
+"name": &"seta",
+"speed": 5.0
+}]
+
 [node name="Vila" type="Node2D"]
 script = ExtResource("1_buxm5")
 
@@ -348,7 +371,7 @@ position = Vector2(0, 2)
 scale = Vector2(0.421569, 0.421569)
 texture = ExtResource("9_dmg1i")
 region_enabled = true
-region_rect = Rect2(273.529, 67.9807, 51.471, 131.905)
+region_rect = Rect2(276.825, 72.877, 44.5979, 116.993)
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="CharacterBody2D"]
 position = Vector2(0, 2)
@@ -356,6 +379,7 @@ scale = Vector2(0.913836, 1.49097)
 shape = SubResource("CapsuleShape2D_4jdsw")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("9_dg1rr")]
+visible = false
 
 [node name="label_design" type="Sprite2D" parent="."]
 position = Vector2(772, 79)
@@ -384,6 +408,12 @@ texture = ExtResource("9_dmg1i")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(17.2367, 140.638, 69.6674, 109.965)
+
+[node name="setaconversa" type="AnimatedSprite2D" parent="."]
+position = Vector2(772, 124)
+sprite_frames = SubResource("SpriteFrames_4tyb6")
+animation = &"seta"
+frame_progress = 0.361914
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="pressed" from="CharacterBody2D/TouchScreenButton" to="." method="_on_personagem_screen_button_pressed"]

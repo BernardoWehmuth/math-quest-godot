@@ -6,9 +6,11 @@ extends Node2D
 @onready var seta_sprite = $seta
 @onready var colisao_personagem = $CharacterBody2D/CollisionShape2D
 @onready var botao_personagem = $CharacterBody2D/TouchScreenButton
+@onready var seta_conversa = $setaconversa
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	seta_conversa.play("seta")
 	label_texto.hide()
 	label_design.hide()
 	seta_botao.hide()
@@ -30,6 +32,7 @@ func _on_seta_screen_button_pressed() -> void:
 
 
 func _on_personagem_screen_button_pressed() -> void:
+	seta_conversa.hide()
 	label_texto.show()
 	label_design.show()
 	seta_botao.show()
