@@ -864,6 +864,7 @@ drag_vertical_enabled = true
 [node name="CanvasLayer" type="CanvasLayer" parent="Player/Camera2D"]
 
 [node name="CanvasLayer" parent="Player/Camera2D/CanvasLayer" instance=ExtResource("11_j3i0l")]
+visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Player/Camera2D/CanvasLayer"]
 position = Vector2(106.38, 107.75)
@@ -910,19 +911,19 @@ essa porta quando conseguir
 
 [node name="LabelConcluido" type="Label" parent="Player/Camera2D/CanvasLayer"]
 visible = false
-offset_left = 551.0
-offset_top = 23.0
-offset_right = 1357.0
-offset_bottom = 340.0
+offset_left = 476.0
+offset_top = 27.0
+offset_right = 1282.0
+offset_bottom = 344.0
 scale = Vector2(0.145664, 0.176534)
-theme_override_colors/font_color = Color(0.314188, 0.985569, 0.0257026, 1)
 theme_override_font_sizes/font_size = 120
-text = "											     Concluído!
-Dirija-se à Porta"
+text = "											     concluido!
+Dirija-se a porta"
 
 [node name="Flecha" type="Sprite2D" parent="Player/Camera2D/CanvasLayer"]
 visible = false
-position = Vector2(716, 52)
+position = Vector2(761, 88)
+rotation = -0.0140969
 scale = Vector2(0.161111, 0.161111)
 texture = ExtResource("13_khsen")
 script = ExtResource("14_ouyvl")
@@ -936,11 +937,11 @@ z_index = -1
 position = Vector2(153, 27)
 scale = Vector2(0.243928, 0.243928)
 sprite_frames = SubResource("SpriteFrames_nw5sm")
-animation = &"direita_pesado"
+animation = &"equilibrado"
 
 [node name="pena" type="Sprite2D" parent="nó balanca"]
 z_index = -2
-position = Vector2(185, 67)
+position = Vector2(317, 35)
 rotation = -1.68705
 scale = Vector2(0.0757624, 0.0757624)
 texture = ExtResource("15_lx4wb")
@@ -1116,15 +1117,13 @@ scale = Vector2(1.60291, 0.865405)
 shape = SubResource("RectangleShape2D_hshfi")
 
 [node name="ExitDoor" type="Node2D" parent="."]
-position = Vector2(815, -187)
+position = Vector2(749, -196)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ExitDoor"]
-position = Vector2(-68, -9)
 sprite_frames = SubResource("SpriteFrames_yc36f")
 animation = &"fechada"
 
 [node name="Area2D" type="Area2D" parent="ExitDoor"]
-position = Vector2(-68, -9)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitDoor/Area2D"]
 position = Vector2(0.5, 0)

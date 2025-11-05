@@ -30,8 +30,8 @@ var posicoes_esquerda_pesado = [
 	Vector2(114.259, 52.59), Vector2(128.258, 52.59), Vector2(121.0, 39.0)
 ]
 var posicoes_equilibrado = [
-	Vector2(108.259, 47.179), Vector2(94.26, 46.18), Vector2(122.259, 47.179),
- 	Vector2(101.259, 33.179), Vector2(115.258, 33.179), Vector2(108.0, 19.59)
+	Vector2(108.259, 54.179), Vector2(94.26, 53.18), Vector2(122.259, 54.179),
+ 	Vector2(101.259, 40.179), Vector2(115.258, 40.179), Vector2(108.0, 26.59)
 ]
 var posicoes_direita_pesado = [
 	Vector2(111.259, 25.179), Vector2(97.26, 24.18), Vector2(125.259, 25.179),
@@ -47,12 +47,13 @@ var sprite_caixa: Sprite2D
 # Certifique-se que o nó "BotaoRemover" existe na sua cena!
 @onready var botao_remover = $BotaoRemover
 
-@onready var sprite_porta = $Porta/AnimatedSprite2D
+@onready var sprite_porta = $ExitDoor/AnimatedSprite2D
 
 var posicao_antiga_ultima_caixa: Vector2
 @onready var caixas_leves = [$no_caixa_leve1, $no_caixa_leve2, $no_caixa_leve3, $no_caixa_leve4, $no_caixa_leve5, $no_caixa_leve6]
 @onready var caixas_medias = [$no_caixa_meio1, $no_caixa_meio2, $no_caixa_meio3]
 @onready var caixas_pesadas = [$no_caixa_pesada1, $no_caixa_pesada2]
+@onready var flecha_saida = $Player/Camera2D/CanvasLayer/Flecha
 
 @onready var label_not_concluido = $Player/Camera2D/CanvasLayer/LabelNotConcluido
 
@@ -73,7 +74,6 @@ func _ready():
 	porta_entrada.play("fechando")
 	_conectar_caixas()
 	sprite_porta.play("fechada")
-	label_concluido.hide()
 	sprite_verde.hide()
 	# --- MUDANÇA AQUI ---
 	# Conecta o sinal 'pressed' do novo botão diretamente
@@ -191,7 +191,8 @@ func _verificar_equilibrio():
 		
 	match novo_estado:
 		&"equilibrado":
-			pena_pos.position = Vector2(197, 46)
+			pena_pos.position = Vector2(198, 53)
+			balanca_sprite.position = Vector2(153, 34)
 			balanca_sprite.play("equilibrado")
 			if not esta_equilibrada:
 				esta_equilibrada = true
@@ -199,6 +200,7 @@ func _verificar_equilibrio():
 				emit_signal("equilibrada")
 			label_concluido.show()
 			sprite_verde.show()
+			flecha_saida.show()
 			for caixa in caixas_leves:
 				if caixa not in pilha_de_caixas:
 					caixa.queue_free()
@@ -211,12 +213,12 @@ func _verificar_equilibrio():
 			botao_remover.queue_free()
 		
 		&"direita_pesado":
-			pena_pos.position = Vector2(188, 67)
+			pena_pos.position = Vector2(185, 67)
 			esta_equilibrada = false
 			balanca_sprite.play("direita_pesado")
 			
 		&"esquerda_pesado":
-			pena_pos.position = Vector2(194, 25)
+			pena_pos.position = Vector2(196, 25)
 			esta_equilibrada = false
 			balanca_sprite.play("esquerda_pesado")
 			

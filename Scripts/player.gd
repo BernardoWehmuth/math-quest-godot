@@ -45,7 +45,10 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		update_animation()
 		return
-
+	
+	
+	if not is_on_floor() and has_jumped == false:
+		animated_sprite.play("jump")	
 	# Gravidade
 	var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 	if not is_on_floor():
@@ -82,8 +85,14 @@ func _physics_process(delta: float) -> void:
 
 	# Movimento horizontal
 	direction = Input.get_vector("left", "right", "up", "down")
-	if direction:
+	if direction && not is_on_floor():
+		animated_sprite.play("jump")
 		velocity.x = direction.x * speed
+	elif direction:
+		velocity.x = direction.x * speed
+	elif !direction && not is_on_floor():
+		animated_sprite.play("jump")
+		velocity.x = move_toward(velocity.x, 0, speed)
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 
@@ -108,7 +117,10 @@ func _physics_process(delta: float) -> void:
 
 func update_animation():
 	if not animation_locked:
-		if direction.x != 0:
+		if direction.x != 0 && not is_on_floor():
+			animated_sprite.play("jump")
+			animated_sprite.scale = jump_scale
+		elif direction.x != 0:
 			animated_sprite.play("run")
 			animated_sprite.scale = run_scale
 		else:
