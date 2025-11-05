@@ -899,14 +899,14 @@ text = "KG"
 
 [node name="LabelNotConcluido" type="Label" parent="Player/Camera2D/CanvasLayer"]
 visible = false
-offset_left = 395.0
-offset_top = 48.0
-offset_right = 722.0
-offset_bottom = 105.0
+offset_left = 483.0
+offset_top = 43.0
+offset_right = 810.0
+offset_bottom = 115.0
 scale = Vector2(1.17598, 1.17598)
-text = "     Voce só deve acessar
+text = "      Voce só deve acessar
 essa porta quando conseguir
-     equilibrar a balanca"
+        equilibrar a balanca"
 
 [node name="LabelConcluido" type="Label" parent="Player/Camera2D/CanvasLayer"]
 visible = false
