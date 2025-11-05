@@ -244,7 +244,6 @@ func _on_verificar_pressed():
 # --- 6. Lógica de "Devolver" Opção ---
 # (A função _on_valor_liberado continua exatamente igual a antes)
 func _on_valor_liberado(valor: int):
-	print("Recebido sinal para liberar o valor: ", valor)
 	
 	for opcao in opcoes_container.get_children():
 		if opcao.get_meta("valor") == valor:

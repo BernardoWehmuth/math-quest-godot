@@ -31,11 +31,12 @@ func _on_gui_input(event: InputEvent):
 
 # Verifica se o que está sendo arrastado é válido
 func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
+	if data:
+		modulate = Color.YELLOW
 	return (data is Dictionary and data.has("valor"))
 
 # Ação a ser tomada quando os dados são soltos
 func _drop_data(_at_position: Vector2, data: Variant):
-	
 	# 1. Se o slot JÁ tinha um número (ex: "5")...
 	if valor_segurando != -1:
 		# ... e o número novo (ex: "4") é o mesmo, não faz nada.
@@ -79,3 +80,7 @@ func _esvaziar_e_liberar():
 func set_empty():
 	# Agora ele só chama a função interna
 	_esvaziar_e_liberar()
+
+
+func _on_mouse_exited() -> void:
+	modulate = Color.WHITE

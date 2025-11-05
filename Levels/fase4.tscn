@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bwpjdrhwxeeju"]
+[gd_scene load_steps=12 format=3 uid="uid://bwpjdrhwxeeju"]
 
 [ext_resource type="Script" uid="uid://pstk4u1mgqnq" path="res://Levels/fase4_scripts/fase_4.gd" id="1_0003o"]
 [ext_resource type="PackedScene" uid="uid://h00rq5t0i7yi" path="res://Tiles/tile_map.tscn" id="1_q3yhk"]
@@ -37,8 +37,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h68uw"]
-
 [node name="Fase3" type="Node2D"]
 script = ExtResource("1_0003o")
 
@@ -67,20 +65,6 @@ position = Vector2(41, 260)
 sprite_frames = SubResource("SpriteFrames_h68uw")
 animation = &"fechando"
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
-position = Vector2(-204, 2.00002)
-scale = Vector2(2.57433, 0.948462)
-shape = SubResource("RectangleShape2D_h68uw")
-
-[node name="Label" type="Label" parent="."]
-offset_left = -232.0
-offset_top = -9.0
-offset_right = -93.0
-offset_bottom = 40.0
-scale = Vector2(0.430929, 0.447671)
-text = "  Aperte aqui para
-    iniciar a Quest"
-
 [node name="moving_platformv1" parent="." instance=ExtResource("6_yalws")]
 position = Vector2(-124, 273)
 distance = 200
@@ -93,5 +77,3 @@ position = Vector2(227, 274)
 position = Vector2(855, 287)
 scale = Vector2(0.0512126, 0.0512126)
 forca_vento = 640.0
-
-[connection signal="pressed" from="TouchScreenButton" to="." method="_on_botao_iniciar_button_pressed"]

@@ -40,7 +40,6 @@ func _physics_process(delta: float) -> void:
 		return
 
 	if input_bloqueado:
-		animated_sprite.play("idle")
 		velocity = Vector2.ZERO
 		move_and_slide()
 		update_animation()
@@ -117,18 +116,22 @@ func _physics_process(delta: float) -> void:
 
 func update_animation():
 	if not animation_locked:
-		if direction.x != 0 && not is_on_floor():
-			animated_sprite.play("jump")
-			animated_sprite.scale = jump_scale
-		elif direction.x != 0:
-			animated_sprite.play("run")
-			animated_sprite.scale = run_scale
-		elif direction.x == 0 && not is_on_floor():
-			animated_sprite.play("jump")
-			animated_sprite.scale = jump_scale
-		else:
+		if input_bloqueado:
 			animated_sprite.play("idle")
 			animated_sprite.scale = idle_scale
+		else:
+			if direction.x != 0 && not is_on_floor():
+				animated_sprite.play("jump")
+				animated_sprite.scale = jump_scale
+			elif direction.x != 0:
+				animated_sprite.play("run")
+				animated_sprite.scale = run_scale
+			elif direction.x == 0 && not is_on_floor():
+				animated_sprite.play("jump")
+				animated_sprite.scale = jump_scale
+			else:
+				animated_sprite.play("idle")
+				animated_sprite.scale = idle_scale
 
 func update_facing_direction():
 	if direction.x > 0:

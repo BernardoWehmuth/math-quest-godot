@@ -68,8 +68,6 @@ var ultima_caixa: Area2D
 # ------------------------------------------------
 
 func _ready():
-	print("Position:", $no_caixa_leve1.position)
-	print("Global position:", $no_caixa_leve1.global_position)
 	_verificar_equilibrio()
 	porta_entrada.play("fechando")
 	_conectar_caixas()

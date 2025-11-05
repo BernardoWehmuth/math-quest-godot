@@ -59,6 +59,7 @@ func _on_signal_invited():
 
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
-	porta.play("abrindo")
-	await get_tree().create_timer(1.5).timeout 
-	get_tree().change_scene_to_file("res://Levels/fase4.tscn")
+	if _body.is_in_group("player"):
+		porta.play("abrindo")
+		await get_tree().create_timer(1.5).timeout 
+		get_tree().change_scene_to_file("res://Levels/fase4.tscn")

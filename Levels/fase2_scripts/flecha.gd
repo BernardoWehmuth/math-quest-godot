@@ -42,21 +42,6 @@ func _ready():
 		if es.size() > 0:
 			exit_door = es[0] as Node2D
 
-	# 5) Debug: imprime o que foi encontrado (ou não)
-	print("=== Arrow DEBUG ===")
-	print("player_path (inspector): ", player_path)
-	print("exit_path  (inspector): ", exit_path)
-	print("scene_root: ", scene_root)
-	print("player: ", player, "  -> ", player and player.get_path() or "null")
-	print("exit_door: ", exit_door, "  -> ", exit_door and exit_door.get_path() or "null")
-	print("====================")
-
-	# Se não encontrou, dá warning e deixa a flecha invisível
-	if not player:
-		push_warning("Arrow: player NÃO encontrado. Verifique nomes, paths ou adicione ao grupo 'player'.")
-	if not exit_door:
-		push_warning("Arrow: exit_door NÃO encontrado. Verifique nomes, paths ou adicione ao grupo 'exit'.")
-
 	# Opcional: inicialmente invisible (ativa quando quiser)
 	# visible = false
 
