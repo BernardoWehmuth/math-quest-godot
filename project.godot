@@ -21,7 +21,7 @@ Difficulty="*res://variaveis_globais/difficulty.gd"
 LastPosition="*res://variaveis_globais/last_position.gd"
 GettingBack="*res://variaveis_globais/getting_back.gd"
 ContadorEntrada="*res://variaveis_globais/contador_entrada.gd"
-SignalConcluido="*res://Scripts/SignalConcluido.gd"
+SignalConcluido="*res://variaveis_globais/SignalConcluido.gd"
 
 [display]
 

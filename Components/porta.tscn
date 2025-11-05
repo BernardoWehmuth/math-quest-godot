@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://bgqk78rb3x0o2"]
 
-[ext_resource type="Script" uid="uid://bec5qihfx4x7o" path="res://Scripts/porta.gd" id="1_31cbt"]
+[ext_resource type="Script" uid="uid://b01aidl6rgwdw" path="res://Components/components_scripts/porta.gd" id="1_1riek"]
 [ext_resource type="Texture2D" uid="uid://c8jl0p545x2m5" path="res://Art/11-Door/Idle.png" id="2_lb2do"]
 [ext_resource type="Texture2D" uid="uid://5ssrirktnppp" path="res://Art/11-Door/Closiong (46x56).png" id="3_1riek"]
 [ext_resource type="Texture2D" uid="uid://c7553d6fxhjjq" path="res://Art/11-Door/Opening (46x56).png" id="4_2lr5r"]
@@ -86,7 +86,7 @@ animations = [{
 size = Vector2(44, 52)
 
 [node name="Porta" type="Node2D"]
-script = ExtResource("1_31cbt")
+script = ExtResource("1_1riek")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_t6vj2")

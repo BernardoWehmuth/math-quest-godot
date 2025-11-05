@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://due6n7fkywf36"]
 
-[ext_resource type="Script" uid="uid://b5gsixugmbke8" path="res://Scripts/cena_inicial.gd" id="1_g2l8y"]
+[ext_resource type="Script" uid="uid://b5gsixugmbke8" path="res://Levels/cenainicial_scripts/cena_inicial.gd" id="1_g2l8y"]
 [ext_resource type="Texture2D" uid="uid://bk441buxc8hat" path="res://Art/preto transicao.png" id="2_7t5gh"]
 [ext_resource type="Texture2D" uid="uid://ddbmh5vkswpe0" path="res://Art/foto seca egito.png" id="3_8uneo"]
 [ext_resource type="Texture2D" uid="uid://mjqjse6hxno8" path="res://Art/foto ambiente bonito.png" id="4_rvrji"]

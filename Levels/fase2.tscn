@@ -1,6 +1,6 @@
 [gd_scene load_steps=51 format=3 uid="uid://7uxmd5uyngtl"]
 
-[ext_resource type="Script" uid="uid://badicnam32kyt" path="res://Scripts/fase_2.gd" id="1_b7h51"]
+[ext_resource type="Script" uid="uid://badicnam32kyt" path="res://Levels/fase2_scripts/fase_2.gd" id="1_b7h51"]
 [ext_resource type="Texture2D" uid="uid://dxtontjqdyxah" path="res://Art/PR_BackGround 16x16.png" id="2_hmxsj"]
 [ext_resource type="Texture2D" uid="uid://vuj5jx7ncmu3" path="res://Art/PR_Objects 16x16.png" id="3_hshfi"]
 [ext_resource type="Texture2D" uid="uid://d054r0qnad7rt" path="res://Art/PR_TileGround 16x16.png" id="4_eqsnm"]
@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://c1ldecinokab6" path="res://Art/caixas valores.png" id="12_uqu6f"]
 [ext_resource type="Texture2D" uid="uid://btowdd3xxtotk" path="res://Art/esquerdapesado.png" id="13_j3i0l"]
 [ext_resource type="Texture2D" uid="uid://b5kexe5mbvgkq" path="res://Art/seta.png" id="13_khsen"]
-[ext_resource type="Script" uid="uid://di7ugulvovl6g" path="res://Levels/flecha.gd" id="14_ouyvl"]
+[ext_resource type="Script" uid="uid://di7ugulvovl6g" path="res://Levels/fase2_scripts/flecha.gd" id="14_ouyvl"]
 [ext_resource type="Texture2D" uid="uid://dcdqukkhpj1u3" path="res://Art/pena.png" id="15_lx4wb"]
 [ext_resource type="Texture2D" uid="uid://cdch0yf2nbdak" path="res://Art/caixas.png" id="17_nw5sm"]
 [ext_resource type="Texture2D" uid="uid://dn13lvht2pqcu" path="res://Art/Botão antigo para remover caixa.png" id="18_nw5sm"]

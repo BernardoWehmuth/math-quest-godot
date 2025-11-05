@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://bouy4j8la8fvd"]
 
-[ext_resource type="Script" uid="uid://cs143wc4cnduf" path="res://Scripts/vila.gd" id="1_buxm5"]
+[ext_resource type="Script" uid="uid://cs143wc4cnduf" path="res://Levels/vila_scripts/vila.gd" id="1_buxm5"]
 [ext_resource type="Texture2D" uid="uid://bdq3p0lk83dx4" path="res://Art/externo.png" id="1_hafyx"]
 [ext_resource type="PackedScene" uid="uid://boyloxbbh7x7m" path="res://Character/player.tscn" id="2_iaytf"]
 [ext_resource type="Texture2D" uid="uid://wngdk0rk7yrf" path="res://Art/r8IjbS.png" id="2_sjwhy"]

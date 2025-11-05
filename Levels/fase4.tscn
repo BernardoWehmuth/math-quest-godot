@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://bwpjdrhwxeeju"]
 
-[ext_resource type="Script" uid="uid://pstk4u1mgqnq" path="res://Levels/fase_4.gd" id="1_0003o"]
+[ext_resource type="Script" uid="uid://pstk4u1mgqnq" path="res://Levels/fase4_scripts/fase_4.gd" id="1_0003o"]
 [ext_resource type="PackedScene" uid="uid://h00rq5t0i7yi" path="res://Tiles/tile_map.tscn" id="1_q3yhk"]
 [ext_resource type="PackedScene" uid="uid://boyloxbbh7x7m" path="res://Character/player.tscn" id="2_8r12f"]
 [ext_resource type="PackedScene" uid="uid://butb4p2o6cv4x" path="res://Character/movimentacao.tscn" id="3_swcro"]

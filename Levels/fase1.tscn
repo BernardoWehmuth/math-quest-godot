@@ -1,7 +1,7 @@
 [gd_scene load_steps=46 format=3 uid="uid://3yguqxhxrf2o"]
 
 [ext_resource type="Texture2D" uid="uid://dxtontjqdyxah" path="res://Art/PR_BackGround 16x16.png" id="1_dd3ly"]
-[ext_resource type="Script" uid="uid://b3nc6suuwwamq" path="res://Scripts/fase_1.gd" id="1_lgkhq"]
+[ext_resource type="Script" uid="uid://b3nc6suuwwamq" path="res://Levels/fase1_scripts/fase_1.gd" id="1_lgkhq"]
 [ext_resource type="Texture2D" uid="uid://vuj5jx7ncmu3" path="res://Art/PR_Objects 16x16.png" id="2_n1ad0"]
 [ext_resource type="Texture2D" uid="uid://d054r0qnad7rt" path="res://Art/PR_TileGround 16x16.png" id="3_fe2hn"]
 [ext_resource type="Texture2D" uid="uid://cdrodjtk2e10b" path="res://Art/PR_TileSet 16x16.png" id="4_ixwdb"]
@@ -9,11 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://bdq3p0lk83dx4" path="res://Art/externo.png" id="6_ixwdb"]
 [ext_resource type="Texture2D" uid="uid://d0eya8htg5kpi" path="res://Art/interno.png" id="7_nm7wg"]
 [ext_resource type="PackedScene" uid="uid://sd8glyby8cdu" path="res://Extras/SpikeHazard.tscn" id="8_x2hcx"]
-[ext_resource type="Script" uid="uid://bqe7i7277j1ib" path="res://Scripts/start_quest_button.gd" id="9_46a0x"]
+[ext_resource type="Script" uid="uid://bqe7i7277j1ib" path="res://Levels/fase1_scripts/start_quest_button.gd" id="9_46a0x"]
 [ext_resource type="Texture2D" uid="uid://cbhtbsmrj1yfi" path="res://Art/pixil-frame-0.png" id="9_vnlga"]
 [ext_resource type="PackedScene" uid="uid://butb4p2o6cv4x" path="res://Character/movimentacao.tscn" id="10_nm7wg"]
 [ext_resource type="PackedScene" uid="uid://bgqk78rb3x0o2" path="res://Components/porta.tscn" id="11_x2hcx"]
-[ext_resource type="Script" uid="uid://dm2epojuxqfci" path="res://Scripts/label.gd" id="12_vnlga"]
+[ext_resource type="Script" uid="uid://dm2epojuxqfci" path="res://Levels/fase1_scripts/label.gd" id="12_vnlga"]
 [ext_resource type="Texture2D" uid="uid://c8jl0p545x2m5" path="res://Art/11-Door/Idle.png" id="13_bvap2"]
 [ext_resource type="Texture2D" uid="uid://c7553d6fxhjjq" path="res://Art/11-Door/Opening (46x56).png" id="16_kjsgi"]
 [ext_resource type="Texture2D" uid="uid://5ssrirktnppp" path="res://Art/11-Door/Closiong (46x56).png" id="16_n1ob0"]
@@ -899,10 +899,10 @@ texture = ExtResource("13_bvap2")
 
 [node name="LabelPortaProx" type="Label" parent="Player/Camera2D/CanvasLayer"]
 visible = false
-offset_left = 450.0
-offset_top = 60.0
-offset_right = 812.0
-offset_bottom = 156.0
+offset_left = 452.0
+offset_top = 22.0
+offset_right = 814.0
+offset_bottom = 118.0
 scale = Vector2(1.26881, 1.26881)
 theme_override_font_sizes/font_size = 21
 text = "       Voce só deve vir aqui

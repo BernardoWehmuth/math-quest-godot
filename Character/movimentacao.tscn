@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b5kexe5mbvgkq" path="res://Art/seta.png" id="1_b21eg"]
 [ext_resource type="Texture2D" uid="uid://dj4nxodklom4b" path="res://Art/pulo.png" id="2_ga4sb"]
-[ext_resource type="Script" uid="uid://cngf3xjt28o4q" path="res://Scripts/touch_screen_button.gd" id="5_s2mfb"]
+[ext_resource type="Script" uid="uid://cngf3xjt28o4q" path="res://Character/movimentacao_scripts/touch_screen_button.gd" id="5_s2mfb"]
 [ext_resource type="Texture2D" uid="uid://ccpd73mhyj5xq" path="res://Art/Continuar.png" id="6_bnpv3"]
 [ext_resource type="Texture2D" uid="uid://dohggylgv374d" path="res://Art/icone engrenagem.png" id="6_s2mfb"]
 

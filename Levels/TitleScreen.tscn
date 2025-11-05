@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://c246n5qobi33j"]
 
-[ext_resource type="Script" uid="uid://bmulmgsqcl5qh" path="res://Scripts/titlescreen.gd" id="1_j0ety"]
+[ext_resource type="Script" uid="uid://bmulmgsqcl5qh" path="res://Levels/titlescreen_scripts/titlescreen.gd" id="1_j0ety"]
 [ext_resource type="PackedScene" uid="uid://h00rq5t0i7yi" path="res://Tiles/tile_map.tscn" id="2_mircd"]
 [ext_resource type="Texture2D" uid="uid://bnp5q58hesld" path="res://Art/Texto_Tela_Inicial-removebg-preview.png" id="3_wywxw"]
 [ext_resource type="Texture2D" uid="uid://b2ed2wdrogdb1" path="res://Art/botoes.png" id="4_4106e"]

@@ -1,14 +1,15 @@
-[gd_scene load_steps=24 format=3 uid="uid://cei22t01avp3t"]
+[gd_scene load_steps=25 format=3 uid="uid://cei22t01avp3t"]
 
 [ext_resource type="PackedScene" uid="uid://h00rq5t0i7yi" path="res://Tiles/tile_map.tscn" id="1_q3yhk"]
-[ext_resource type="Script" uid="uid://vpn3h82tb25l" path="res://Scripts/fase_3.gd" id="1_swcro"]
+[ext_resource type="Script" uid="uid://vpn3h82tb25l" path="res://Levels/fase3_scripts/fase_3.gd" id="1_swcro"]
 [ext_resource type="PackedScene" uid="uid://boyloxbbh7x7m" path="res://Character/player.tscn" id="2_8r12f"]
 [ext_resource type="PackedScene" uid="uid://butb4p2o6cv4x" path="res://Character/movimentacao.tscn" id="3_swcro"]
 [ext_resource type="Texture2D" uid="uid://5ssrirktnppp" path="res://Art/11-Door/Closiong (46x56).png" id="5_yalws"]
-[ext_resource type="Script" uid="uid://cxiuk1lrxg6jk" path="res://Extras/parede_sobeaoacertar1.gd" id="7_h68uw"]
+[ext_resource type="Script" uid="uid://c2eg12f8mk5eb" path="res://Extras/parede_sobe1.gd" id="7_2js4s"]
+[ext_resource type="Script" uid="uid://cxiuk1lrxg6jk" path="res://Levels/fase3_scripts/parede_sobeaoacertar1.gd" id="7_h68uw"]
 [ext_resource type="PackedScene" uid="uid://di36uk2mqbq21" path="res://Extras/parede_sobe.tscn" id="8_8vj0p"]
-[ext_resource type="Script" uid="uid://cw1tfmqdmu3a0" path="res://Extras/parede_sobe3.gd" id="8_uk25m"]
-[ext_resource type="Script" uid="uid://7sc73wicnvxe" path="res://Extras/parede_sobe4.gd" id="9_uk25m"]
+[ext_resource type="Script" uid="uid://cw1tfmqdmu3a0" path="res://Levels/fase3_scripts/parede_sobe3.gd" id="8_uk25m"]
+[ext_resource type="Script" uid="uid://7sc73wicnvxe" path="res://Levels/fase3_scripts/parede_sobe4.gd" id="9_uk25m"]
 [ext_resource type="Texture2D" uid="uid://c7553d6fxhjjq" path="res://Art/11-Door/Opening (46x56).png" id="10_omag0"]
 [ext_resource type="Texture2D" uid="uid://c8jl0p545x2m5" path="res://Art/11-Door/Idle.png" id="11_2js4s"]
 
@@ -120,6 +121,7 @@ zoom = Vector2(4, 4)
 remote_path = NodePath("../Camera2D")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("3_swcro")]
+visible = false
 
 [node name="PortaEntrada" type="AnimatedSprite2D" parent="."]
 position = Vector2(142, 260)
@@ -143,6 +145,7 @@ text = "  Aperte aqui para
 [node name="paredesobe" parent="." instance=ExtResource("8_8vj0p")]
 position = Vector2(279, 266)
 rotation = 4.71239
+script = ExtResource("7_2js4s")
 distance = 45
 
 [node name="paredesobe2" parent="." instance=ExtResource("8_8vj0p")]
