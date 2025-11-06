@@ -9,7 +9,7 @@ extends TouchScreenButton
 @onready var engrenagem = $Engrenagem
 
 # Caminho para o menu principal
-const TITLE_SCREEN_PATH = "res://Levels/titlescreen.tscn"
+const TITLE_SCREEN_PATH = "res://Levels/TitleScreen.tscn"
 
 
 func _ready():

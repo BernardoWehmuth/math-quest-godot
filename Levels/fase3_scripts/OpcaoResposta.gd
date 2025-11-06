@@ -30,7 +30,7 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	var preview_label = Label.new()
 	preview_label.text = str(meu_valor)
 	preview_label.modulate = Color(1, 1, 1, 0.7)
-	preview_label.set_size(label_valor.get_size()) 
+	preview_label.add_theme_font_size_override("font_size", 40)
 	set_drag_preview(preview_label)
 	
 	var drag_data = {

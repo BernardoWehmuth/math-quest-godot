@@ -379,7 +379,6 @@ scale = Vector2(0.913836, 1.49097)
 shape = SubResource("CapsuleShape2D_4jdsw")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("9_dg1rr")]
-visible = false
 
 [node name="label_design" type="Sprite2D" parent="."]
 position = Vector2(772, 79)
