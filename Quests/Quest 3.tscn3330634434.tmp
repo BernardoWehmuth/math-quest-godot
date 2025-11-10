@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://pjx3ekn51sqm"]
+[gd_scene load_steps=18 format=3 uid="uid://pjx3ekn51sqm"]
 
 [ext_resource type="Script" uid="uid://bb2aq3y0eam1y" path="res://Levels/fase3_scripts/quest_3.gd" id="1_s5tg1"]
 [ext_resource type="Script" uid="uid://1rmpu2kh1hh5" path="res://Levels/fase3_scripts/SlotResposta.gd" id="2_nx3ka"]
@@ -8,60 +8,29 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_87q6f"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jd0fp"]
-bg_color = Color(0.0588235, 0.141176, 0.160784, 0.360784)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s0dij"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t1023"]
-bg_color = Color(0.0588235, 0.141176, 0.160784, 0.360784)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r0xvf"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dsxxg"]
-bg_color = Color(0.0588235, 0.141176, 0.160784, 0.360784)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jd0fp"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_20ioa"]
-bg_color = Color(0.0588235, 0.141176, 0.160784, 0.360784)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1023"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tpx8l"]
-bg_color = Color(0.0588235, 0.141176, 0.160784, 0.360784)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dsxxg"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5s3es"]
-bg_color = Color(0.0588235, 0.141176, 0.160784, 0.360784)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_20ioa"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_agw28"]
-bg_color = Color(0.0588235, 0.141176, 0.160784, 0.360784)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpx8l"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_snd68"]
-bg_color = Color(0.0588235, 0.141176, 0.160784, 0.360784)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0pfe"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nx3ka"]
 bg_color = Color(0.158472, 0.158472, 0.158472, 0.768627)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5s3es"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l0pfe"]
-bg_color = Color(0.0588235, 0.141176, 0.160784, 0.360784)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_agw28"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s0dij"]
 bg_color = Color(0.0588235, 0.141176, 0.160784, 0.360784)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_snd68"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r0xvf"]
 bg_color = Color(0.0588235, 0.141176, 0.160784, 0.360784)
@@ -107,7 +76,8 @@ theme_override_constants/separation = 24
 alignment = 1
 
 [node name="OpcaoResposta1" type="TouchScreenButton" parent="ContainerOpcoes"]
-position = Vector2(28.5486, 12.1331)
+position = Vector2(2.85486, 12.1331)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_87q6f")
 script = ExtResource("3_l0pfe")
 
@@ -125,13 +95,13 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_jd0fp")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="OpcaoResposta2" type="TouchScreenButton" parent="ContainerOpcoes"]
-position = Vector2(78.5486, 12.1331)
+position = Vector2(52.8549, 12.1331)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_s0dij")
 script = ExtResource("3_l0pfe")
 
@@ -148,13 +118,13 @@ offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_t1023")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="OpcaoResposta3" type="TouchScreenButton" parent="ContainerOpcoes"]
-position = Vector2(128.549, 12.1331)
+position = Vector2(102.855, 12.1331)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_r0xvf")
 script = ExtResource("3_l0pfe")
 
@@ -171,13 +141,13 @@ offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_dsxxg")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="OpcaoResposta4" type="TouchScreenButton" parent="ContainerOpcoes"]
-position = Vector2(178.549, 12.1331)
+position = Vector2(152.855, 12.1331)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_jd0fp")
 script = ExtResource("3_l0pfe")
 
@@ -194,13 +164,13 @@ offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_20ioa")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="OpcaoResposta5" type="TouchScreenButton" parent="ContainerOpcoes"]
-position = Vector2(228.549, 12.1331)
+position = Vector2(202.855, 12.1331)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_t1023")
 script = ExtResource("3_l0pfe")
 
@@ -217,13 +187,13 @@ offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_tpx8l")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="OpcaoResposta6" type="TouchScreenButton" parent="ContainerOpcoes"]
-position = Vector2(278.549, 12.1331)
+position = Vector2(252.855, 12.1331)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_dsxxg")
 script = ExtResource("3_l0pfe")
 
@@ -240,13 +210,13 @@ offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_5s3es")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="OpcaoResposta7" type="TouchScreenButton" parent="ContainerOpcoes"]
-position = Vector2(328.549, 12.1331)
+position = Vector2(302.855, 12.1331)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_20ioa")
 script = ExtResource("3_l0pfe")
 
@@ -263,13 +233,13 @@ offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_agw28")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="OpcaoResposta8" type="TouchScreenButton" parent="ContainerOpcoes"]
-position = Vector2(378.549, 12.1331)
+position = Vector2(352.855, 12.1331)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_tpx8l")
 script = ExtResource("3_l0pfe")
 
@@ -286,7 +256,6 @@ offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = SubResource("StyleBoxFlat_snd68")
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -339,29 +308,24 @@ offset_bottom = 261.0
 scale = Vector2(1.29626, 1.29626)
 
 [node name="SlotX" type="TouchScreenButton" parent="BoxX"]
-position = Vector2(3.0858, 16.2005)
-shape = SubResource("RectangleShape2D_5s3es")
 script = ExtResource("2_nx3ka")
 
 [node name="LabelResposta" type="Label" parent="BoxX/SlotX"]
-offset_left = -20.6576
-offset_top = -15.7434
-offset_right = 19.3424
-offset_bottom = 18.2566
+offset_left = -6.0
+offset_top = 2.0
+offset_right = 34.0
+offset_bottom = 36.0
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_l0pfe")
 horizontal_alignment = 1
 vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="BoxX/SlotX"]
-offset_left = -52.4586
-offset_top = -17.7434
-offset_right = -19.4586
-offset_bottom = 16.2566
+offset_left = -37.801
+offset_right = -4.80096
+offset_bottom = 34.0
 theme_override_font_sizes/font_size = 24
 text = "x ="
-metadata/_edit_use_anchors_ = true
 
 [node name="BoxY" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -372,25 +336,25 @@ offset_bottom = 256.0
 scale = Vector2(1.29626, 1.29626)
 
 [node name="SlotY" type="TouchScreenButton" parent="BoxY"]
-position = Vector2(7.7145, 22.3721)
-shape = SubResource("RectangleShape2D_agw28")
+position = Vector2(-84.0881, 3.85725)
+scale = Vector2(1, 1)
 script = ExtResource("2_nx3ka")
 
 [node name="LabelResposta" type="Label" parent="BoxY/SlotY"]
-offset_left = -20.0578
-offset_top = -16.9719
-offset_right = 19.942
-offset_bottom = 17.028
+offset_left = 82.5452
+offset_top = -0.771469
+offset_right = 122.545
+offset_bottom = 33.2285
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_s0dij")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label" type="Label" parent="BoxY/SlotY"]
-offset_left = -54.0015
-offset_top = -19.2863
-offset_right = -21.0015
-offset_bottom = 14.7137
+offset_left = 48.6015
+offset_top = -3.0858
+offset_right = 81.6015
+offset_bottom = 30.9142
 theme_override_font_sizes/font_size = 24
 text = "y ="
 
@@ -403,28 +367,26 @@ offset_bottom = 255.0
 scale = Vector2(1.29626, 1.29626)
 
 [node name="SlotZ" type="TouchScreenButton" parent="BoxZ"]
-position = Vector2(6.94307, 23.915)
-shape = SubResource("RectangleShape2D_snd68")
+position = Vector2(-166.633, 4.62871)
+scale = Vector2(1, 1)
 script = ExtResource("2_nx3ka")
 
 [node name="LabelResposta" type="Label" parent="BoxZ/SlotZ"]
-offset_left = -20.0579
-offset_top = -16.9719
-offset_right = 19.9421
-offset_bottom = 17.0281
+offset_left = 161.233
+offset_top = -0.771484
+offset_right = 201.233
+offset_bottom = 33.2285
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_r0xvf")
 horizontal_alignment = 1
 vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="BoxZ/SlotZ"]
-offset_left = -50.9159
-offset_top = -18.5148
-offset_right = -19.9159
-offset_bottom = 15.4852
+offset_left = 130.375
+offset_top = -2.31439
+offset_right = 161.375
+offset_bottom = 31.6856
 theme_override_font_sizes/font_size = 24
 text = "z ="
-metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="BotaoVerificar" to="." method="_on_verificar_pressed"]
