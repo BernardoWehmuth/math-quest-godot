@@ -2,6 +2,7 @@ extends Node2D
 
 var quest_count = 0
 
+var reliquia_coletada = false
 var quest_ativa = false
 const QUEST_CENA = preload("res://Quests/Quest 1.tscn")
 @onready var jogador = $Player # Tipagem opcional para segurança
@@ -102,7 +103,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 
 @warning_ignore("unused_parameter")
 func porta_saida(body: Node2D) -> void:
-	if Difficulty.dificuldade == 5:
+	if Difficulty.dificuldade == 5 && reliquia_coletada:
 		porta_prox_fase.play("aberta")
 		await get_tree().create_timer(1.5).timeout
 		get_tree().change_scene_to_file("res://Levels/fase2.tscn")
@@ -117,6 +118,7 @@ func _on_botao_reliquia_pressed() -> void:
 	reliquia_desc.queue_free()
 	jogador.liberar_input()
 	Difficulty.dificuldade = 5
+	
 
 
 func _on_area_reliquia_body_entered(_body: Node2D) -> void:
@@ -124,3 +126,4 @@ func _on_area_reliquia_body_entered(_body: Node2D) -> void:
 		jogador.bloquear_input()
 		await get_tree().create_timer(1.0).timeout
 		reliquia_desc.show()
+		reliquia_coletada = true

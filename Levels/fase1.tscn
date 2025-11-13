@@ -890,7 +890,6 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n60wm"]
-size = Vector2(29, 73)
 
 [node name="fase1" type="Node2D" groups=["game_manager"]]
 script = ExtResource("1_lgkhq")
@@ -1040,20 +1039,19 @@ position = Vector2(650, 173)
 position = Vector2(650, 173)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaReliquia"]
-position = Vector2(-4.5, -26.5)
 shape = SubResource("RectangleShape2D_n60wm")
 
 [connection signal="body_entered" from="TileMap/Area2D" to="TileMap/Area2D" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@28384" to="TileMap/@Area2D@28384" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@28385" to="TileMap/@Area2D@28385" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@28386" to="TileMap/@Area2D@28386" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@28387" to="TileMap/@Area2D@28387" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@28388" to="TileMap/@Area2D@28388" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@28389" to="TileMap/@Area2D@28389" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@28390" to="TileMap/@Area2D@28390" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@28391" to="TileMap/@Area2D@28391" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@28392" to="TileMap/@Area2D@28392" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@28393" to="TileMap/@Area2D@28393" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@22114" to="TileMap/@Area2D@22114" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@22115" to="TileMap/@Area2D@22115" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@22116" to="TileMap/@Area2D@22116" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@22117" to="TileMap/@Area2D@22117" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@22118" to="TileMap/@Area2D@22118" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@22119" to="TileMap/@Area2D@22119" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@22120" to="TileMap/@Area2D@22120" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@22121" to="TileMap/@Area2D@22121" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@22122" to="TileMap/@Area2D@22122" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@22123" to="TileMap/@Area2D@22123" method="_on_body_entered"]
 [connection signal="pressed" from="Player/Camera2D/CanvasLayer/CanvasLayer/Aritmética/BotaoReliquia" to="." method="_on_botao_reliquia_pressed"]
 [connection signal="pressed" from="Label/Label2/StartQuestButton" to="Label/Label2/StartQuestButton" method="_on_start_quest_pressed"]
 [connection signal="body_entered" from="SpritePorta/Area2D" to="." method="_on_area_2d_body_entered"]
