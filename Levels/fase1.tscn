@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://3yguqxhxrf2o"]
+[gd_scene load_steps=56 format=3 uid="uid://3yguqxhxrf2o"]
 
 [ext_resource type="Texture2D" uid="uid://dxtontjqdyxah" path="res://Art/PR_BackGround 16x16.png" id="1_dd3ly"]
 [ext_resource type="Script" uid="uid://b3nc6suuwwamq" path="res://Levels/fase1_scripts/fase_1.gd" id="1_lgkhq"]
@@ -806,13 +806,45 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kjsgi"]
 size = Vector2(46, 56)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_n60wm"]
+atlas = ExtResource("16_kjsgi")
+region = Rect2(0, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxfdl"]
+atlas = ExtResource("16_kjsgi")
+region = Rect2(46, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghxwj"]
+atlas = ExtResource("16_kjsgi")
+region = Rect2(92, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6eo3o"]
+atlas = ExtResource("16_kjsgi")
+region = Rect2(138, 0, 46, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kt53h"]
+atlas = ExtResource("16_kjsgi")
+region = Rect2(184, 0, 46, 56)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_lgkhq"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("17_01jpy")
+"texture": SubResource("AtlasTexture_n60wm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxfdl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghxwj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6eo3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kt53h")
 }],
-"loop": true,
+"loop": false,
 "name": &"aberta",
 "speed": 5.0
 }, {
@@ -987,7 +1019,7 @@ shape = SubResource("RectangleShape2D_kjsgi")
 [node name="PortaProxFase" type="AnimatedSprite2D" parent="."]
 position = Vector2(600, 156)
 sprite_frames = SubResource("SpriteFrames_lgkhq")
-animation = &"fechada"
+animation = &"aberta"
 
 [node name="AreaPortaProxFase" type="Area2D" parent="PortaProxFase"]
 
@@ -1011,6 +1043,17 @@ position = Vector2(650, 173)
 position = Vector2(-4.5, -26.5)
 shape = SubResource("RectangleShape2D_n60wm")
 
+[connection signal="body_entered" from="TileMap/Area2D" to="TileMap/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@28384" to="TileMap/@Area2D@28384" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@28385" to="TileMap/@Area2D@28385" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@28386" to="TileMap/@Area2D@28386" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@28387" to="TileMap/@Area2D@28387" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@28388" to="TileMap/@Area2D@28388" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@28389" to="TileMap/@Area2D@28389" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@28390" to="TileMap/@Area2D@28390" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@28391" to="TileMap/@Area2D@28391" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@28392" to="TileMap/@Area2D@28392" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@28393" to="TileMap/@Area2D@28393" method="_on_body_entered"]
 [connection signal="pressed" from="Player/Camera2D/CanvasLayer/CanvasLayer/Aritmética/BotaoReliquia" to="." method="_on_botao_reliquia_pressed"]
 [connection signal="pressed" from="Label/Label2/StartQuestButton" to="Label/Label2/StartQuestButton" method="_on_start_quest_pressed"]
 [connection signal="body_entered" from="SpritePorta/Area2D" to="." method="_on_area_2d_body_entered"]

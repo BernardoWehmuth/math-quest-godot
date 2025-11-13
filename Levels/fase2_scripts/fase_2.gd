@@ -277,3 +277,4 @@ func _on_area_reliquia_body_entered(body: Node2D) -> void:
 		player.bloquear_input()
 		await get_tree().create_timer(1.0).timeout
 		reliquia_desc.show()
+		Difficulty.dificuldade = 0
