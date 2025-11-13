@@ -43,7 +43,7 @@ PROSPERIDADE E ESPERANÇA PARA TODOS...", "", "       ALGUNS ANOS ATRAS, O GRAND
        PROSPERIDADE E ESPERANÇA PARA TODOS...", "ALGUNS ANOS ATRAS, O GRANDIOSO EGITO COSTUMAVA
 SER UMA TERRA DE PROSPERIDADE E ESPERANCA PARA 
 TODOS...", "      MUITOS POVOS VIZINHOS INVEJAVAM NOSSA FORÇA E UNIÃO,  PORÉM, NADA 
-      QUE É BOM DURA MUITO...", "", "      UMA ENORME SECA ATINGIU NOSSO POVO, NAO DEIXANDO QUASE
+      QUE É BOM DURA MUITO...", "", "      UMA ENORME ENCHENTE ATINGIU NOSSO POVO, NAO DEIXANDO QUASE
       NENHUMA TERRA BOA PARA PLANTIO E IMPEDINDO QUE PROSPERASSEMOS...", "      E ENTAO EM MEIO A TODA ESSA DIFICULDADE PRECISAVAMOS DE ALGUÉM
       EM QUEM NOS AMPARAR, ALGUÉM QUE FIZESSE A DIFERENÇA..."]
 }
@@ -57,7 +57,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 12, 14),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ExtResource("4_rvrji"), ExtResource("2_7t5gh"), ExtResource("3_8uneo")]
+"values": [ExtResource("3_8uneo"), ExtResource("2_7t5gh"), ExtResource("4_rvrji")]
 }
 tracks/3/type = "value"
 tracks/3/imported = false

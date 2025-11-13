@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://7uxmd5uyngtl"]
+[gd_scene load_steps=56 format=3 uid="uid://7uxmd5uyngtl"]
 
 [ext_resource type="Script" uid="uid://badicnam32kyt" path="res://Levels/fase2_scripts/fase_2.gd" id="1_b7h51"]
 [ext_resource type="Texture2D" uid="uid://dxtontjqdyxah" path="res://Art/PR_BackGround 16x16.png" id="2_hmxsj"]
@@ -18,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://b5kexe5mbvgkq" path="res://Art/seta.png" id="13_khsen"]
 [ext_resource type="Script" uid="uid://di7ugulvovl6g" path="res://Levels/fase2_scripts/flecha.gd" id="14_ouyvl"]
 [ext_resource type="Texture2D" uid="uid://dcdqukkhpj1u3" path="res://Art/pena.png" id="15_lx4wb"]
+[ext_resource type="Texture2D" uid="uid://bp6x1oixxvd2p" path="res://Art/Relíquia_do_Equilíbrio.png" id="15_yc36f"]
+[ext_resource type="Texture2D" uid="uid://cwn2rep4grk0x" path="res://Art/seta_preta.png" id="16_jxd7s"]
 [ext_resource type="Texture2D" uid="uid://cdch0yf2nbdak" path="res://Art/caixas.png" id="17_nw5sm"]
 [ext_resource type="Texture2D" uid="uid://dn13lvht2pqcu" path="res://Art/Botão antigo para remover caixa.png" id="18_nw5sm"]
 [ext_resource type="Texture2D" uid="uid://c8jl0p545x2m5" path="res://Art/11-Door/Idle.png" id="19_eqsnm"]
@@ -25,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://7we08machbgt" path="res://Art/verd.png" id="21_eqsnm"]
 [ext_resource type="Texture2D" uid="uid://5ssrirktnppp" path="res://Art/11-Door/Closiong (46x56).png" id="22_7wit6"]
 [ext_resource type="Texture2D" uid="uid://dc43t3bkdrol0" path="res://Art/Equilibre_a_Balança.png" id="23_qyy8a"]
+[ext_resource type="PackedScene" uid="uid://cd1omye1rbaid" path="res://Components/Reliquias/ReliquiaEquilibrio.tscn" id="27_jxd7s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1lxn2"]
 texture = ExtResource("2_hmxsj")
@@ -715,6 +718,8 @@ sources/5 = SubResource("TileSetAtlasSource_gt2sd")
 sources/6 = SubResource("TileSetScenesCollectionSource_l058c")
 sources/7 = SubResource("TileSetAtlasSource_bvap2")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jxd7s"]
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_nw5sm"]
 animations = [{
 "frames": [{
@@ -833,6 +838,8 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kcljf"]
+
 [node name="TestLevel2" type="Node2D" groups=["game_manager"]]
 script = ExtResource("1_b7h51")
 
@@ -926,6 +933,23 @@ position = Vector2(716, 52)
 scale = Vector2(0.161111, 0.161111)
 texture = ExtResource("13_khsen")
 script = ExtResource("14_ouyvl")
+
+[node name="ReliquiaDesc" type="Sprite2D" parent="Player/Camera2D/CanvasLayer"]
+visible = false
+position = Vector2(605, 278)
+scale = Vector2(1.122, 1.122)
+texture = ExtResource("15_yc36f")
+
+[node name="Seta" type="Sprite2D" parent="Player/Camera2D/CanvasLayer/ReliquiaDesc"]
+position = Vector2(188.057, 218.36)
+rotation = 3.14159
+scale = Vector2(0.108487, 0.108487)
+texture = ExtResource("16_jxd7s")
+
+[node name="BotaoReliquia" type="TouchScreenButton" parent="Player/Camera2D/CanvasLayer/ReliquiaDesc"]
+position = Vector2(188.057, 217.469)
+scale = Vector2(2.73218, 2.52682)
+shape = SubResource("RectangleShape2D_jxd7s")
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
 
@@ -1154,5 +1178,19 @@ position = Vector2(49.6875, -2.6875)
 scale = Vector2(0.286875, 0.286875)
 texture = ExtResource("23_qyy8a")
 
+[node name="AreaReliquia" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaReliquia"]
+visible = false
+position = Vector2(698, -181)
+shape = SubResource("RectangleShape2D_kcljf")
+
+[node name="Reliquia" parent="." instance=ExtResource("27_jxd7s")]
+visible = false
+position = Vector2(698, -181)
+
+[connection signal="pressed" from="Player/Camera2D/CanvasLayer/ReliquiaDesc/BotaoReliquia" to="." method="_on_botao_reliquia_pressed"]
 [connection signal="body_entered" from="ExitDoor/Area2D" to="." method="_on_porta_body_entered"]
 [connection signal="body_exited" from="ExitDoor/Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="AreaReliquia" to="." method="_on_area_reliquia_body_entered"]

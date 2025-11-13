@@ -1,9 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://cei22t01avp3t"]
+[gd_scene load_steps=30 format=3 uid="uid://cei22t01avp3t"]
 
 [ext_resource type="PackedScene" uid="uid://h00rq5t0i7yi" path="res://Tiles/tile_map.tscn" id="1_q3yhk"]
-[ext_resource type="Script" uid="uid://vpn3h82tb25l" path="res://Levels/fase3_scripts/fase_3.gd" id="1_swcro"]
+[ext_resource type="Script" uid="uid://vpn3h82tb25l" path="res://Levels/fase_3.gd" id="1_swcro"]
 [ext_resource type="PackedScene" uid="uid://boyloxbbh7x7m" path="res://Character/player.tscn" id="2_8r12f"]
 [ext_resource type="PackedScene" uid="uid://butb4p2o6cv4x" path="res://Character/movimentacao.tscn" id="3_swcro"]
+[ext_resource type="Texture2D" uid="uid://fg7kh4uoxqn7" path="res://Art/Relíquia_das_Equações.png" id="4_yyhjd"]
+[ext_resource type="Texture2D" uid="uid://cwn2rep4grk0x" path="res://Art/seta_preta.png" id="5_5ueap"]
 [ext_resource type="Texture2D" uid="uid://5ssrirktnppp" path="res://Art/11-Door/Closiong (46x56).png" id="5_yalws"]
 [ext_resource type="Script" uid="uid://c2eg12f8mk5eb" path="res://Extras/parede_sobe1.gd" id="7_2js4s"]
 [ext_resource type="Script" uid="uid://cxiuk1lrxg6jk" path="res://Levels/fase3_scripts/parede_sobeaoacertar1.gd" id="7_h68uw"]
@@ -12,6 +14,9 @@
 [ext_resource type="Script" uid="uid://7sc73wicnvxe" path="res://Levels/fase3_scripts/parede_sobe4.gd" id="9_uk25m"]
 [ext_resource type="Texture2D" uid="uid://c7553d6fxhjjq" path="res://Art/11-Door/Opening (46x56).png" id="10_omag0"]
 [ext_resource type="Texture2D" uid="uid://c8jl0p545x2m5" path="res://Art/11-Door/Idle.png" id="11_2js4s"]
+[ext_resource type="PackedScene" uid="uid://chvyqyyxihch3" path="res://Components/Reliquias/ReliquiaEquacao.tscn" id="14_5ueap"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ueap"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yc36f"]
 atlas = ExtResource("5_yalws")
@@ -98,6 +103,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yyhjd"]
 size = Vector2(45, 56)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ills"]
+size = Vector2(20, 79)
+
 [node name="Fase3" type="Node2D"]
 script = ExtResource("1_swcro")
 
@@ -117,11 +125,29 @@ zoom = Vector2(4, 4)
 
 [node name="Canvas_layer" type="CanvasLayer" parent="Player/Camera2D"]
 
+[node name="ReliquiaDesc" type="CanvasLayer" parent="Player/Camera2D"]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/Camera2D/ReliquiaDesc"]
+position = Vector2(607, 270)
+scale = Vector2(1.157, 1.157)
+texture = ExtResource("4_yyhjd")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/Camera2D/ReliquiaDesc/Sprite2D"]
+position = Vector2(185.707, 215.957)
+rotation = 3.14159
+scale = Vector2(0.124224, 0.124224)
+texture = ExtResource("5_5ueap")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="Player/Camera2D/ReliquiaDesc/Sprite2D"]
+position = Vector2(184.097, 216.94)
+scale = Vector2(3.52381, 3.03371)
+shape = SubResource("RectangleShape2D_5ueap")
+
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../Camera2D")
 
-[node name="CanvasLayer" parent="." instance=ExtResource("3_swcro")]
-visible = false
+[node name="movimentacao" parent="." instance=ExtResource("3_swcro")]
 
 [node name="PortaEntrada" type="AnimatedSprite2D" parent="."]
 position = Vector2(142, 260)
@@ -129,6 +155,7 @@ sprite_frames = SubResource("SpriteFrames_h68uw")
 animation = &"fechando"
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+z_index = 10
 position = Vector2(417, 206)
 scale = Vector2(2.57433, 0.948462)
 shape = SubResource("RectangleShape2D_h68uw")
@@ -207,7 +234,19 @@ animation = &"fechada"
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_yyhjd")
 
+[node name="Reliquia" parent="." instance=ExtResource("14_5ueap")]
+position = Vector2(1300, 277)
+
+[node name="AreaReliquia" type="Area2D" parent="."]
+position = Vector2(1300, 277)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaReliquia"]
+position = Vector2(0, -28.5)
+shape = SubResource("RectangleShape2D_0ills")
+
+[connection signal="pressed" from="Player/Camera2D/ReliquiaDesc/Sprite2D/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
 [connection signal="pressed" from="TouchScreenButton" to="." method="_on_botao_iniciar_button_pressed"]
 [connection signal="pressed" from="TouchScreenButton2" to="." method="_on_botao_iniciar_button_pressed"]
 [connection signal="pressed" from="TouchScreenButton3" to="." method="_on_botao_iniciar_button_pressed"]
 [connection signal="body_entered" from="Porta/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="AreaReliquia" to="." method="_on_area_reliquia_body_entered"]

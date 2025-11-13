@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://3yguqxhxrf2o"]
+[gd_scene load_steps=51 format=3 uid="uid://3yguqxhxrf2o"]
 
 [ext_resource type="Texture2D" uid="uid://dxtontjqdyxah" path="res://Art/PR_BackGround 16x16.png" id="1_dd3ly"]
 [ext_resource type="Script" uid="uid://b3nc6suuwwamq" path="res://Levels/fase1_scripts/fase_1.gd" id="1_lgkhq"]
@@ -15,9 +15,12 @@
 [ext_resource type="PackedScene" uid="uid://bgqk78rb3x0o2" path="res://Components/porta.tscn" id="11_x2hcx"]
 [ext_resource type="Script" uid="uid://dm2epojuxqfci" path="res://Levels/fase1_scripts/label.gd" id="12_vnlga"]
 [ext_resource type="Texture2D" uid="uid://c8jl0p545x2m5" path="res://Art/11-Door/Idle.png" id="13_bvap2"]
+[ext_resource type="Texture2D" uid="uid://e4hwpq76qeos" path="res://Art/Relíquia_da_Aritmética.png" id="14_nhc4k"]
+[ext_resource type="Texture2D" uid="uid://cwn2rep4grk0x" path="res://Art/seta_preta.png" id="15_n60wm"]
 [ext_resource type="Texture2D" uid="uid://c7553d6fxhjjq" path="res://Art/11-Door/Opening (46x56).png" id="16_kjsgi"]
 [ext_resource type="Texture2D" uid="uid://5ssrirktnppp" path="res://Art/11-Door/Closiong (46x56).png" id="16_n1ob0"]
 [ext_resource type="Texture2D" uid="uid://tbq5f444sdua" path="res://Art/11-Door/Opened.png" id="17_01jpy"]
+[ext_resource type="PackedScene" uid="uid://ysr0f05c8j26" path="res://Components/Reliquias/ReliquiaAritmetica.tscn" id="20_dxfdl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lgkhq"]
 texture = ExtResource("1_dd3ly")
@@ -707,6 +710,8 @@ sources/5 = SubResource("TileSetAtlasSource_ghxwj")
 sources/6 = SubResource("TileSetScenesCollectionSource_6eo3o")
 sources/7 = SubResource("TileSetAtlasSource_kt53h")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dxfdl"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_46a0x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6skuv"]
@@ -852,6 +857,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n60wm"]
+size = Vector2(29, 73)
+
 [node name="fase1" type="Node2D" groups=["game_manager"]]
 script = ExtResource("1_lgkhq")
 
@@ -896,6 +904,23 @@ script = ExtResource("12_vnlga")
 position = Vector2(121, 38)
 scale = Vector2(0.775783, 0.775783)
 texture = ExtResource("13_bvap2")
+
+[node name="Aritmética" type="Sprite2D" parent="Player/Camera2D/CanvasLayer/CanvasLayer"]
+visible = false
+position = Vector2(617, 275)
+scale = Vector2(1.215, 1.215)
+texture = ExtResource("14_nhc4k")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/Camera2D/CanvasLayer/CanvasLayer/Aritmética"]
+position = Vector2(185.665, 220.207)
+rotation = 3.14159
+scale = Vector2(0.0791588, 0.0791588)
+texture = ExtResource("15_n60wm")
+
+[node name="BotaoReliquia" type="TouchScreenButton" parent="Player/Camera2D/CanvasLayer/CanvasLayer/Aritmética"]
+position = Vector2(185.665, 221.071)
+scale = Vector2(2.31964, 2.06214)
+shape = SubResource("RectangleShape2D_dxfdl")
 
 [node name="LabelPortaProx" type="Label" parent="Player/Camera2D/CanvasLayer"]
 visible = false
@@ -975,7 +1000,20 @@ position = Vector2(193, 44)
 sprite_frames = SubResource("SpriteFrames_lltg1")
 animation = &"fechando"
 
+[node name="Reliquia" parent="." instance=ExtResource("20_dxfdl")]
+visible = false
+position = Vector2(650, 173)
+
+[node name="AreaReliquia" type="Area2D" parent="."]
+position = Vector2(650, 173)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaReliquia"]
+position = Vector2(-4.5, -26.5)
+shape = SubResource("RectangleShape2D_n60wm")
+
+[connection signal="pressed" from="Player/Camera2D/CanvasLayer/CanvasLayer/Aritmética/BotaoReliquia" to="." method="_on_botao_reliquia_pressed"]
 [connection signal="pressed" from="Label/Label2/StartQuestButton" to="Label/Label2/StartQuestButton" method="_on_start_quest_pressed"]
 [connection signal="body_entered" from="SpritePorta/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="SpritePorta/Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="PortaProxFase/AreaPortaProxFase" to="." method="porta_saida"]
+[connection signal="body_entered" from="AreaReliquia" to="." method="_on_area_reliquia_body_entered"]

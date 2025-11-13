@@ -3,13 +3,17 @@ extends Node2D
 # Sinal emitido quando a balança está equilibrada
 signal equilibrada
 
+var reliquia_coletada = false
 # --- Configuração do Puzzle ---
 @export var peso_alvo_pena: float = 1.0
 const MAX_CAIXAS_NA_BALANCA = 6
 
+@onready var player = $Player
 @onready var sprite_verde = $Sprite_verde
 @onready var label_concluido = $Player/Camera2D/CanvasLayer/LabelConcluido
 @onready var porta_entrada = $PortaEntrada
+@onready var reliquia = $Reliquia
+@onready var area_reliquia = $AreaReliquia
 
 # --- Pesos Constantes ---
 const PESO_CAIXA_LEVE = 1.0 / 6.0
@@ -54,6 +58,8 @@ var posicao_antiga_ultima_caixa: Vector2
 @onready var caixas_medias = [$no_caixa_meio1, $no_caixa_meio2, $no_caixa_meio3]
 @onready var caixas_pesadas = [$no_caixa_pesada1, $no_caixa_pesada2]
 @onready var flecha_saida = $Player/Camera2D/CanvasLayer/Flecha
+
+@onready var reliquia_desc = $Player/Camera2D/CanvasLayer/ReliquiaDesc
 
 @onready var label_not_concluido = $Player/Camera2D/CanvasLayer/LabelNotConcluido
 
@@ -189,6 +195,8 @@ func _verificar_equilibrio():
 		
 	match novo_estado:
 		&"equilibrado":
+			reliquia.show()
+			Difficulty.dificuldade = 4
 			pena_pos.position = Vector2(198, 53)
 			balanca_sprite.position = Vector2(153, 34)
 			balanca_sprite.play("equilibrado")
@@ -248,7 +256,7 @@ func _atualizar_posicoes_visuais_das_caixas(estado: StringName):
 
 
 func _on_porta_body_entered(body: Node2D) -> void:
-	if esta_equilibrada && body.is_in_group("player"):
+	if esta_equilibrada && body.is_in_group("player") && reliquia_coletada:
 		sprite_porta.play("abrindo")
 		await get_tree().create_timer(1.5).timeout 
 		get_tree().change_scene_to_file("res://Levels/fase3.tscn")
@@ -256,3 +264,16 @@ func _on_porta_body_entered(body: Node2D) -> void:
 		label_not_concluido.show()
 		await get_tree().create_timer(3.5).timeout 
 		label_not_concluido.hide()
+
+
+func _on_botao_reliquia_pressed() -> void:
+	reliquia_desc.queue_free()
+	player.liberar_input()
+
+
+func _on_area_reliquia_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player") && Difficulty.dificuldade == 4:
+		reliquia_coletada = true
+		player.bloquear_input()
+		await get_tree().create_timer(1.0).timeout
+		reliquia_desc.show()

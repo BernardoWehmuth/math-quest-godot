@@ -129,7 +129,7 @@ func verificar_resposta(botao_pressionado: TouchScreenButton):
 	if resposta_jogador == resposta_correta:
 		Difficulty.dificuldade += 1
 		botao_pressionado.modulate = Color.GREEN 
-		await get_tree().create_timer(2.0).timeout 
+		await get_tree().create_timer(1.5).timeout 
 		quest_concluida.emit(true)
 		queue_free()
 	else:

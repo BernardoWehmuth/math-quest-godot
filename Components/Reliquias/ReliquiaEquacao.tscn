@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://chvyqyyxihch3"]
+
+[ext_resource type="Script" uid="uid://cr3est2ww7qkx" path="res://Components/Reliquias/reliquias.gd" id="1_8smxr"]
+[ext_resource type="Texture2D" uid="uid://cj7o4j50l0jx" path="res://Art/Equacoes.png" id="1_o6sqr"]
+[ext_resource type="Texture2D" uid="uid://beycowhovq7sm" path="res://Art/explosao.png" id="1_qd4np"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qe5ns"]
+atlas = ExtResource("1_qd4np")
+region = Rect2(0, 0, 614, 414)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fhdrd"]
+atlas = ExtResource("1_qd4np")
+region = Rect2(614, 0, 614, 414)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1c7rl"]
+atlas = ExtResource("1_qd4np")
+region = Rect2(1228, 0, 614, 414)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86l3x"]
+atlas = ExtResource("1_qd4np")
+region = Rect2(1842, 0, 614, 414)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cobof"]
+atlas = ExtResource("1_qd4np")
+region = Rect2(2456, 0, 614, 414)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8smxr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qe5ns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fhdrd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1c7rl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_86l3x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cobof")
+}],
+"loop": true,
+"name": &"explosao",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_o6sqr")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qd4np"]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_8smxr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.344631, -0.5)
+scale = Vector2(0.0847457, 0.0847458)
+sprite_frames = SubResource("SpriteFrames_8smxr")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qd4np")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

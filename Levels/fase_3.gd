@@ -4,6 +4,9 @@ extends Node2D
 const quest_3: PackedScene = preload("res://Quests/Quest 3.tscn") 
 @onready var tela_quest = $Player/Camera2D/Canvas_layer
 
+@onready var area_reliquia = $AreaReliquia
+@onready var reliquia_desc = $Player/Camera2D/ReliquiaDesc
+
 @onready var botao_iniciar = $TouchScreenButton
 @onready var label_iniciar_sprite = $Label
 
@@ -23,7 +26,6 @@ func _ready() -> void:
 	porta_entrada.play("fechando")
 	await get_tree().create_timer(1.5).timeout
 	porta_entrada.hide()
-	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -56,10 +58,25 @@ func _on_signal_invited():
 	Difficulty.dificuldade += 1
 	player.input_bloqueado = false
 	quest3.queue_free()
+	if Difficulty.dificuldade == 3:
+		Difficulty.dificuldade = 4
 
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
 	if _body.is_in_group("player"):
 		porta.play("abrindo")
 		await get_tree().create_timer(1.5).timeout 
-		get_tree().change_scene_to_file("res://Levels/fase4.tscn")
+		get_tree().change_scene_to_file("res://Levels/TitleScreen.tscn")
+
+
+func _on_touch_screen_button_pressed() -> void:
+	reliquia_desc.queue_free()
+	player.liberar_input()
+	Difficulty.dificuldade = 1
+
+func _on_area_reliquia_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player") && Difficulty.dificuldade != 1:
+		player.bloquear_input()
+		await get_tree().create_timer(1.0).timeout 
+		reliquia_desc.show()
+		

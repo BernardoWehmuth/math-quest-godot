@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bouy4j8la8fvd"]
+[gd_scene load_steps=23 format=3 uid="uid://bouy4j8la8fvd"]
 
 [ext_resource type="Script" uid="uid://cs143wc4cnduf" path="res://Levels/vila_scripts/vila.gd" id="1_buxm5"]
 [ext_resource type="Texture2D" uid="uid://bdq3p0lk83dx4" path="res://Art/externo.png" id="1_hafyx"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://d1tq126bnnxtr" path="res://Art/seta 2.png" id="12_edffo"]
 [ext_resource type="Texture2D" uid="uid://cwn2rep4grk0x" path="res://Art/seta_preta.png" id="13_edffo"]
 [ext_resource type="Texture2D" uid="uid://darnab1muq5pj" path="res://Art/seta 3.png" id="13_nqg8a"]
+[ext_resource type="Texture2D" uid="uid://dxl16il0860ku" path="res://Art/nome_Sacerdote.png" id="14_edffo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iaytf"]
 texture = ExtResource("1_hafyx")
@@ -413,6 +414,11 @@ position = Vector2(772, 124)
 sprite_frames = SubResource("SpriteFrames_4tyb6")
 animation = &"seta"
 frame_progress = 0.361914
+
+[node name="NomeSacerdote" type="Sprite2D" parent="."]
+position = Vector2(775, 107)
+scale = Vector2(0.132143, 0.132143)
+texture = ExtResource("14_edffo")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="pressed" from="CharacterBody2D/TouchScreenButton" to="." method="_on_personagem_screen_button_pressed"]

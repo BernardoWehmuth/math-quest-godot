@@ -4,7 +4,7 @@ var quest_count = 0
 
 var quest_ativa = false
 const QUEST_CENA = preload("res://Quests/Quest 1.tscn")
-var jogador: CharacterBody2D = null # Tipagem opcional para segurança
+@onready var jogador = $Player # Tipagem opcional para segurança
 var camera: Camera2D = null
 @onready var label_contador = $Player/Camera2D/CanvasLayer/CanvasLayer/Label
 @onready var sprite_porta = $SpritePorta
@@ -15,7 +15,18 @@ var variavel_local_entrou = 0
 @onready var area_porta_prox_fase = $PortaProxFase/AreaPortaProxFase
 @onready var label_prox_fase = $Player/Camera2D/CanvasLayer/LabelPortaProx
 @onready var porta_entrada = $PortaEntrada
+@onready var reliquia_desc = $"Player/Camera2D/CanvasLayer/CanvasLayer/Aritmética"
+@onready var reliquia = $Reliquia
 
+
+var reliquia_mostrada = false
+
+func _process(_delta):
+	if Difficulty.dificuldade == 4 and not reliquia_mostrada:
+		reliquia.show()
+		label_contador.modulate = Color.GREEN
+		reliquia_mostrada = true
+		
 func _ready():
 	porta_entrada.play("fechando")
 	await get_tree().create_timer(1.0).timeout
@@ -67,8 +78,9 @@ func _ao_concluir_quest(sucesso: bool):
 			label_contador.atualizar_contador()
 			sprite_porta.play("opened")
 			GettingBack.gettingBack = false
-			break
 			entrou = true
+			break
+			
 			
 
 
@@ -90,7 +102,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 
 @warning_ignore("unused_parameter")
 func porta_saida(body: Node2D) -> void:
-	if Difficulty.dificuldade == 4:
+	if Difficulty.dificuldade == 5:
 		porta_prox_fase.play("aberta")
 		await get_tree().create_timer(1.5).timeout
 		get_tree().change_scene_to_file("res://Levels/fase2.tscn")
@@ -99,3 +111,16 @@ func porta_saida(body: Node2D) -> void:
 		label_prox_fase.show()
 		await get_tree().create_timer(3.5).timeout
 		label_prox_fase.hide()
+
+
+func _on_botao_reliquia_pressed() -> void:
+	reliquia_desc.queue_free()
+	jogador.liberar_input()
+	Difficulty.dificuldade = 5
+
+
+func _on_area_reliquia_body_entered(_body: Node2D) -> void:
+	if _body.is_in_group("player") && Difficulty.dificuldade == 4:
+		jogador.bloquear_input()
+		await get_tree().create_timer(1.0).timeout
+		reliquia_desc.show()
