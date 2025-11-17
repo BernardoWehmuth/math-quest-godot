@@ -17,8 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://btowdd3xxtotk" path="res://Art/esquerdapesado.png" id="13_j3i0l"]
 [ext_resource type="Texture2D" uid="uid://b5kexe5mbvgkq" path="res://Art/seta.png" id="13_khsen"]
 [ext_resource type="Script" uid="uid://di7ugulvovl6g" path="res://Levels/fase2_scripts/flecha.gd" id="14_ouyvl"]
+[ext_resource type="Texture2D" uid="uid://cbtsav4nbmx1t" path="res://Art/Relíquia_do_Equilibrio.png" id="15_jxd7s"]
 [ext_resource type="Texture2D" uid="uid://dcdqukkhpj1u3" path="res://Art/pena.png" id="15_lx4wb"]
-[ext_resource type="Texture2D" uid="uid://bp6x1oixxvd2p" path="res://Art/Relíquia_do_Equilíbrio.png" id="15_yc36f"]
 [ext_resource type="Texture2D" uid="uid://cwn2rep4grk0x" path="res://Art/seta_preta.png" id="16_jxd7s"]
 [ext_resource type="Texture2D" uid="uid://cdch0yf2nbdak" path="res://Art/caixas.png" id="17_nw5sm"]
 [ext_resource type="Texture2D" uid="uid://dn13lvht2pqcu" path="res://Art/Botão antigo para remover caixa.png" id="18_nw5sm"]
@@ -938,7 +938,7 @@ script = ExtResource("14_ouyvl")
 visible = false
 position = Vector2(605, 278)
 scale = Vector2(1.122, 1.122)
-texture = ExtResource("15_yc36f")
+texture = ExtResource("15_jxd7s")
 
 [node name="Seta" type="Sprite2D" parent="Player/Camera2D/CanvasLayer/ReliquiaDesc"]
 position = Vector2(188.057, 218.36)

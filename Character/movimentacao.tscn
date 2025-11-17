@@ -1,16 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://butb4p2o6cv4x"]
+[gd_scene load_steps=10 format=3 uid="uid://butb4p2o6cv4x"]
 
-[ext_resource type="Texture2D" uid="uid://b5kexe5mbvgkq" path="res://Art/seta.png" id="1_b21eg"]
-[ext_resource type="Texture2D" uid="uid://dj4nxodklom4b" path="res://Art/pulo.png" id="2_ga4sb"]
+[ext_resource type="Texture2D" uid="uid://dgj22p3sxnhht" path="res://Art/fov.png" id="4_wfjpv"]
 [ext_resource type="Script" uid="uid://cngf3xjt28o4q" path="res://Character/movimentacao_scripts/touch_screen_button.gd" id="5_s2mfb"]
 [ext_resource type="Texture2D" uid="uid://ccpd73mhyj5xq" path="res://Art/Continuar.png" id="6_bnpv3"]
 [ext_resource type="Texture2D" uid="uid://dohggylgv374d" path="res://Art/icone engrenagem.png" id="6_s2mfb"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wfjpv"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2pt1"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_s2mfb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kki7f"]
 
@@ -18,40 +11,11 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4jq13"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2pt1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s2mfb"]
+
 [node name="CanvasLayer" type="CanvasLayer"]
-
-[node name="botaoesquerda" type="TouchScreenButton" parent="."]
-position = Vector2(105, 525)
-scale = Vector2(5.86844, 5.48831)
-shape = SubResource("RectangleShape2D_wfjpv")
-action = "left"
-
-[node name="setaesquerda" type="Sprite2D" parent="botaoesquerda"]
-position = Vector2(0, 6.10352e-05)
-rotation = -1.5708
-scale = Vector2(0.0726025, 0.0651697)
-texture = ExtResource("1_b21eg")
-
-[node name="botaodireita" type="TouchScreenButton" parent="."]
-position = Vector2(264, 524)
-scale = Vector2(5.76115, 5.36964)
-shape = SubResource("RectangleShape2D_h2pt1")
-action = "right"
-
-[node name="setadireita" type="Sprite2D" parent="botaodireita"]
-rotation = 1.5708
-scale = Vector2(0.0728886, 0.0647828)
-texture = ExtResource("1_b21eg")
-
-[node name="botaopular" type="TouchScreenButton" parent="."]
-position = Vector2(1009, 524)
-scale = Vector2(5.94155, 5.73203)
-shape = SubResource("CircleShape2D_s2mfb")
-action = "jump"
-
-[node name="pular" type="Sprite2D" parent="botaopular"]
-scale = Vector2(0.11313, 0.116867)
-texture = ExtResource("2_ga4sb")
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
 position = Vector2(1058, 63)
@@ -85,6 +49,23 @@ position = Vector2(0.000305176, 5.72205e-05)
 scale = Vector2(0.0535357, 0.0535356)
 skew = 4.63724e-05
 texture = ExtResource("6_s2mfb")
+
+[node name="DiminuirFov" type="TouchScreenButton" parent="TouchScreenButton"]
+position = Vector2(-158.5, 110.674)
+scale = Vector2(0.461959, 0.461959)
+shape = SubResource("RectangleShape2D_h2pt1")
+action = "zoom_out"
+
+[node name="AumentarFov" type="TouchScreenButton" parent="TouchScreenButton"]
+position = Vector2(-125.39, 110.674)
+scale = Vector2(0.461712, 0.461712)
+shape = SubResource("RectangleShape2D_s2mfb")
+action = "zoom_in"
+
+[node name="Sprite2D2" type="Sprite2D" parent="TouchScreenButton"]
+position = Vector2(-138.88, 135.507)
+scale = Vector2(1.03623, 1.03623)
+texture = ExtResource("4_wfjpv")
 
 [connection signal="pressed" from="TouchScreenButton" to="TouchScreenButton" method="toggle_pause"]
 [connection signal="pressed" from="TouchScreenButton/Sprite2D/BotaoSair" to="TouchScreenButton" method="sair_para_menu"]

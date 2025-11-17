@@ -7,6 +7,9 @@ extends TouchScreenButton
 @onready var sair_button = $Sprite2D/BotaoSair
 @onready var sprite_sair_continuar = $Sprite2D # O fundo/painel do menu de pausa
 @onready var engrenagem = $Engrenagem
+@onready var aumentar_zoom = $AumentarFov
+@onready var diminuir_zoom = $DiminuirFov
+@onready var sprite_fov = $Sprite2D2
 
 # Caminho para o menu principal
 const TITLE_SCREEN_PATH = "res://Levels/TitleScreen.tscn"
@@ -21,8 +24,9 @@ func _ready():
 	sprite_sair_continuar.hide()
 	continuar_button.hide() 
 	sair_button.hide()
-	
-	
+	sprite_fov.hide()
+	diminuir_zoom.hide()
+	aumentar_zoom.hide()
 	
 	# Conecta o clique no botão 'Continuar' à função de despausar.
 	# Usamos uma função anônima 'func():' para passar 'false' como argumento.
@@ -47,7 +51,9 @@ func set_pause_state(should_pause: bool):
 		sprite_sair_continuar.show()
 		continuar_button.show()
 		sair_button.show()
-		
+		sprite_fov.show()
+		diminuir_zoom.show()
+		aumentar_zoom.show()
 		
 		# Desativa o clique no próprio botão Engrenagem, 
 		# para que o menu não feche se for clicado acidentalmente novamente.
@@ -61,6 +67,9 @@ func set_pause_state(should_pause: bool):
 		sprite_sair_continuar.hide()
 		continuar_button.hide()
 		sair_button.hide()
+		sprite_fov.hide()
+		diminuir_zoom.hide()
+		aumentar_zoom.hide()
 		
 		# Reativa o clique na Engrenagem, permitindo que ela seja pressionada novamente.
 		set_process_input(true)

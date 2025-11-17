@@ -85,10 +85,10 @@ func gerar_pergunta():
 			num4 = randi_range(2,5)
 			quotient += num3
 			quotient -= num4
-			operator_symbol = "/"
+			operator_symbol = "÷"
 			resposta_correta = quotient
 	
-	if operator_symbol == "/":
+	if operator_symbol == "÷":
 		pergunta_label.text = "Quanto é %d %s %d + %d - %d?" % [num1, operator_symbol, num2, num3, num4]	
 	else:
 		pergunta_label.text = "Quanto é %d %s %d %s %d %s %d?" % [num1, operator_symbol, num2, operator_symbol, num3, operator_symbol, num4]

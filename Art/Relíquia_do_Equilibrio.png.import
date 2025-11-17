@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bp6x1oixxvd2p"
-path="res://.godot/imported/Relíquia_do_Equilíbrio.png-6da44ef9c9c1cb31c48ad9013be0eef9.ctex"
+uid="uid://cbtsav4nbmx1t"
+path="res://.godot/imported/Relíquia_do_Equilibrio.png-009fd7993aa391dba116852fcc8a1ce5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Relíquia_do_Equilíbrio.png"
-dest_files=["res://.godot/imported/Relíquia_do_Equilíbrio.png-6da44ef9c9c1cb31c48ad9013be0eef9.ctex"]
+source_file="res://Art/Relíquia_do_Equilibrio.png"
+dest_files=["res://.godot/imported/Relíquia_do_Equilibrio.png-009fd7993aa391dba116852fcc8a1ce5.ctex"]
 
 [params]
 
