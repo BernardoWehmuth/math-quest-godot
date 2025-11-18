@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://7uxmd5uyngtl"]
+[gd_scene load_steps=65 format=3 uid="uid://7uxmd5uyngtl"]
 
 [ext_resource type="Script" uid="uid://badicnam32kyt" path="res://Levels/fase2_scripts/fase_2.gd" id="1_b7h51"]
 [ext_resource type="Texture2D" uid="uid://dxtontjqdyxah" path="res://Art/PR_BackGround 16x16.png" id="2_hmxsj"]
@@ -756,6 +756,8 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uqu6f"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cmdb"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nw5sm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmxsj"]
@@ -1032,6 +1034,12 @@ position = Vector2(764, -116)
 scale = Vector2(-1.04033, -1.0386)
 shape = SubResource("RectangleShape2D_uqu6f")
 
+[node name="Area2D" type="Area2D" parent="no_caixa_leve1"]
+position = Vector2(764, -116)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="no_caixa_leve1/Area2D"]
+shape = SubResource("RectangleShape2D_2cmdb")
+
 [node name="no_caixa_leve2" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="no_caixa_leve2"]
@@ -1046,6 +1054,12 @@ region_rect = Rect2(11.384, 177.256, 153.065, 158.389)
 position = Vector2(-191.063, -339.672)
 scale = Vector2(-1.04033, -1.0386)
 shape = SubResource("RectangleShape2D_uqu6f")
+
+[node name="Area2D" type="Area2D" parent="no_caixa_leve2"]
+position = Vector2(-191, -340)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="no_caixa_leve2/Area2D"]
+shape = SubResource("RectangleShape2D_2cmdb")
 
 [node name="no_caixa_leve3" type="Node2D" parent="."]
 
@@ -1062,6 +1076,12 @@ position = Vector2(-12.0626, -322.672)
 scale = Vector2(-1.04033, -1.0386)
 shape = SubResource("RectangleShape2D_uqu6f")
 
+[node name="Area2D" type="Area2D" parent="no_caixa_leve3"]
+position = Vector2(-12, -323)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="no_caixa_leve3/Area2D"]
+shape = SubResource("RectangleShape2D_2cmdb")
+
 [node name="no_caixa_leve4" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="no_caixa_leve4"]
@@ -1076,6 +1096,12 @@ region_rect = Rect2(11.384, 177.256, 153.065, 158.389)
 position = Vector2(-684.063, -179.672)
 scale = Vector2(-1.04033, -1.0386)
 shape = SubResource("RectangleShape2D_uqu6f")
+
+[node name="Area2D" type="Area2D" parent="no_caixa_leve4"]
+position = Vector2(-685, -180)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="no_caixa_leve4/Area2D"]
+shape = SubResource("RectangleShape2D_2cmdb")
 
 [node name="no_caixa_leve5" type="Node2D" parent="."]
 
@@ -1092,6 +1118,12 @@ position = Vector2(-682.063, 76.3276)
 scale = Vector2(-1.04033, -1.0386)
 shape = SubResource("RectangleShape2D_uqu6f")
 
+[node name="Area2D" type="Area2D" parent="no_caixa_leve5"]
+position = Vector2(-682, 78)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="no_caixa_leve5/Area2D"]
+shape = SubResource("RectangleShape2D_2cmdb")
+
 [node name="no_caixa_leve6" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="no_caixa_leve6"]
@@ -1106,6 +1138,12 @@ region_rect = Rect2(11.384, 177.256, 153.065, 158.389)
 position = Vector2(-685.062, -52.6724)
 scale = Vector2(-1.04033, -1.0386)
 shape = SubResource("RectangleShape2D_uqu6f")
+
+[node name="Area2D" type="Area2D" parent="no_caixa_leve6"]
+position = Vector2(-685, -52)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="no_caixa_leve6/Area2D"]
+shape = SubResource("RectangleShape2D_2cmdb")
 
 [node name="no_caixa_pesada1" type="Node2D" parent="."]
 
@@ -1122,6 +1160,12 @@ position = Vector2(423, -628.312)
 scale = Vector2(-1.20183, 1.25004)
 shape = SubResource("RectangleShape2D_nw5sm")
 
+[node name="Area2D" type="Area2D" parent="no_caixa_pesada1"]
+position = Vector2(425, -626)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="no_caixa_pesada1/Area2D"]
+shape = SubResource("RectangleShape2D_2cmdb")
+
 [node name="no_caixa_pesada2" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="no_caixa_pesada2"]
@@ -1136,6 +1180,12 @@ region_rect = Rect2(332.522, 173.468, 154.396, 167.706)
 position = Vector2(762, -471.312)
 scale = Vector2(-1.20183, 1.25004)
 shape = SubResource("RectangleShape2D_nw5sm")
+
+[node name="Area2D" type="Area2D" parent="no_caixa_pesada2"]
+position = Vector2(761, -470)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="no_caixa_pesada2/Area2D"]
+shape = SubResource("RectangleShape2D_2cmdb")
 
 [node name="no_caixa_meio1" type="Node2D" parent="."]
 
@@ -1152,6 +1202,12 @@ position = Vector2(762.562, -292.439)
 scale = Vector2(1.14491, 1.20146)
 shape = SubResource("RectangleShape2D_hmxsj")
 
+[node name="Area2D" type="Area2D" parent="no_caixa_meio1"]
+position = Vector2(761, -293)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="no_caixa_meio1/Area2D"]
+shape = SubResource("RectangleShape2D_2cmdb")
+
 [node name="no_caixa_meio2" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="no_caixa_meio2"]
@@ -1167,6 +1223,12 @@ position = Vector2(548.562, -339.439)
 scale = Vector2(1.14491, 1.20146)
 shape = SubResource("RectangleShape2D_hmxsj")
 
+[node name="Area2D" type="Area2D" parent="no_caixa_meio2"]
+position = Vector2(548, -339)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="no_caixa_meio2/Area2D"]
+shape = SubResource("RectangleShape2D_2cmdb")
+
 [node name="no_caixa_meio3" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="no_caixa_meio3"]
@@ -1181,6 +1243,12 @@ region_rect = Rect2(175.464, 174.799, 151.734, 163.713)
 position = Vector2(760.562, 75.5608)
 scale = Vector2(1.14491, 1.20146)
 shape = SubResource("RectangleShape2D_hmxsj")
+
+[node name="Area2D" type="Area2D" parent="no_caixa_meio3"]
+position = Vector2(761, 76)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="no_caixa_meio3/Area2D"]
+shape = SubResource("RectangleShape2D_2cmdb")
 
 [node name="BotaoRemover" type="TouchScreenButton" parent="."]
 position = Vector2(51.2499, 35.5)
@@ -1261,8 +1329,12 @@ mouse_default_cursor_shape = 2
 position = Vector2(286, 29)
 texture = ExtResource("35_2cmdb")
 
+[node name="Area2D" type="Area2D" parent="."]
+
 [connection signal="pressed" from="Player/Camera2D/CanvasLayer/ReliquiaDesc/BotaoReliquia" to="." method="_on_botao_reliquia_pressed"]
 [connection signal="pressed" from="Player/Camera2D/CanvasLayer/Explicacao/SetaExplicacao/BotaoExplicacao" to="." method="_on_botao_explicacao_pressed"]
+[connection signal="body_entered" from="no_caixa_meio3/Area2D" to="." method="_on_caixa_2d_body_entered"]
+[connection signal="pressed" from="BotaoRemover" to="." method="_remover_ultima_caixa"]
 [connection signal="body_entered" from="ExitDoor/Area2D" to="." method="_on_porta_body_entered"]
 [connection signal="body_exited" from="ExitDoor/Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="AreaReliquia" to="." method="_on_area_reliquia_body_entered"]

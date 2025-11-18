@@ -83,7 +83,7 @@ func _physics_process(delta: float) -> void:
 
 
 	# Movimento horizontal
-	direction = Input.get_vector("left", "right", "up", "down")
+	direction = Input.get_vector("left", "right", "up", "ui_down")
 	if direction && not is_on_floor():
 		animated_sprite.play("jump")
 		velocity.x = direction.x * speed
