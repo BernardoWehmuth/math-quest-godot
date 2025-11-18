@@ -14,6 +14,7 @@ const MAX_CAIXAS_NA_BALANCA = 6
 @onready var porta_entrada = $PortaEntrada
 @onready var reliquia = $Reliquia
 @onready var area_reliquia = $AreaReliquia
+@onready var seta_anubis = $Anubis/Seta
 
 # --- Pesos Constantes ---
 const PESO_CAIXA_LEVE = 1.0 / 6.0
@@ -50,7 +51,7 @@ var sprite_caixa: Sprite2D
 # Removemos a 'area_remover' e adicionamos o 'botao_remover'
 # Certifique-se que o nó "BotaoRemover" existe na sua cena!
 @onready var botao_remover = $BotaoRemover
-
+@onready var explicacao_fase = $Player/Camera2D/CanvasLayer/Explicacao
 @onready var sprite_porta = $ExitDoor/AnimatedSprite2D
 
 var posicao_antiga_ultima_caixa: Vector2
@@ -74,6 +75,7 @@ var ultima_caixa: Area2D
 # ------------------------------------------------
 
 func _ready():
+	seta_anubis.play("idle")
 	_verificar_equilibrio()
 	porta_entrada.play("fechando")
 	_conectar_caixas()
@@ -278,3 +280,13 @@ func _on_area_reliquia_body_entered(body: Node2D) -> void:
 		await get_tree().create_timer(1.0).timeout
 		reliquia_desc.show()
 		Difficulty.dificuldade = 0
+
+
+func _on_botao_anubis_pressed() -> void:
+	player.bloquear_input()
+	explicacao_fase.show()
+
+
+func _on_botao_explicacao_pressed() -> void:
+	player.liberar_input()
+	explicacao_fase.hide()

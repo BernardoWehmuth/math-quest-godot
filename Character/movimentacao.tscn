@@ -1,9 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://butb4p2o6cv4x"]
+[gd_scene load_steps=14 format=3 uid="uid://butb4p2o6cv4x"]
 
+[ext_resource type="Script" uid="uid://c3u7cgllp08we" path="res://Character/movimentacao.gd" id="1_kki7f"]
 [ext_resource type="Texture2D" uid="uid://dgj22p3sxnhht" path="res://Art/fov.png" id="4_wfjpv"]
+[ext_resource type="Texture2D" uid="uid://df38tqaf3deup" path="res://Art/Aritmetica.png" id="5_bnpv3"]
 [ext_resource type="Script" uid="uid://cngf3xjt28o4q" path="res://Character/movimentacao_scripts/touch_screen_button.gd" id="5_s2mfb"]
 [ext_resource type="Texture2D" uid="uid://ccpd73mhyj5xq" path="res://Art/Continuar.png" id="6_bnpv3"]
+[ext_resource type="Texture2D" uid="uid://d11brodmxii7l" path="res://Art/Equilibrio.png" id="6_kki7f"]
 [ext_resource type="Texture2D" uid="uid://dohggylgv374d" path="res://Art/icone engrenagem.png" id="6_s2mfb"]
+[ext_resource type="Texture2D" uid="uid://cj7o4j50l0jx" path="res://Art/Equacoes.png" id="7_4jq13"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kki7f"]
 
@@ -16,6 +20,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s2mfb"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
+layer = 5
+script = ExtResource("1_kki7f")
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
 position = Vector2(1058, 63)
@@ -51,12 +57,14 @@ skew = 4.63724e-05
 texture = ExtResource("6_s2mfb")
 
 [node name="DiminuirFov" type="TouchScreenButton" parent="TouchScreenButton"]
+process_mode = 3
 position = Vector2(-158.5, 110.674)
 scale = Vector2(0.461959, 0.461959)
 shape = SubResource("RectangleShape2D_h2pt1")
 action = "zoom_out"
 
 [node name="AumentarFov" type="TouchScreenButton" parent="TouchScreenButton"]
+process_mode = 3
 position = Vector2(-125.39, 110.674)
 scale = Vector2(0.461712, 0.461712)
 shape = SubResource("RectangleShape2D_s2mfb")
@@ -66,6 +74,24 @@ action = "zoom_in"
 position = Vector2(-138.88, 135.507)
 scale = Vector2(1.03623, 1.03623)
 texture = ExtResource("4_wfjpv")
+
+[node name="Reliquia1" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1061.31, 159.449)
+scale = Vector2(0.137427, 0.137427)
+texture = ExtResource("5_bnpv3")
+
+[node name="Reliquia2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1063, 245)
+scale = Vector2(0.108804, 0.108804)
+texture = ExtResource("6_kki7f")
+
+[node name="Reliquia3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1065, 324)
+scale = Vector2(0.347458, 0.347458)
+texture = ExtResource("7_4jq13")
 
 [connection signal="pressed" from="TouchScreenButton" to="TouchScreenButton" method="toggle_pause"]
 [connection signal="pressed" from="TouchScreenButton/Sprite2D/BotaoSair" to="TouchScreenButton" method="sair_para_menu"]

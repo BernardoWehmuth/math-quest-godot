@@ -2,6 +2,8 @@ extends Node2D
 
 var quest_count = 0
 
+@onready var pergaminho_coletavel = $Pergaminho
+@onready var anim_pergaminho_seta = $Pergaminho/AnimatedSprite2D
 var reliquia_coletada = false
 var quest_ativa = false
 const QUEST_CENA = preload("res://Quests/Quest 1.tscn")
@@ -18,7 +20,7 @@ var variavel_local_entrou = 0
 @onready var porta_entrada = $PortaEntrada
 @onready var reliquia_desc = $"Player/Camera2D/CanvasLayer/CanvasLayer/Aritmética"
 @onready var reliquia = $Reliquia
-
+@onready var explicacao_pergaminho = $Player/Camera2D/CanvasLayer/Explicacao_Fase
 
 var reliquia_mostrada = false
 
@@ -29,6 +31,8 @@ func _process(_delta):
 		reliquia_mostrada = true
 		
 func _ready():
+	anim_pergaminho_seta.play("idle")
+	pergaminho_coletavel.play("idle")
 	porta_entrada.play("fechando")
 	await get_tree().create_timer(1.0).timeout
 	porta_entrada.queue_free()
@@ -127,3 +131,17 @@ func _on_area_reliquia_body_entered(_body: Node2D) -> void:
 		await get_tree().create_timer(1.0).timeout
 		reliquia_desc.show()
 		reliquia_coletada = true
+
+
+func _on_area_pergaminho_body_entered(_body: Node2D) -> void:
+	pergaminho_coletavel.play("sumindo")
+	anim_pergaminho_seta.queue_free()
+	await get_tree().create_timer(0.5).timeout
+	pergaminho_coletavel.queue_free()
+	jogador.bloquear_input()
+	explicacao_pergaminho.show()
+
+
+func _on_seta_explicacao_pressed() -> void:
+	explicacao_pergaminho.queue_free()
+	jogador.liberar_input()

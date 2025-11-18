@@ -1,8 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://cd1omye1rbaid"]
+[gd_scene load_steps=15 format=3 uid="uid://cd1omye1rbaid"]
 
 [ext_resource type="Texture2D" uid="uid://d11brodmxii7l" path="res://Art/Equilibrio.png" id="1_8earn"]
 [ext_resource type="Script" uid="uid://cr3est2ww7qkx" path="res://Components/Reliquias/reliquias.gd" id="1_grjmi"]
 [ext_resource type="Texture2D" uid="uid://beycowhovq7sm" path="res://Art/explosao.png" id="1_ypmr5"]
+[ext_resource type="Texture2D" uid="uid://dkcwkj1ogx5ex" path="res://Art/seta 1.png" id="4_458rk"]
+[ext_resource type="Texture2D" uid="uid://d1tq126bnnxtr" path="res://Art/seta 2.png" id="5_3dxhd"]
+[ext_resource type="Texture2D" uid="uid://darnab1muq5pj" path="res://Art/seta 3.png" id="6_nm43m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ypmr5"]
 
@@ -57,6 +60,26 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_lext3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_458rk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3dxhd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_nm43m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3dxhd")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
 [node name="Area2D" type="Area2D"]
 script = ExtResource("1_grjmi")
 
@@ -69,5 +92,11 @@ scale = Vector2(0.0398812, 0.0398812)
 sprite_frames = SubResource("SpriteFrames_grjmi")
 animation = &"idle"
 frame_progress = 0.903517
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.6, -12)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_lext3")
+animation = &"idle"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

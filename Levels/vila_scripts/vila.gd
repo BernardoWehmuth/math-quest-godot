@@ -2,10 +2,10 @@ extends Node2D
 
 @onready var label_texto = $label_texto
 @onready var label_design = $label_design
-@onready var seta_botao = $seta/TouchScreenButton
-@onready var seta_sprite = $seta
+@onready var seta_botao = $label_texto/seta/Button
+@onready var seta_sprite = $label_texto/seta
 @onready var colisao_personagem = $CharacterBody2D/CollisionShape2D
-@onready var botao_personagem = $CharacterBody2D/TouchScreenButton
+@onready var botao_personagem = $CharacterBody2D/Button
 @onready var seta_conversa = $setaconversa
 @onready var nome_sacerdote = $NomeSacerdote
 
@@ -14,8 +14,6 @@ func _ready() -> void:
 	seta_conversa.play("seta")
 	label_texto.hide()
 	label_design.hide()
-	seta_botao.hide()
-	seta_sprite.hide()
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

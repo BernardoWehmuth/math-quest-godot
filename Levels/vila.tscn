@@ -1,9 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://bouy4j8la8fvd"]
+[gd_scene load_steps=22 format=3 uid="uid://bouy4j8la8fvd"]
 
 [ext_resource type="Script" uid="uid://cs143wc4cnduf" path="res://Levels/vila_scripts/vila.gd" id="1_buxm5"]
 [ext_resource type="Texture2D" uid="uid://bdq3p0lk83dx4" path="res://Art/externo.png" id="1_hafyx"]
 [ext_resource type="PackedScene" uid="uid://boyloxbbh7x7m" path="res://Character/player.tscn" id="2_iaytf"]
 [ext_resource type="Texture2D" uid="uid://wngdk0rk7yrf" path="res://Art/r8IjbS.png" id="2_sjwhy"]
+[ext_resource type="Script" uid="uid://c7rb8miehbyj8" path="res://Levels/camera_2d.gd" id="5_nqg8a"]
 [ext_resource type="Texture2D" uid="uid://wvapgciq3hof" path="res://Art/Gemini_Generated_Image_8nfs958nfs958nfs.png" id="7_h88qw"]
 [ext_resource type="PackedScene" uid="uid://butb4p2o6cv4x" path="res://Character/movimentacao.tscn" id="9_dg1rr"]
 [ext_resource type="Texture2D" uid="uid://c47ki016gpe13" path="res://Art/personagens.png" id="9_dmg1i"]
@@ -266,10 +267,6 @@ size = Vector2(50, 75)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6aqfn"]
 height = 105.651
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4jdsw"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nqg8a"]
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_4tyb6"]
 animations = [{
 "frames": [{
@@ -307,8 +304,10 @@ top_level = true
 position = Vector2(72, 162)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+process_mode = 3
 offset = Vector2(0, -50)
 zoom = Vector2(4, 4)
+script = ExtResource("5_nqg8a")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../Camera2D")
@@ -374,12 +373,13 @@ texture = ExtResource("9_dmg1i")
 region_enabled = true
 region_rect = Rect2(276.825, 72.877, 44.5979, 116.993)
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="CharacterBody2D"]
-position = Vector2(0, 2)
-scale = Vector2(0.913836, 1.49097)
-shape = SubResource("CapsuleShape2D_4jdsw")
-
-[node name="CanvasLayer" parent="." instance=ExtResource("9_dg1rr")]
+[node name="Button" type="Button" parent="CharacterBody2D"]
+z_index = -2
+offset_left = -9.0
+offset_top = -21.0
+offset_right = 11.0
+offset_bottom = 25.0
+mouse_default_cursor_shape = 2
 
 [node name="label_design" type="Sprite2D" parent="."]
 position = Vector2(772, 79)
@@ -391,15 +391,20 @@ position = Vector2(775, 82)
 scale = Vector2(0.283333, 0.283333)
 texture = ExtResource("12_54lrd")
 
-[node name="seta" type="Sprite2D" parent="."]
-position = Vector2(832, 110)
-scale = Vector2(0.0214844, 0.0214844)
+[node name="seta" type="Sprite2D" parent="label_texto"]
+position = Vector2(197.647, 102.353)
+scale = Vector2(0.0705013, 0.0705013)
 texture = ExtResource("13_edffo")
 flip_h = true
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="seta"]
-scale = Vector2(25.8919, 24.0931)
-shape = SubResource("RectangleShape2D_nqg8a")
+[node name="Button" type="Button" parent="label_texto/seta"]
+z_index = -1
+offset_left = -279.0
+offset_top = -233.0
+offset_right = 279.0
+offset_bottom = 233.0
+mouse_default_cursor_shape = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="gato" type="Sprite2D" parent="."]
 position = Vector2(787, 163)
@@ -420,6 +425,9 @@ position = Vector2(775, 107)
 scale = Vector2(0.132143, 0.132143)
 texture = ExtResource("14_edffo")
 
+[node name="CanvasLayer" parent="." instance=ExtResource("9_dg1rr")]
+process_mode = 3
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="pressed" from="CharacterBody2D/TouchScreenButton" to="." method="_on_personagem_screen_button_pressed"]
-[connection signal="pressed" from="seta/TouchScreenButton" to="." method="_on_seta_screen_button_pressed"]
+[connection signal="pressed" from="CharacterBody2D/Button" to="." method="_on_personagem_screen_button_pressed"]
+[connection signal="pressed" from="label_texto/seta/Button" to="." method="_on_seta_screen_button_pressed"]

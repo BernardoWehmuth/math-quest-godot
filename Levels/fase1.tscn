@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://3yguqxhxrf2o"]
+[gd_scene load_steps=71 format=3 uid="uid://3yguqxhxrf2o"]
 
 [ext_resource type="Texture2D" uid="uid://dxtontjqdyxah" path="res://Art/PR_BackGround 16x16.png" id="1_dd3ly"]
 [ext_resource type="Script" uid="uid://b3nc6suuwwamq" path="res://Levels/fase1_scripts/fase_1.gd" id="1_lgkhq"]
@@ -21,7 +21,13 @@
 [ext_resource type="Texture2D" uid="uid://c7553d6fxhjjq" path="res://Art/11-Door/Opening (46x56).png" id="16_kjsgi"]
 [ext_resource type="Texture2D" uid="uid://5ssrirktnppp" path="res://Art/11-Door/Closiong (46x56).png" id="16_n1ob0"]
 [ext_resource type="Texture2D" uid="uid://tbq5f444sdua" path="res://Art/11-Door/Opened.png" id="17_01jpy"]
+[ext_resource type="Texture2D" uid="uid://gm46gecnegbl" path="res://Art/Camara_da_Aritmetica-removebg-preview.png" id="17_yuo0i"]
 [ext_resource type="PackedScene" uid="uid://ysr0f05c8j26" path="res://Components/Reliquias/ReliquiaAritmetica.tscn" id="20_dxfdl"]
+[ext_resource type="Texture2D" uid="uid://do1i7k4pj4wjx" path="res://Art/pergaminho-coletavel-removebg-preview.png" id="23_ghxwj"]
+[ext_resource type="Texture2D" uid="uid://beycowhovq7sm" path="res://Art/explosao.png" id="24_harwb"]
+[ext_resource type="Texture2D" uid="uid://dkcwkj1ogx5ex" path="res://Art/seta 1.png" id="24_hth45"]
+[ext_resource type="Texture2D" uid="uid://d1tq126bnnxtr" path="res://Art/seta 2.png" id="25_harwb"]
+[ext_resource type="Texture2D" uid="uid://darnab1muq5pj" path="res://Art/seta 3.png" id="26_yuo0i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lgkhq"]
 texture = ExtResource("1_dd3ly")
@@ -892,6 +898,80 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n60wm"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_yuo0i"]
+atlas = ExtResource("24_harwb")
+region = Rect2(0, 0, 614, 414)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrej2"]
+atlas = ExtResource("24_harwb")
+region = Rect2(614, 0, 614, 414)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m61l8"]
+atlas = ExtResource("24_harwb")
+region = Rect2(1228, 0, 614, 414)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sewc2"]
+atlas = ExtResource("24_harwb")
+region = Rect2(1842, 0, 614, 414)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlh4o"]
+atlas = ExtResource("24_harwb")
+region = Rect2(2456, 0, 614, 414)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r3hxf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_ghxwj")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yuo0i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrej2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m61l8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sewc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlh4o")
+}],
+"loop": false,
+"name": &"sumindo",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lrej2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_hth45")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_harwb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_yuo0i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_harwb")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hth45"]
+size = Vector2(141.732, 170.079)
+
 [node name="fase1" type="Node2D" groups=["game_manager"]]
 script = ExtResource("1_lgkhq")
 
@@ -914,6 +994,7 @@ position = Vector2(193, 60)
 remote_path = NodePath("../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+process_mode = 3
 zoom = Vector2(4, 4)
 process_callback = 0
 position_smoothing_enabled = true
@@ -966,6 +1047,25 @@ theme_override_font_sizes/font_size = 21
 text = "       Você só deve vir aqui
      quando concluir todas 
 as quatro portas de desafio"
+
+[node name="Explicacao_Fase" type="Sprite2D" parent="Player/Camera2D/CanvasLayer"]
+visible = false
+position = Vector2(602, 253)
+texture = ExtResource("17_yuo0i")
+
+[node name="Seta" type="Sprite2D" parent="Player/Camera2D/CanvasLayer/Explicacao_Fase"]
+position = Vector2(209, 235)
+rotation = 3.14159
+scale = Vector2(0.0508103, 0.0508103)
+texture = ExtResource("15_n60wm")
+
+[node name="Button" type="Button" parent="Player/Camera2D/CanvasLayer/Explicacao_Fase"]
+z_index = -1
+offset_left = 196.0
+offset_top = 223.0
+offset_right = 222.0
+offset_bottom = 247.0
+mouse_default_cursor_shape = 2
 
 [node name="Label" type="Label" parent="."]
 offset_left = 433.0
@@ -1044,20 +1144,29 @@ position = Vector2(650, 173)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaReliquia"]
 shape = SubResource("RectangleShape2D_n60wm")
 
-[connection signal="body_entered" from="TileMap/Area2D" to="TileMap/Area2D" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@47578" to="TileMap/@Area2D@47578" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@47579" to="TileMap/@Area2D@47579" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@47580" to="TileMap/@Area2D@47580" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@47581" to="TileMap/@Area2D@47581" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@47582" to="TileMap/@Area2D@47582" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@47583" to="TileMap/@Area2D@47583" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@47584" to="TileMap/@Area2D@47584" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@47585" to="TileMap/@Area2D@47585" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@47586" to="TileMap/@Area2D@47586" method="_on_body_entered"]
-[connection signal="body_entered" from="TileMap/@Area2D@47587" to="TileMap/@Area2D@47587" method="_on_body_entered"]
+[node name="Pergaminho" type="AnimatedSprite2D" parent="."]
+position = Vector2(252, 62)
+scale = Vector2(0.0811111, 0.0811111)
+sprite_frames = SubResource("SpriteFrames_r3hxf")
+animation = &"idle"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pergaminho"]
+position = Vector2(-1.52588e-05, -113.386)
+scale = Vector2(4.25197, 4.25197)
+sprite_frames = SubResource("SpriteFrames_lrej2")
+animation = &"idle"
+
+[node name="AreaPergaminho" type="Area2D" parent="Pergaminho"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pergaminho/AreaPergaminho"]
+position = Vector2(0.000244141, 0)
+shape = SubResource("RectangleShape2D_hth45")
+
 [connection signal="pressed" from="Player/Camera2D/CanvasLayer/CanvasLayer/Aritmética/BotaoReliquia" to="." method="_on_botao_reliquia_pressed"]
+[connection signal="pressed" from="Player/Camera2D/CanvasLayer/Explicacao_Fase/Button" to="." method="_on_seta_explicacao_pressed"]
 [connection signal="pressed" from="Label/Label2/StartQuestButton" to="Label/Label2/StartQuestButton" method="_on_start_quest_pressed"]
 [connection signal="body_entered" from="SpritePorta/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="SpritePorta/Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="PortaProxFase/AreaPortaProxFase" to="." method="porta_saida"]
 [connection signal="body_entered" from="AreaReliquia" to="." method="_on_area_reliquia_body_entered"]
+[connection signal="body_entered" from="Pergaminho/AreaPergaminho" to="." method="_on_area_pergaminho_body_entered"]

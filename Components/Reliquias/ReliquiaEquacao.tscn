@@ -1,8 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://chvyqyyxihch3"]
+[gd_scene load_steps=15 format=3 uid="uid://chvyqyyxihch3"]
 
 [ext_resource type="Script" uid="uid://cr3est2ww7qkx" path="res://Components/Reliquias/reliquias.gd" id="1_8smxr"]
 [ext_resource type="Texture2D" uid="uid://cj7o4j50l0jx" path="res://Art/Equacoes.png" id="1_o6sqr"]
 [ext_resource type="Texture2D" uid="uid://beycowhovq7sm" path="res://Art/explosao.png" id="1_qd4np"]
+[ext_resource type="Texture2D" uid="uid://dkcwkj1ogx5ex" path="res://Art/seta 1.png" id="4_yho4f"]
+[ext_resource type="Texture2D" uid="uid://d1tq126bnnxtr" path="res://Art/seta 2.png" id="5_mxq0m"]
+[ext_resource type="Texture2D" uid="uid://darnab1muq5pj" path="res://Art/seta 3.png" id="6_x1iay"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qe5ns"]
 atlas = ExtResource("1_qd4np")
@@ -57,6 +60,26 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qd4np"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_0afkw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_yho4f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mxq0m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_x1iay")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mxq0m")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
 [node name="Area2D" type="Area2D"]
 script = ExtResource("1_8smxr")
 
@@ -68,5 +91,11 @@ animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_qd4np")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.6, -12)
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_0afkw")
+animation = &"idle"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

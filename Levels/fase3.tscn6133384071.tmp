@@ -209,24 +209,7 @@ script = ExtResource("4_0ills")
 [node name="Canvas_layer" type="CanvasLayer" parent="Player/Camera2D"]
 
 [node name="Explicacao_Fase" type="Sprite2D" parent="Player/Camera2D/Canvas_layer"]
-visible = false
-position = Vector2(627, 267)
-scale = Vector2(1.1391, 1.1391)
 texture = ExtResource("5_0nva8")
-
-[node name="Sprite2D" type="Sprite2D" parent="Player/Camera2D/Canvas_layer/Explicacao_Fase"]
-position = Vector2(200.158, 227.373)
-rotation = 3.14159
-scale = Vector2(0.0492423, 0.0492423)
-texture = ExtResource("5_5ueap")
-
-[node name="Button" type="Button" parent="Player/Camera2D/Canvas_layer/Explicacao_Fase/Sprite2D"]
-z_index = -1
-offset_left = -261.0
-offset_top = -241.0
-offset_right = 262.0
-offset_bottom = 235.0
-mouse_default_cursor_shape = 2
 
 [node name="ReliquiaDesc" type="CanvasLayer" parent="Player/Camera2D"]
 visible = false
@@ -352,7 +335,7 @@ shape = SubResource("RectangleShape2D_0ills")
 position = Vector2(239, 279)
 scale = Vector2(0.0811111, 0.0811111)
 sprite_frames = SubResource("SpriteFrames_2avu1")
-animation = &"sumindo"
+animation = &"idle"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pergaminho"]
 position = Vector2(-1.52588e-05, -113.386)
@@ -366,11 +349,9 @@ animation = &"idle"
 position = Vector2(0.000244141, 0)
 shape = SubResource("RectangleShape2D_og23j")
 
-[connection signal="pressed" from="Player/Camera2D/Canvas_layer/Explicacao_Fase/Sprite2D/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Player/Camera2D/ReliquiaDesc/Sprite2D/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
 [connection signal="pressed" from="TouchScreenButton" to="." method="_on_botao_iniciar_button_pressed"]
 [connection signal="pressed" from="TouchScreenButton2" to="." method="_on_botao_iniciar_button_pressed"]
 [connection signal="pressed" from="TouchScreenButton3" to="." method="_on_botao_iniciar_button_pressed"]
 [connection signal="body_entered" from="Porta/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="AreaReliquia" to="." method="_on_area_reliquia_body_entered"]
-[connection signal="body_entered" from="Pergaminho/AreaPergaminho" to="." method="_on_area_pergaminho_body_entered"]

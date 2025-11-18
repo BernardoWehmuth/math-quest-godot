@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bwpjdrhwxeeju"]
+[gd_scene load_steps=13 format=3 uid="uid://bwpjdrhwxeeju"]
 
 [ext_resource type="Script" uid="uid://pstk4u1mgqnq" path="res://Levels/fase4_scripts/fase_4.gd" id="1_0003o"]
 [ext_resource type="PackedScene" uid="uid://h00rq5t0i7yi" path="res://Tiles/tile_map.tscn" id="1_q3yhk"]
 [ext_resource type="PackedScene" uid="uid://boyloxbbh7x7m" path="res://Character/player.tscn" id="2_8r12f"]
 [ext_resource type="PackedScene" uid="uid://butb4p2o6cv4x" path="res://Character/movimentacao.tscn" id="3_swcro"]
+[ext_resource type="Script" uid="uid://c7rb8miehbyj8" path="res://Levels/camera_2d.gd" id="4_7ld3x"]
 [ext_resource type="Texture2D" uid="uid://5ssrirktnppp" path="res://Art/11-Door/Closiong (46x56).png" id="5_yalws"]
 [ext_resource type="PackedScene" uid="uid://elb1ruqv6psa" path="res://Extras/moving_platform.tscn" id="6_yalws"]
 [ext_resource type="PackedScene" uid="uid://coo2sooqj7hyu" path="res://Extras/ventilador_subir.tscn" id="7_h68uw"]
@@ -50,8 +51,10 @@ z_index = 1
 position = Vector2(42, 275)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+process_mode = 3
 offset = Vector2(0, -25)
 zoom = Vector2(4, 4)
+script = ExtResource("4_7ld3x")
 
 [node name="Canvas_layer" type="CanvasLayer" parent="Player/Camera2D"]
 
@@ -59,6 +62,7 @@ zoom = Vector2(4, 4)
 remote_path = NodePath("../Camera2D")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("3_swcro")]
+process_mode = 3
 
 [node name="PortaEntrada" type="AnimatedSprite2D" parent="."]
 position = Vector2(41, 260)

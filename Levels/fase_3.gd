@@ -1,5 +1,9 @@
 extends Node2D
 
+@onready var explicacao_pergaminho = $Player/Camera2D/Canvas_layer/Explicacao_Fase
+@onready var pergaminho_coletavel = $Pergaminho
+@onready var anim_pergaminho_seta = $Pergaminho/AnimatedSprite2D
+
 @onready var porta_entrada = $PortaEntrada
 const quest_3: PackedScene = preload("res://Quests/Quest 3.tscn") 
 @onready var tela_quest = $Player/Camera2D/Canvas_layer
@@ -23,6 +27,8 @@ var quest3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	anim_pergaminho_seta.play("idle")
+	pergaminho_coletavel.play("idle")
 	porta_entrada.play("fechando")
 	await get_tree().create_timer(1.5).timeout
 	porta_entrada.hide()
@@ -80,3 +86,16 @@ func _on_area_reliquia_body_entered(body: Node2D) -> void:
 		await get_tree().create_timer(1.0).timeout 
 		reliquia_desc.show()
 		
+func _on_area_pergaminho_body_entered(_body: Node2D) -> void:
+	if _body.is_in_group("player"):
+		pergaminho_coletavel.play("sumindo")
+		anim_pergaminho_seta.queue_free()
+		await get_tree().create_timer(0.5).timeout
+		pergaminho_coletavel.queue_free()
+		player.bloquear_input()
+		explicacao_pergaminho.show()
+
+
+func _on_button_pressed() -> void:
+	explicacao_pergaminho.queue_free()
+	player.liberar_input()

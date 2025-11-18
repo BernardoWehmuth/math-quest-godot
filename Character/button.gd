@@ -1,5 +1,5 @@
 # Engrenagem.gd (Script anexado ao TouchScreenButton "Engrenagem")
-extends TouchScreenButton
+extends Button
 
 # Referências aos nós filhos. 
 # Certifique-se de que os nomes dos nós correspondem aos caminhos.
@@ -76,6 +76,7 @@ func set_pause_state(should_pause: bool):
 		
 # Função para sair da fase e voltar ao menu
 func sair_para_menu():
+	# CRÍTICO: Despausa o jogo antes de trocar de cena para evitar bugs.
 	get_tree().paused = false
 	# Carrega a cena do Menu Principal
 	get_tree().change_scene_to_file(TITLE_SCREEN_PATH)
