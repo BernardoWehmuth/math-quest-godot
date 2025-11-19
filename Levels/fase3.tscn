@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cei22t01avp3t"]
+[gd_scene load_steps=44 format=3 uid="uid://cei22t01avp3t"]
 
 [ext_resource type="PackedScene" uid="uid://h00rq5t0i7yi" path="res://Tiles/tile_map.tscn" id="1_q3yhk"]
 [ext_resource type="Script" uid="uid://ypdib0n4dgj4" path="res://Levels/fase_3.gd" id="1_swcro"]
@@ -22,8 +22,6 @@
 [ext_resource type="Texture2D" uid="uid://dkcwkj1ogx5ex" path="res://Art/seta 1.png" id="20_bupsb"]
 [ext_resource type="Texture2D" uid="uid://d1tq126bnnxtr" path="res://Art/seta 2.png" id="21_lbfy6"]
 [ext_resource type="Texture2D" uid="uid://darnab1muq5pj" path="res://Art/seta 3.png" id="22_ar06t"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ueap"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yc36f"]
 atlas = ExtResource("5_yalws")
@@ -237,15 +235,19 @@ scale = Vector2(1.157, 1.157)
 texture = ExtResource("4_yyhjd")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player/Camera2D/ReliquiaDesc/Sprite2D"]
-position = Vector2(185.707, 215.957)
+position = Vector2(193.955, 227.662)
 rotation = 3.14159
-scale = Vector2(0.124224, 0.124224)
+scale = Vector2(0.0891495, 0.0891495)
 texture = ExtResource("5_5ueap")
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="Player/Camera2D/ReliquiaDesc/Sprite2D"]
-position = Vector2(184.097, 216.94)
-scale = Vector2(3.52381, 3.03371)
-shape = SubResource("RectangleShape2D_5ueap")
+[node name="Button" type="Button" parent="Player/Camera2D/ReliquiaDesc/Sprite2D"]
+z_index = -2
+offset_left = 171.0
+offset_top = 206.0
+offset_right = 199.0
+offset_bottom = 227.0
+scale = Vector2(1.6784, 1.9938)
+mouse_default_cursor_shape = 2
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../Camera2D")
@@ -367,7 +369,7 @@ position = Vector2(0.000244141, 0)
 shape = SubResource("RectangleShape2D_og23j")
 
 [connection signal="pressed" from="Player/Camera2D/Canvas_layer/Explicacao_Fase/Sprite2D/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Player/Camera2D/ReliquiaDesc/Sprite2D/TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
+[connection signal="pressed" from="Player/Camera2D/ReliquiaDesc/Sprite2D/Button" to="." method="_on_touch_screen_button_pressed"]
 [connection signal="pressed" from="TouchScreenButton" to="." method="_on_botao_iniciar_button_pressed"]
 [connection signal="pressed" from="TouchScreenButton2" to="." method="_on_botao_iniciar_button_pressed"]
 [connection signal="pressed" from="TouchScreenButton3" to="." method="_on_botao_iniciar_button_pressed"]

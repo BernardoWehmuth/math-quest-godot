@@ -2,6 +2,7 @@ extends Node2D
 
 var quest_count = 0
 
+@onready var movimentacao = $Player/Camera2D/CanvasLayer/CanvasLayer
 @onready var pergaminho_coletavel = $Pergaminho
 @onready var anim_pergaminho_seta = $Pergaminho/AnimatedSprite2D
 var reliquia_coletada = false
@@ -131,6 +132,7 @@ func _on_area_reliquia_body_entered(_body: Node2D) -> void:
 		await get_tree().create_timer(1.0).timeout
 		reliquia_desc.show()
 		reliquia_coletada = true
+		movimentacao.reliquia1.show()
 
 
 func _on_area_pergaminho_body_entered(_body: Node2D) -> void:

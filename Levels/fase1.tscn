@@ -1162,6 +1162,17 @@ animation = &"idle"
 position = Vector2(0.000244141, 0)
 shape = SubResource("RectangleShape2D_hth45")
 
+[connection signal="body_entered" from="TileMap/Area2D" to="TileMap/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@36844" to="TileMap/@Area2D@36844" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@36845" to="TileMap/@Area2D@36845" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@36846" to="TileMap/@Area2D@36846" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@36847" to="TileMap/@Area2D@36847" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@36848" to="TileMap/@Area2D@36848" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@36849" to="TileMap/@Area2D@36849" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@36850" to="TileMap/@Area2D@36850" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@36851" to="TileMap/@Area2D@36851" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@36852" to="TileMap/@Area2D@36852" method="_on_body_entered"]
+[connection signal="body_entered" from="TileMap/@Area2D@36853" to="TileMap/@Area2D@36853" method="_on_body_entered"]
 [connection signal="pressed" from="Player/Camera2D/CanvasLayer/CanvasLayer/Aritmética/BotaoReliquia" to="." method="_on_botao_reliquia_pressed"]
 [connection signal="pressed" from="Player/Camera2D/CanvasLayer/Explicacao_Fase/Button" to="." method="_on_seta_explicacao_pressed"]
 [connection signal="pressed" from="Label/Label2/StartQuestButton" to="Label/Label2/StartQuestButton" method="_on_start_quest_pressed"]

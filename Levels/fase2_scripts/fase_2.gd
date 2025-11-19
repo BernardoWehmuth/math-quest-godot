@@ -9,6 +9,7 @@ var reliquia_coletada = false
 @export var peso_alvo_pena: float = 1.0
 const MAX_CAIXAS_NA_BALANCA = 6
 
+@onready var movimentacao = $Player/Camera2D/CanvasLayer/CanvasLayer
 # --- Referências ---
 @onready var player = $Player
 @onready var sprite_verde = $Sprite_verde
@@ -259,6 +260,7 @@ func _on_area_reliquia_body_entered(body):
 		await get_tree().create_timer(1.0).timeout
 		reliquia_desc.show()
 		Difficulty.dificuldade = 0
+		movimentacao.reliquia2.show()
 
 
 func _on_botao_reliquia_pressed():

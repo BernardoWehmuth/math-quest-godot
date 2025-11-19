@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Jogo do Pac"
+config/name="MathQuest"
 run/main_scene="uid://c246n5qobi33j"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="uid://byqljsthnnlt7"

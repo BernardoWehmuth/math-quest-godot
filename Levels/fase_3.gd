@@ -3,6 +3,7 @@ extends Node2D
 @onready var explicacao_pergaminho = $Player/Camera2D/Canvas_layer/Explicacao_Fase
 @onready var pergaminho_coletavel = $Pergaminho
 @onready var anim_pergaminho_seta = $Pergaminho/AnimatedSprite2D
+@onready var movimentacao = $movimentacao
 
 @onready var porta_entrada = $PortaEntrada
 const quest_3: PackedScene = preload("res://Quests/Quest 3.tscn") 
@@ -72,7 +73,7 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 	if _body.is_in_group("player"):
 		porta.play("abrindo")
 		await get_tree().create_timer(1.5).timeout 
-		get_tree().change_scene_to_file("res://Levels/TitleScreen.tscn")
+		get_tree().change_scene_to_file("res://Levels/cena_final.tscn")
 
 
 func _on_touch_screen_button_pressed() -> void:
@@ -85,6 +86,7 @@ func _on_area_reliquia_body_entered(body: Node2D) -> void:
 		player.bloquear_input()
 		await get_tree().create_timer(1.0).timeout 
 		reliquia_desc.show()
+		movimentacao.reliquia3.show()
 		
 func _on_area_pergaminho_body_entered(_body: Node2D) -> void:
 	if _body.is_in_group("player"):
