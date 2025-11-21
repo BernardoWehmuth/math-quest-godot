@@ -94,10 +94,12 @@ func _on_area_pergaminho_body_entered(_body: Node2D) -> void:
 		anim_pergaminho_seta.queue_free()
 		await get_tree().create_timer(0.5).timeout
 		pergaminho_coletavel.queue_free()
-		player.bloquear_input()
 		explicacao_pergaminho.show()
+		player.bloquear_input()
+		
 
 
 func _on_button_pressed() -> void:
 	explicacao_pergaminho.queue_free()
 	player.liberar_input()
+	movimentacao.pergaminho.show()

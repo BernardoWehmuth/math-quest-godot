@@ -147,3 +147,4 @@ func _on_area_pergaminho_body_entered(_body: Node2D) -> void:
 func _on_seta_explicacao_pressed() -> void:
 	explicacao_pergaminho.queue_free()
 	jogador.liberar_input()
+	movimentacao.pergaminho.show()

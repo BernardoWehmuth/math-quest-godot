@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://butb4p2o6cv4x"]
+[gd_scene load_steps=19 format=3 uid="uid://butb4p2o6cv4x"]
 
 [ext_resource type="Script" uid="uid://c3u7cgllp08we" path="res://Character/movimentacao.gd" id="1_kki7f"]
 [ext_resource type="Texture2D" uid="uid://dgj22p3sxnhht" path="res://Art/fov.png" id="4_wfjpv"]
@@ -8,6 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://d11brodmxii7l" path="res://Art/Equilibrio.png" id="6_kki7f"]
 [ext_resource type="Texture2D" uid="uid://dohggylgv374d" path="res://Art/icone engrenagem.png" id="6_s2mfb"]
 [ext_resource type="Texture2D" uid="uid://cj7o4j50l0jx" path="res://Art/Equacoes.png" id="7_4jq13"]
+[ext_resource type="Texture2D" uid="uid://do1i7k4pj4wjx" path="res://Art/pergaminho-coletavel-removebg-preview.png" id="9_4jq13"]
+[ext_resource type="Texture2D" uid="uid://gm46gecnegbl" path="res://Art/Camara_da_Aritmetica-removebg-preview.png" id="10_lss2p"]
+[ext_resource type="Texture2D" uid="uid://bxgljxukik4d2" path="res://Art/Camara_das_Equacoes-removebg-preview.png" id="11_4k0ui"]
+[ext_resource type="Texture2D" uid="uid://cwn2rep4grk0x" path="res://Art/seta_preta.png" id="12_4k0ui"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kki7f"]
 
@@ -18,6 +22,25 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2pt1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s2mfb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hdnxh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_lss2p")
+}],
+"loop": true,
+"name": &"fase1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_4k0ui")
+}],
+"loop": true,
+"name": &"fase3",
+"speed": 5.0
+}]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 layer = 5
@@ -93,6 +116,42 @@ position = Vector2(1065, 324)
 scale = Vector2(0.347458, 0.347458)
 texture = ExtResource("7_4jq13")
 
+[node name="Pergaminho" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1106, 606)
+scale = Vector2(0.287778, 0.287778)
+texture = ExtResource("9_4jq13")
+
+[node name="Button" type="Button" parent="Pergaminho"]
+z_index = -4
+offset_left = -73.0
+offset_top = -83.0
+offset_right = 73.0
+offset_bottom = 83.0
+mouse_default_cursor_shape = 2
+
+[node name="ExplicacaoFase" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(583, 289)
+sprite_frames = SubResource("SpriteFrames_hdnxh")
+animation = &"fase1"
+
+[node name="Sprite2D" type="Sprite2D" parent="ExplicacaoFase"]
+position = Vector2(205, 233)
+rotation = 3.14159
+scale = Vector2(0.0579134, 0.0579134)
+texture = ExtResource("12_4k0ui")
+
+[node name="Button" type="Button" parent="ExplicacaoFase/Sprite2D"]
+z_index = -3
+offset_left = -254.0
+offset_top = -236.0
+offset_right = 268.0
+offset_bottom = 244.0
+mouse_default_cursor_shape = 2
+
 [connection signal="pressed" from="TouchScreenButton" to="TouchScreenButton" method="toggle_pause"]
 [connection signal="pressed" from="TouchScreenButton/Sprite2D/BotaoSair" to="TouchScreenButton" method="sair_para_menu"]
 [connection signal="pressed" from="TouchScreenButton/Sprite2D/BotaoContinuar" to="TouchScreenButton" method="toggle_pause"]
+[connection signal="pressed" from="Pergaminho/Button" to="." method="_on_button_pergaminho_pressed"]
+[connection signal="pressed" from="ExplicacaoFase/Sprite2D/Button" to="." method="_on_button_explicacao_pressed"]
