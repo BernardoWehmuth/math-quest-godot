@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxgljxukik4d2"
-path="res://.godot/imported/Camara_das_Equacoes-removebg-preview.png-69e80ce92038aaf2e74a4b122e43f859.ctex"
+uid="uid://cebxktmwv7x8h"
+path="res://.godot/imported/Camara_das_Equacoes.png-84151f6a1b7731373d8e9448d4dde9f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Camara_das_Equacoes-removebg-preview.png"
-dest_files=["res://.godot/imported/Camara_das_Equacoes-removebg-preview.png-69e80ce92038aaf2e74a4b122e43f859.ctex"]
+source_file="res://Art/Camara_das_Equacoes.png"
+dest_files=["res://.godot/imported/Camara_das_Equacoes.png-84151f6a1b7731373d8e9448d4dde9f8.ctex"]
 
 [params]
 

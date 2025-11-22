@@ -26,6 +26,8 @@ const MAX_CAIXAS_NA_BALANCA = 6
 @onready var balanca_sprite = $"nó balanca/balanca"
 @onready var pena_pos = $"nó balanca/pena"
 
+@onready var botao_remover = $BotaoRemover
+@onready var sprite_remover = $Sprite_Remover
 # --- Pesos ---
 const PESO_CAIXA_LEVE = 1.0 / 6.0
 const PESO_CAIXA_MEIO = 1.0 / 3.0
@@ -193,15 +195,23 @@ func _verificar_equilibrio():
 			pena_pos.position = Vector2(198, 53)
 			balanca_sprite.position = Vector2(153, 34)
 			balanca_sprite.play("equilibrado")
-
+			botao_remover.queue_free()
+			sprite_verde.queue_free()
+			sprite_remover.queue_free()
 			if not esta_equilibrada:
 				esta_equilibrada = true
 				emit_signal("equilibrada")
 
 			label_concluido.show()
 			sprite_verde.show()
+			
 			flecha_saida.show()
+			var todas = caixas_leves + caixas_medias + caixas_pesadas
 
+			for caixa in todas:
+				if caixa not in pilha_de_caixas:
+					caixa.queue_free()
+			
 		&"direita_pesado":
 			pena_pos.position = Vector2(185, 67)
 			esta_equilibrada = false

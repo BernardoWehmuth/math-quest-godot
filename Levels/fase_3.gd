@@ -23,6 +23,7 @@ const quest_3: PackedScene = preload("res://Quests/Quest 3.tscn")
 
 @onready var porta = $Porta/AnimatedSprite2D
 
+var reliquia_coletada = false
 @onready var player = $Player
 var quest3
 
@@ -70,10 +71,11 @@ func _on_signal_invited():
 
 
 func _on_area_2d_body_entered(_body: Node2D) -> void:
-	if _body.is_in_group("player"):
+	if _body.is_in_group("player") && reliquia_coletada:
 		porta.play("abrindo")
 		await get_tree().create_timer(1.5).timeout 
 		get_tree().change_scene_to_file("res://Levels/cena_final.tscn")
+		Difficulty.dificuldade = 0
 
 
 func _on_touch_screen_button_pressed() -> void:
@@ -87,6 +89,7 @@ func _on_area_reliquia_body_entered(body: Node2D) -> void:
 		await get_tree().create_timer(1.0).timeout 
 		reliquia_desc.show()
 		movimentacao.reliquia3.show()
+		reliquia_coletada = true
 		
 func _on_area_pergaminho_body_entered(_body: Node2D) -> void:
 	if _body.is_in_group("player"):

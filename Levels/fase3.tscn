@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://butb4p2o6cv4x" path="res://Character/movimentacao.tscn" id="3_swcro"]
 [ext_resource type="Script" uid="uid://c7rb8miehbyj8" path="res://Levels/camera_2d.gd" id="4_0ills"]
 [ext_resource type="Texture2D" uid="uid://fg7kh4uoxqn7" path="res://Art/Relíquia_das_Equações.png" id="4_yyhjd"]
-[ext_resource type="Texture2D" uid="uid://bxgljxukik4d2" path="res://Art/Camara_das_Equacoes-removebg-preview.png" id="5_0nva8"]
 [ext_resource type="Texture2D" uid="uid://cwn2rep4grk0x" path="res://Art/seta_preta.png" id="5_5ueap"]
 [ext_resource type="Texture2D" uid="uid://5ssrirktnppp" path="res://Art/11-Door/Closiong (46x56).png" id="5_yalws"]
+[ext_resource type="Texture2D" uid="uid://cebxktmwv7x8h" path="res://Art/Camara_das_Equacoes.png" id="6_pfg0b"]
 [ext_resource type="Script" uid="uid://c2eg12f8mk5eb" path="res://Extras/parede_sobe1.gd" id="7_2js4s"]
 [ext_resource type="Script" uid="uid://cxiuk1lrxg6jk" path="res://Levels/fase3_scripts/parede_sobeaoacertar1.gd" id="7_h68uw"]
 [ext_resource type="PackedScene" uid="uid://di36uk2mqbq21" path="res://Extras/parede_sobe.tscn" id="8_8vj0p"]
@@ -109,7 +109,7 @@ animations = [{
 size = Vector2(45, 56)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ills"]
-size = Vector2(20, 79)
+size = Vector2(20, 21)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yuo0i"]
 atlas = ExtResource("19_oo3k5")
@@ -210,7 +210,7 @@ script = ExtResource("4_0ills")
 visible = false
 position = Vector2(627, 267)
 scale = Vector2(1.1391, 1.1391)
-texture = ExtResource("5_0nva8")
+texture = ExtResource("6_pfg0b")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player/Camera2D/Canvas_layer/Explicacao_Fase"]
 position = Vector2(200.158, 227.373)
@@ -235,6 +235,7 @@ scale = Vector2(1.157, 1.157)
 texture = ExtResource("4_yyhjd")
 
 [node name="Sprite2D" type="Sprite2D" parent="Player/Camera2D/ReliquiaDesc/Sprite2D"]
+z_index = 2
 position = Vector2(193.955, 227.662)
 rotation = 3.14159
 scale = Vector2(0.0891495, 0.0891495)
@@ -347,7 +348,7 @@ position = Vector2(1300, 277)
 position = Vector2(1300, 277)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaReliquia"]
-position = Vector2(0, -28.5)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_0ills")
 
 [node name="Pergaminho" type="AnimatedSprite2D" parent="."]
