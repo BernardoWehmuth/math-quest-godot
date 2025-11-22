@@ -966,6 +966,7 @@ texture = ExtResource("13_khsen")
 script = ExtResource("14_ouyvl")
 
 [node name="ReliquiaDesc" type="Sprite2D" parent="Player/Camera2D/CanvasLayer"]
+visible = false
 position = Vector2(605, 278)
 scale = Vector2(1.122, 1.122)
 texture = ExtResource("15_jxd7s")

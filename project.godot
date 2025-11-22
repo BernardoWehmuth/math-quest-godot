@@ -25,6 +25,7 @@ SignalConcluido="*res://variaveis_globais/SignalConcluido.gd"
 
 [display]
 
+window/size/mode=4
 window/stretch/mode="canvas_items"
 
 [gui]

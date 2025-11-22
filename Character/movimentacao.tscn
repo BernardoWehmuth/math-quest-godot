@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cj7o4j50l0jx" path="res://Art/Equacoes.png" id="7_4jq13"]
 [ext_resource type="Texture2D" uid="uid://do1i7k4pj4wjx" path="res://Art/pergaminho-coletavel-removebg-preview.png" id="9_4jq13"]
 [ext_resource type="Texture2D" uid="uid://gm46gecnegbl" path="res://Art/Camara_da_Aritmetica-removebg-preview.png" id="10_lss2p"]
-[ext_resource type="Texture2D" uid="uid://bxgljxukik4d2" path="res://Art/Camara_das_Equacoes-removebg-preview.png" id="11_4k0ui"]
+[ext_resource type="Texture2D" uid="uid://cebxktmwv7x8h" path="res://Art/Camara_das_Equacoes.png" id="11_4k0ui"]
 [ext_resource type="Texture2D" uid="uid://cwn2rep4grk0x" path="res://Art/seta_preta.png" id="12_4k0ui"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kki7f"]
@@ -134,7 +134,7 @@ mouse_default_cursor_shape = 2
 visible = false
 position = Vector2(583, 289)
 sprite_frames = SubResource("SpriteFrames_hdnxh")
-animation = &"fase1"
+animation = &"fase3"
 
 [node name="Sprite2D" type="Sprite2D" parent="ExplicacaoFase"]
 position = Vector2(205, 233)
