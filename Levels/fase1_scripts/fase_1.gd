@@ -113,6 +113,11 @@ func porta_saida(body: Node2D) -> void:
 		await get_tree().create_timer(1.5).timeout
 		get_tree().change_scene_to_file("res://Levels/fase2.tscn")
 		Difficulty.dificuldade = 0
+	elif Difficulty.dificuldade == 4 && !reliquia_coletada:
+		label_prox_fase.text = "Colete a Relíquia para passar de fase!"
+		label_prox_fase.show()
+		await get_tree().create_timer(3.5).timeout
+		label_prox_fase.hide()
 	else:
 		label_prox_fase.show()
 		await get_tree().create_timer(3.5).timeout
