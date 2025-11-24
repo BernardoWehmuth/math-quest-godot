@@ -1,4 +1,3 @@
-# Nó raiz: TouchScreenButton
 extends TouchScreenButton
 
 signal opcao_pressionada(node_da_opcao, valor: int)

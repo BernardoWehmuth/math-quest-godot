@@ -16,6 +16,7 @@ extends Control
 @onready var equacao_label_1 = $ContainerEquacoes/EquacaoLabel1
 @onready var equacao_label_2 = $ContainerEquacoes/EquacaoLabel2
 @onready var equacao_label_3 = $ContainerEquacoes/EquacaoLabel3
+@onready var dica = $Dica
 
 # --- 2. Variáveis de Estado ---
 var selected_value: int = -1
@@ -115,20 +116,41 @@ func gerar_nivel_1() -> Array:
 	return [x]
 
 func gerar_nivel_2() -> Array:
-	box_x.show(); box_y.show()
-	equacao_label_1.show(); equacao_label_2.show()
-	var x = randi_range(1, 9); var y = randi_range(1, 9)
-	while y == x: y = randi_range(1, 9)
+	box_x.show()
+	box_y.show()
+	equacao_label_1.show()
+	equacao_label_2.show()
+
+	var x = randi_range(1, 9)
+	var y = randi_range(1, 9)
+
+	# Impede x = y (apenas para deixar as opções sempre únicas visualmente)
+	while y == x:
+		y = randi_range(1, 9)
+
+	# Primeira equação
 	var c1 = x + y
 	equacao_label_1.text = "x + y = %d" % c1
-	var a = randi_range(2, 5); var b = randi_range(2, 5)
+
+	# Segunda equação – garantir que a != b para solução única
+	var a = randi_range(2, 5)
+	var b = randi_range(2, 5)
+	while b == a:
+		b = randi_range(2, 5)
+
+	# Agora é matematicamente impossível ter múltiplas soluções
 	var c2 = (a * x) + (b * y)
 	equacao_label_2.text = "%d x + %d y = %d" % [a, b, c2]
+
+	# Respostas certas
 	slot_x.set_meta("resposta_correta", x)
 	slot_y.set_meta("resposta_correta", y)
+
 	return [x, y]
 
+
 func gerar_nivel_3() -> Array:
+	dica.show()
 	box_x.show(); box_y.show(); box_z.show()
 	equacao_label_1.show(); equacao_label_2.show(); equacao_label_3.show()
 	var x = randi_range(1, 6); var y = randi_range(1, 6); var z = randi_range(1, 6)
@@ -179,7 +201,7 @@ func _on_verificar_pressed():
 			slot.modulate = Color.RED
 			todas_estao_corretas = false
 	if todas_estao_corretas:
-		feedback_label.text = "                 Parabéns! Todas corretas!"
+		feedback_label.text = "             Parabéns! Todas corretas!"
 		await get_tree().create_timer(1.5).timeout
 		proximo_nivel_btn.show()
 		botao_verificar.hide()
@@ -258,3 +280,62 @@ func _devolver_valor_para_opcao(valor: int):
 			opcao.show()
 			opcao.modulate = Color.WHITE
 			break
+
+
+func _on_botao_dica_pressed() -> void:
+	var slots = []
+	if box_x.visible: slots.append(slot_x)
+
+	# 1. Procurar slot vazio ou errado
+	var slot_para_corrigir = null
+	for slot in slots:
+		var label_resposta = slot.get_node_or_null("LabelResposta")
+		var correta = int(slot.get_meta("resposta_correta"))
+
+		if not label_resposta:
+			continue
+		
+		var atual = label_resposta.text
+		
+		# Slot vazio
+		if atual == "?":
+			slot_para_corrigir = slot
+			break
+		
+		# Slot preenchido mas errado
+		if atual != str(correta):
+			slot_para_corrigir = slot
+			break
+	
+	# Se todos estão já corretos
+	if slot_para_corrigir == null:
+		feedback_label.text = "                    A dica ja foi usada!"
+		await get_tree().create_timer(1.3).timeout
+		feedback_label.text = "       Toque no valor e depois no local..."
+		return
+
+	# 2. Preencher com a resposta correta
+	var resposta = int(slot_para_corrigir.get_meta("resposta_correta"))
+	var label_resposta = slot_para_corrigir.get_node("LabelResposta")
+	
+	# Se tem um valor errado dentro, devolve para opções
+	if label_resposta.text != "?" and label_resposta.text != str(resposta):
+		_devolver_valor_para_opcao(int(label_resposta.text))
+
+	label_resposta.text = str(resposta)
+	slot_para_corrigir.modulate = Color(0.7, 1, 0.7) # destaque verde leve
+	
+	# 3. Esconder a opção correspondente
+	for opcao in opcoes_container.get_children():
+		if opcao.get_meta("valor") == resposta:
+			opcao.hide()
+			opcao.modulate = Color.WHITE
+			break
+
+	# 4. Limpar seleção para evitar conflitos
+	clear_selection()
+
+	# 5. Se tudo foi preenchido → mostrar botão de verificar
+	if check_all_slots_filled():
+		botao_verificar.show()
+		label_verificar.show()
