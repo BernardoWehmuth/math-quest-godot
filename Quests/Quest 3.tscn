@@ -427,4 +427,15 @@ theme_override_font_sizes/font_size = 24
 text = "z ="
 metadata/_edit_use_anchors_ = true
 
+[node name="Dica" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 886.0
+offset_top = 23.0
+offset_right = 977.0
+offset_bottom = 54.0
+mouse_default_cursor_shape = 2
+text = "USAR DICA"
+
 [connection signal="pressed" from="BotaoVerificar" to="." method="_on_verificar_pressed"]
+[connection signal="pressed" from="Dica" to="." method="_on_botao_dica_pressed"]
