@@ -2,7 +2,7 @@ extends Node2D
 
 var quest_count = 0
 
-@onready var movimentacao = $Player/Camera2D/CanvasLayer/CanvasLayer
+@onready var movimentacao = $CanvasLayer/CanvasLayer
 @onready var pergaminho_coletavel = $Pergaminho
 @onready var anim_pergaminho_seta = $Pergaminho/AnimatedSprite2D
 var reliquia_coletada = false
@@ -10,18 +10,23 @@ var quest_ativa = false
 const QUEST_CENA = preload("res://Quests/Quest 1.tscn")
 @onready var jogador = $Player # Tipagem opcional para segurança
 @onready var camera = $Player/Camera2D
-@onready var label_contador = $Player/Camera2D/CanvasLayer/CanvasLayer/Label
+@onready var label_contador = $CanvasLayer/CanvasLayer/Label
 @onready var sprite_porta = $SpritePorta
 var voltando = false
 var entrou = true
 var variavel_local_entrou = 0
 @onready var porta_prox_fase = $PortaProxFase
 @onready var area_porta_prox_fase = $PortaProxFase/AreaPortaProxFase
-@onready var label_prox_fase = $Player/Camera2D/CanvasLayer/LabelPortaProx
+@onready var label_prox_fase = $CanvasLayer/LabelPortaProx
 @onready var porta_entrada = $PortaEntrada
-@onready var reliquia_desc = $"Player/Camera2D/CanvasLayer/CanvasLayer/Aritmética"
+@onready var reliquia_desc = $"CanvasLayer/CanvasLayer/Aritmética"
 @onready var reliquia = $Reliquia
-@onready var explicacao_pergaminho = $Player/Camera2D/CanvasLayer/Explicacao_Fase
+@onready var explicacao_pergaminho = $CanvasLayer/Explicacao_Fase
+
+@onready var area_seta1 = $CanvasLayer/SetaPorta1
+@onready var area_seta2 = $CanvasLayer/SetaPorta1
+@onready var area_seta3 = $CanvasLayer/SetaPorta1
+@onready var area_seta4 = $CanvasLayer/SetaPorta1
 
 var reliquia_mostrada = false
 
@@ -153,3 +158,7 @@ func _on_seta_explicacao_pressed() -> void:
 	explicacao_pergaminho.queue_free()
 	jogador.liberar_input()
 	movimentacao.pergaminho.show()
+
+
+
+		
